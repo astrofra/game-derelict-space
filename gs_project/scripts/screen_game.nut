@@ -39,7 +39,7 @@ class	SceneGame	extends SceneGameBase
 		ship_direction = ship_direction.Normalize()
 
 		local	ship_euler = EulerFromDirection(ship_direction)
-		ItemGetScriptInstance(player_item).target_orientation = ship_euler
+		ItemGetScriptInstance(player_item).target_direction = ship_direction //ship_euler
 	}
 
 	function	OnRenderUser(scene)

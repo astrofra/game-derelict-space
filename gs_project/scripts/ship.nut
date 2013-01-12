@@ -16,6 +16,7 @@ class	Ship	extends	PhysicItemXZPlane
 	vector_front			=	0
 	orientation				=	0
 	target_orientation		=	0
+	target_direction		=	0
 
 	/*!
 		@short	OnUpdate
@@ -37,11 +38,22 @@ class	Ship	extends	PhysicItemXZPlane
 		ItemApplyLinearForce(item, vector_front.Scale(mass * thrust))
 
 		local	_torque
-		_torque = target_orientation - orientation
-		_torque -= ItemGetAngularVelocity(item)
 
-print("ty = " + RadianToDegree(target_orientation.y))
-print("y  = " + RadianToDegree(orientation.y))
+		if (0)
+		{
+			_torque = target_orientation - orientation
+			_torque -= ItemGetAngularVelocity(item)
+
+			print("ty = " + RadianToDegree(target_orientation.y))
+			print("y  = " + RadianToDegree(orientation.y))
+		}
+		else
+		{
+			target_quaternion = QuaternionLookAt(target_direction)
+			local	current_quaternion = QuaternionFromMatrix3(ItemGetRotationMatrix(item))
+			local	lerp_quaternion = current_quaternion.Slerp(0.5, target_quaternion)
+			_torque = Vector(0,lerp_quaternion.w,0)
+		}
 
 		ItemApplyTorque(item, _torque.Scale(50.0 * mass))
 
@@ -64,5 +76,6 @@ print("y  = " + RadianToDegree(orientation.y))
 
 		orientation = ItemGetRotation(item)
 		target_orientation = clone(orientation)
+		target_direction = clone(vector_front)
 	}
 }
