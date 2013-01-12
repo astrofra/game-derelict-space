@@ -39,23 +39,17 @@ class	Ship	extends	PhysicItemXZPlane
 
 		local	_torque
 
-		if (0)
-		{
-			_torque = target_orientation - orientation
-			_torque -= ItemGetAngularVelocity(item)
+		_torque = target_orientation - orientation
+		if (_torque.y > Deg(180.0) || _torque.y < Deg(-180.0))
+			_torque = orientation - target_orientation
 
-			print("ty = " + RadianToDegree(target_orientation.y))
-			print("y  = " + RadianToDegree(orientation.y))
-		}
-		else
-		{
-			target_quaternion = QuaternionLookAt(target_direction)
-			local	current_quaternion = QuaternionFromMatrix3(ItemGetRotationMatrix(item))
-			local	lerp_quaternion = current_quaternion.Slerp(0.5, target_quaternion)
-			_torque = Vector(0,lerp_quaternion.w,0)
-		}
+		_torque.y = Clamp(_torque.y, Deg(-45.0), Deg(45.0))
 
-		ItemApplyTorque(item, _torque.Scale(50.0 * mass))
+		local	_acc_feedback = RangeAdjust(Abs(_torque.y), Deg(45.0), Deg(0.0), 0.0, 1.0)
+		_acc_feedback = Pow(Clamp(_acc_feedback, 0.0, 1.0), 4.0)	
+		_torque -= ItemGetAngularVelocity(item).Scale(_acc_feedback)
+
+		ItemApplyTorque(item, _torque.Scale(100.0 * mass))
 
 		//	Camera Update
 		SceneGetScriptInstance(g_scene).camera_handler.Update(SceneGetScriptInstance(g_scene).player_item)

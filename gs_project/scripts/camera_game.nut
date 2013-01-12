@@ -14,7 +14,7 @@ class	CameraGame
 	camera_item		=	0
 	position		=	0
 	pos_offset		=	0
-	speed			=	15.0
+	speed			=	5.0
 	scene			=	0
 
 	constructor(_scene)
