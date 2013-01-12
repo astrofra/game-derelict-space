@@ -4,6 +4,7 @@
 */
 
 Include("scripts/utils/physic_item_xz_plane.nut")
+Include("scripts/utils/trails.nut")
 
 /*!
 	@short	Ship
@@ -18,6 +19,8 @@ class	Ship	extends	PhysicItemXZPlane
 	target_orientation		=	0
 	target_direction		=	0
 
+	trails					=	0
+
 	/*!
 		@short	OnUpdate
 		Called during the scene update, each frame.
@@ -26,6 +29,8 @@ class	Ship	extends	PhysicItemXZPlane
 	{
 		if ("OnUpdate" in base)	base.OnUpdate(item)
 		orientation = ItemGetRotation(item)
+		foreach(_trail in trails)
+			_trail.RecordPoint()
 	}
 
 	function	OnPhysicStep(item, dt)
@@ -55,6 +60,12 @@ class	Ship	extends	PhysicItemXZPlane
 		SceneGetScriptInstance(g_scene).camera_handler.Update(SceneGetScriptInstance(g_scene).player_item)
 	}
 
+	function	RenderUser(scene)
+	{
+		foreach(_trail in trails)
+			_trail.RenderUser(scene)
+	}
+
 	/*!
 		@short	OnSetup
 		Called when the item is about to be setup.
@@ -65,11 +76,19 @@ class	Ship	extends	PhysicItemXZPlane
 
 		vector_front = g_zero_vector
 		
-		base.SetLinearDamping(0.5)
-		base.SetAngularDamping(1.0)
+		base.SetLinearDamping(0.1)
+		base.SetAngularDamping(0.1)
 
 		orientation = ItemGetRotation(item)
 		target_orientation = clone(orientation)
 		target_direction = clone(vector_front)
+
+		//	Reactor's trails
+		trails = []
+		local	_list = ItemGetChildList(item)
+		foreach(_child in _list)
+			if (ItemGetName(_child) == "trail")	trails.append(Trails(_child))
+
+		SceneGetScriptInstance(g_scene).render_user_callback.append(this)
 	}
 }

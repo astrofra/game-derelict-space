@@ -19,6 +19,8 @@ class	SceneGame	extends SceneGameBase
 
 	ship_direction			=	0
 
+	render_user_callback	=	0
+
 	/*!
 		@short	OnUpdate
 		Called each frame.
@@ -52,6 +54,9 @@ class	SceneGame	extends SceneGameBase
 
 		local	ship_position = ItemGetWorldPosition(player_item)
 		RendererDrawLine(g_render, ship_position, ship_position + ship_direction.Scale(10.0))
+
+		foreach(_callback in render_user_callback)
+			_callback["RenderUser"](scene)
 	}
 
 	/*!
@@ -65,6 +70,7 @@ class	SceneGame	extends SceneGameBase
 		player_item = SceneFindItem(scene, "ship")
 		starfield_handler = Starfield()
 
+		render_user_callback = []
 		ship_direction = g_zero_vector
 	}
 }
