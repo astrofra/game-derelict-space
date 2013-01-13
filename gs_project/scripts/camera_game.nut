@@ -24,7 +24,7 @@ class	CameraGame
 		camera = SceneAddCamera(scene, "camera_game")
 		camera_item = CameraGetItem(camera)
 		pos_offset = Vector(0,Mtr(50.0),0)
-		CameraSetFov(camera, Deg(35.0))
+		CameraSetFov(camera, Deg(50.0))
 		ItemSetPosition(camera_item, pos_offset)
 		ItemSetRotation(camera_item, Vector(Deg(90),0,0))
 		SceneSetCurrentCamera(scene, camera)
