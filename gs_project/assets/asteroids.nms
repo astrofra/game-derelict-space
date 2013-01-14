@@ -88,6 +88,12 @@ Xçå\XçåÝ×3Q**ªi**ªiXçå\XçåÝ×3Q**ªi>
 						>
 					>
 				>
+				<ScriptedObject=
+					<ScriptUnit=
+						<Script="scripts/asteroid.nut">
+						<Class="Asteroid">
+					>
+				>
 				<PhysicItem=
 					<SelfMask=1>
 					<Mask=1>
@@ -96,7 +102,36 @@ Xçå\XçåÝ×3Q**ªi**ªiXçå\XçåÝ×3Q**ªi>
 					<CharacterRadius=1.000000>
 					<CharacterHeight=1.000000>
 					<CharacterMaxStep=0.200000>
-					<Mode="None">
+					<Mode="Dynamic">
+					<Shapes=
+						<PhysicShape=
+							<Type="Convex">
+							<Position=
+								<X=0.000000>
+								<Y=0.000000>
+								<Z=0.000000>
+							>
+							<Rotation=
+								<X=0.000000>
+								<Y=0.000000>
+								<Z=0.000000>
+							>
+							<Scale=
+								<X=1.000000>
+								<Y=1.000000>
+								<Z=1.000000>
+							>
+							<Dimensions=
+								<X=1.000000>
+								<Y=1.000000>
+								<Z=1.000000>
+							>
+							<Mesh="E:/works/projects/games/derelict-space/svn_game-derelict-space/gs_project/assets/asteroid_s3_0.nmg">
+							<StaticFriction=0.500000>
+							<DynamicFriction=0.500000>
+							<Restitution=0.500000>
+						>
+					>
 				>
 			>
 			<Object=
@@ -106,6 +141,7 @@ Xçå\XçåÝ×3Q**ªi**ªiXçå\XçåÝ×3Q**ªi>
 						<Y=-0.000000>
 						<Z=-11.521370>
 					>
+					<ItemFlag>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
@@ -114,7 +150,7 @@ Xçå\XçåÝ×3Q**ªi**ªiXçå\XçåÝ×3Q**ªi>
 					<RotationOrder="YXZ">
 					<Registry>
 				>
-				<Geometry="scripts/utils/assets/asteroid_s3_0.nmg">
+				<Geometry="assets/asteroid_s3_0.nmg">
 				<CacheGeometry=True>
 			>
 		>
@@ -205,6 +241,12 @@ Xçå\Xçå]×3Ñ**ªi**ªiXçå\Xçå]×3Ñ**ªi>
 						>
 					>
 				>
+				<ScriptedObject=
+					<ScriptUnit=
+						<Script="scripts/asteroid.nut">
+						<Class="Asteroid">
+					>
+				>
 				<PhysicItem=
 					<SelfMask=1>
 					<Mask=1>
@@ -213,7 +255,36 @@ Xçå\Xçå]×3Ñ**ªi**ªiXçå\Xçå]×3Ñ**ªi>
 					<CharacterRadius=1.000000>
 					<CharacterHeight=1.000000>
 					<CharacterMaxStep=0.200000>
-					<Mode="None">
+					<Mode="Dynamic">
+					<Shapes=
+						<PhysicShape=
+							<Type="Convex">
+							<Position=
+								<X=0.000000>
+								<Y=0.000000>
+								<Z=0.000000>
+							>
+							<Rotation=
+								<X=0.000000>
+								<Y=0.000000>
+								<Z=0.000000>
+							>
+							<Scale=
+								<X=1.000000>
+								<Y=1.000000>
+								<Z=1.000000>
+							>
+							<Dimensions=
+								<X=1.000000>
+								<Y=1.000000>
+								<Z=1.000000>
+							>
+							<Mesh="E:/works/projects/games/derelict-space/svn_game-derelict-space/gs_project/assets/asteroid_s2_1.nmg">
+							<StaticFriction=0.500000>
+							<DynamicFriction=0.500000>
+							<Restitution=0.500000>
+						>
+					>
 				>
 			>
 			<Object=
@@ -223,6 +294,7 @@ Xçå\Xçå]×3Ñ**ªi**ªiXçå\Xçå]×3Ñ**ªi>
 						<Y=0.167527>
 						<Z=-1.356453>
 					>
+					<ItemFlag>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
@@ -231,7 +303,7 @@ Xçå\Xçå]×3Ñ**ªi**ªiXçå\Xçå]×3Ñ**ªi>
 					<RotationOrder="YXZ">
 					<Registry>
 				>
-				<Geometry="scripts/utils/assets/asteroid_s2_1.nmg">
+				<Geometry="assets/asteroid_s2_1.nmg">
 				<CacheGeometry=True>
 			>
 		>
@@ -322,6 +394,12 @@ Xçå\***ª******ªi**ªiXçå\***ª******ªi>
 						>
 					>
 				>
+				<ScriptedObject=
+					<ScriptUnit=
+						<Script="scripts/asteroid.nut">
+						<Class="Asteroid">
+					>
+				>
 				<PhysicItem=
 					<SelfMask=1>
 					<Mask=1>
@@ -330,7 +408,36 @@ Xçå\***ª******ªi**ªiXçå\***ª******ªi>
 					<CharacterRadius=1.000000>
 					<CharacterHeight=1.000000>
 					<CharacterMaxStep=0.200000>
-					<Mode="None">
+					<Mode="Dynamic">
+					<Shapes=
+						<PhysicShape=
+							<Type="Convex">
+							<Position=
+								<X=0.000000>
+								<Y=0.000000>
+								<Z=0.000000>
+							>
+							<Rotation=
+								<X=0.000000>
+								<Y=0.000000>
+								<Z=0.000000>
+							>
+							<Scale=
+								<X=1.000000>
+								<Y=1.000000>
+								<Z=1.000000>
+							>
+							<Dimensions=
+								<X=1.000000>
+								<Y=1.000000>
+								<Z=1.000000>
+							>
+							<Mesh="E:/works/projects/games/derelict-space/svn_game-derelict-space/gs_project/assets/asteroid_s2_0.nmg">
+							<StaticFriction=0.500000>
+							<DynamicFriction=0.500000>
+							<Restitution=0.500000>
+						>
+					>
 				>
 			>
 			<Object=
@@ -340,6 +447,7 @@ Xçå\***ª******ªi**ªiXçå\***ª******ªi>
 						<Y=0.348552>
 						<Z=-1.534866>
 					>
+					<ItemFlag>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
@@ -348,7 +456,7 @@ Xçå\***ª******ªi**ªiXçå\***ª******ªi>
 					<RotationOrder="YXZ">
 					<Registry>
 				>
-				<Geometry="scripts/utils/assets/asteroid_s2_0.nmg">
+				<Geometry="assets/asteroid_s2_0.nmg">
 				<CacheGeometry=True>
 			>
 		>
@@ -439,6 +547,12 @@ Xçå\***ª******ªi**ªiXçå\***ª******ªi>
 						>
 					>
 				>
+				<ScriptedObject=
+					<ScriptUnit=
+						<Script="scripts/asteroid.nut">
+						<Class="Asteroid">
+					>
+				>
 				<PhysicItem=
 					<SelfMask=1>
 					<Mask=1>
@@ -447,7 +561,36 @@ Xçå\***ª******ªi**ªiXçå\***ª******ªi>
 					<CharacterRadius=1.000000>
 					<CharacterHeight=1.000000>
 					<CharacterMaxStep=0.200000>
-					<Mode="None">
+					<Mode="Dynamic">
+					<Shapes=
+						<PhysicShape=
+							<Type="Convex">
+							<Position=
+								<X=0.000000>
+								<Y=0.000000>
+								<Z=0.000000>
+							>
+							<Rotation=
+								<X=0.000000>
+								<Y=0.000000>
+								<Z=0.000000>
+							>
+							<Scale=
+								<X=1.000000>
+								<Y=1.000000>
+								<Z=1.000000>
+							>
+							<Dimensions=
+								<X=1.000000>
+								<Y=1.000000>
+								<Z=1.000000>
+							>
+							<Mesh="E:/works/projects/games/derelict-space/svn_game-derelict-space/gs_project/assets/asteroid_s1_0.nmg">
+							<StaticFriction=0.500000>
+							<DynamicFriction=0.500000>
+							<Restitution=0.500000>
+						>
+					>
 				>
 			>
 			<Object=
@@ -457,6 +600,7 @@ Xçå\***ª******ªi**ªiXçå\***ª******ªi>
 						<Y=-0.556304>
 						<Z=7.786614>
 					>
+					<ItemFlag>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
@@ -465,7 +609,7 @@ Xçå\***ª******ªi**ªiXçå\***ª******ªi>
 					<RotationOrder="YXZ">
 					<Registry>
 				>
-				<Geometry="scripts/utils/assets/asteroid_s1_0.nmg">
+				<Geometry="assets/asteroid_s1_0.nmg">
 				<CacheGeometry=True>
 			>
 		>
@@ -556,6 +700,12 @@ Xçå\Xçå]×3Ñ**ªi**ªiXçå\Xçå]×3Ñ**ªi>
 						>
 					>
 				>
+				<ScriptedObject=
+					<ScriptUnit=
+						<Script="scripts/asteroid.nut">
+						<Class="Asteroid">
+					>
+				>
 				<PhysicItem=
 					<SelfMask=1>
 					<Mask=1>
@@ -564,7 +714,36 @@ Xçå\Xçå]×3Ñ**ªi**ªiXçå\Xçå]×3Ñ**ªi>
 					<CharacterRadius=1.000000>
 					<CharacterHeight=1.000000>
 					<CharacterMaxStep=0.200000>
-					<Mode="None">
+					<Mode="Dynamic">
+					<Shapes=
+						<PhysicShape=
+							<Type="Convex">
+							<Position=
+								<X=0.000000>
+								<Y=0.000000>
+								<Z=0.000000>
+							>
+							<Rotation=
+								<X=0.000000>
+								<Y=0.000000>
+								<Z=0.000000>
+							>
+							<Scale=
+								<X=1.000000>
+								<Y=1.000000>
+								<Z=1.000000>
+							>
+							<Dimensions=
+								<X=1.000000>
+								<Y=1.000000>
+								<Z=1.000000>
+							>
+							<Mesh="E:/works/projects/games/derelict-space/svn_game-derelict-space/gs_project/assets/asteroid_s1_1.nmg">
+							<StaticFriction=0.500000>
+							<DynamicFriction=0.500000>
+							<Restitution=0.500000>
+						>
+					>
 				>
 			>
 			<Object=
@@ -574,6 +753,7 @@ Xçå\Xçå]×3Ñ**ªi**ªiXçå\Xçå]×3Ñ**ªi>
 						<Y=-0.491677>
 						<Z=8.061483>
 					>
+					<ItemFlag>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
@@ -582,7 +762,7 @@ Xçå\Xçå]×3Ñ**ªi**ªiXçå\Xçå]×3Ñ**ªi>
 					<RotationOrder="YXZ">
 					<Registry>
 				>
-				<Geometry="scripts/utils/assets/asteroid_s1_1.nmg">
+				<Geometry="assets/asteroid_s1_1.nmg">
 				<CacheGeometry=True>
 			>
 		>
@@ -673,6 +853,12 @@ Xçå\***ª******ªi**ªiXçå\***ª******ªi>
 						>
 					>
 				>
+				<ScriptedObject=
+					<ScriptUnit=
+						<Script="scripts/asteroid.nut">
+						<Class="Asteroid">
+					>
+				>
 				<PhysicItem=
 					<SelfMask=1>
 					<Mask=1>
@@ -681,7 +867,36 @@ Xçå\***ª******ªi**ªiXçå\***ª******ªi>
 					<CharacterRadius=1.000000>
 					<CharacterHeight=1.000000>
 					<CharacterMaxStep=0.200000>
-					<Mode="None">
+					<Mode="Dynamic">
+					<Shapes=
+						<PhysicShape=
+							<Type="Convex">
+							<Position=
+								<X=0.000000>
+								<Y=0.000000>
+								<Z=0.000000>
+							>
+							<Rotation=
+								<X=0.000000>
+								<Y=0.000000>
+								<Z=0.000000>
+							>
+							<Scale=
+								<X=1.000000>
+								<Y=1.000000>
+								<Z=1.000000>
+							>
+							<Dimensions=
+								<X=1.000000>
+								<Y=1.000000>
+								<Z=1.000000>
+							>
+							<Mesh="E:/works/projects/games/derelict-space/svn_game-derelict-space/gs_project/assets/asteroid_s0_0.nmg">
+							<StaticFriction=0.500000>
+							<DynamicFriction=0.500000>
+							<Restitution=0.500000>
+						>
+					>
 				>
 			>
 			<Object=
@@ -691,6 +906,7 @@ Xçå\***ª******ªi**ªiXçå\***ª******ªi>
 						<Y=-0.102030>
 						<Z=15.308104>
 					>
+					<ItemFlag>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
@@ -699,7 +915,7 @@ Xçå\***ª******ªi**ªiXçå\***ª******ªi>
 					<RotationOrder="YXZ">
 					<Registry>
 				>
-				<Geometry="scripts/utils/assets/asteroid_s0_0.nmg">
+				<Geometry="assets/asteroid_s0_0.nmg">
 				<CacheGeometry=True>
 			>
 		>
@@ -790,6 +1006,12 @@ Xçå\***ª******ªi**ªiXçå\***ª******ªi>
 						>
 					>
 				>
+				<ScriptedObject=
+					<ScriptUnit=
+						<Script="scripts/asteroid.nut">
+						<Class="Asteroid">
+					>
+				>
 				<PhysicItem=
 					<SelfMask=1>
 					<Mask=1>
@@ -798,7 +1020,36 @@ Xçå\***ª******ªi**ªiXçå\***ª******ªi>
 					<CharacterRadius=1.000000>
 					<CharacterHeight=1.000000>
 					<CharacterMaxStep=0.200000>
-					<Mode="None">
+					<Mode="Dynamic">
+					<Shapes=
+						<PhysicShape=
+							<Type="Convex">
+							<Position=
+								<X=0.000000>
+								<Y=0.000000>
+								<Z=0.000000>
+							>
+							<Rotation=
+								<X=0.000000>
+								<Y=0.000000>
+								<Z=0.000000>
+							>
+							<Scale=
+								<X=1.000000>
+								<Y=1.000000>
+								<Z=1.000000>
+							>
+							<Dimensions=
+								<X=1.000000>
+								<Y=1.000000>
+								<Z=1.000000>
+							>
+							<Mesh="E:/works/projects/games/derelict-space/svn_game-derelict-space/gs_project/assets/asteroid_s0_1.nmg">
+							<StaticFriction=0.500000>
+							<DynamicFriction=0.500000>
+							<Restitution=0.500000>
+						>
+					>
 				>
 			>
 			<Object=
@@ -808,6 +1059,7 @@ Xçå\***ª******ªi**ªiXçå\***ª******ªi>
 						<Y=-0.102030>
 						<Z=14.796941>
 					>
+					<ItemFlag>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
@@ -816,7 +1068,7 @@ Xçå\***ª******ªi**ªiXçå\***ª******ªi>
 					<RotationOrder="YXZ">
 					<Registry>
 				>
-				<Geometry="scripts/utils/assets/asteroid_s0_1.nmg">
+				<Geometry="assets/asteroid_s0_1.nmg">
 				<CacheGeometry=True>
 			>
 		>
@@ -907,6 +1159,82 @@ Xçå\***ª******ªi**ªiXçå\***ª******ªi>
 						>
 					>
 				>
+				<ScriptedObject=
+					<ScriptUnit=
+						<Script="scripts/asteroid.nut">
+						<Class="Asteroid">
+					>
+				>
+				<PhysicItem=
+					<SelfMask=1>
+					<Mask=1>
+					<LinearDamping_v2=1.000000>
+					<AngularDamping_v2=1.000000>
+					<CharacterRadius=1.000000>
+					<CharacterHeight=1.000000>
+					<CharacterMaxStep=0.200000>
+					<Mode="Dynamic">
+					<Shapes=
+						<PhysicShape=
+							<Type="Convex">
+							<Position=
+								<X=0.000000>
+								<Y=0.000000>
+								<Z=0.000000>
+							>
+							<Rotation=
+								<X=0.000000>
+								<Y=0.000000>
+								<Z=0.000000>
+							>
+							<Scale=
+								<X=1.000000>
+								<Y=1.000000>
+								<Z=1.000000>
+							>
+							<Dimensions=
+								<X=1.000000>
+								<Y=1.000000>
+								<Z=1.000000>
+							>
+							<Mesh="E:/works/projects/games/derelict-space/svn_game-derelict-space/gs_project/assets/asteroid_s3_1.nmg">
+							<StaticFriction=0.500000>
+							<DynamicFriction=0.500000>
+							<Restitution=0.500000>
+						>
+					>
+				>
+			>
+			<Object=
+				<Item=
+					<Position=
+						<X=-5.862249>
+						<Y=-0.189348>
+						<Z=-11.758408>
+					>
+					<ItemFlag>
+					<Target=
+						<X=0.000000>
+						<Y=0.000000>
+						<Z=1.000000>
+					>
+					<RotationOrder="YXZ">
+					<Registry>
+				>
+				<Geometry="assets/asteroid_s3_1.nmg">
+				<CacheGeometry=True>
+			>
+		>
+		<MLight=
+			<MItem=
+				<Id="New Light">
+				<UId=8>
+				<Active>
+				<Helper>
+				<Priority=1.000000>
+				<MotionPlayer=
+					<Motions>
+				>
 				<PhysicItem=
 					<SelfMask=1>
 					<Mask=1>
@@ -918,12 +1246,12 @@ Xçå\***ª******ªi**ªiXçå\***ª******ªi>
 					<Mode="None">
 				>
 			>
-			<Object=
+			<Light=
 				<Item=
 					<Position=
-						<X=-5.862249>
-						<Y=-0.189348>
-						<Z=-11.758408>
+						<X=-1.089037>
+						<Y=-0.000004>
+						<Z=2.838131>
 					>
 					<Target=
 						<X=0.000000>
@@ -933,8 +1261,41 @@ Xçå\***ª******ªi**ªiXçå\***ª******ªi>
 					<RotationOrder="YXZ">
 					<Registry>
 				>
-				<Geometry="scripts/utils/assets/asteroid_s3_1.nmg">
-				<CacheGeometry=True>
+				<Diffuse=
+					<X=1.000000>
+					<Y=1.000000>
+					<Z=1.000000>
+				>
+				<Specular=
+					<X=1.000000>
+					<Y=1.000000>
+					<Z=1.000000>
+				>
+				<ShadowColor=
+					<X=0.000000>
+					<Y=0.000000>
+					<Z=0.000000>
+				>
+				<Type="Point">
+				<Falloff="Linear">
+				<Range=0.000000>
+				<VolumeRange=500.000000>
+				<ClipDistance=300.000000>
+				<ProjectionMap="">
+				<DiffuseIntensity=1.000000>
+				<SpecularIntensity=0.000000>
+				<ConeAngle=0.523599>
+				<EdgeAngle=0.523599>
+				<ZNear=0.020000>
+				<Shadow="Map">
+				<ShadowBias=0.010000>
+				<ShadowDistribution=0.900000>
+				<ShadowRange=100.000000>
+				<ShadowCastAll=False>
+				<Volumetric=False>
+				<VolumetricSampleStep=0.500000>
+				<VolumetricThick=1.000000>
+				<VolumetricRange=8.000000>
 			>
 		>
 	>
@@ -963,5 +1324,156 @@ Xçå\***ª******ªi**ªiXçå\***ª******ªi>
 	>
 	<Physics=
 		<Frequency=59.999996>
+	>
+	<ViewMatrix=
+		<R0=
+			<X=-0.970747>
+			<Y=0.000000>
+			<Z=-0.240105>
+			<W=0.000000>
+		>
+		<R1=
+			<X=0.198503>
+			<Y=0.562594>
+			<Z=-0.802549>
+			<W=0.000000>
+		>
+		<R2=
+			<X=0.135082>
+			<Y=-0.826733>
+			<Z=-0.546136>
+			<W=0.000000>
+		>
+		<R3=
+			<X=-13.681196>
+			<Y=116.509933>
+			<Z=65.444542>
+			<W=1.000000>
+		>
+	>
+>
+<Editor=
+	<View=
+		<Layout="Single">
+		<Viewport=
+			<Index=0>
+			<CameraUid=-16>
+			<Matrix=
+				<R0=
+					<X=-0.970747>
+					<Y=0.000000>
+					<Z=-0.240105>
+					<W=0.000000>
+				>
+				<R1=
+					<X=0.198503>
+					<Y=0.562594>
+					<Z=-0.802549>
+					<W=0.000000>
+				>
+				<R2=
+					<X=0.135082>
+					<Y=-0.826733>
+					<Z=-0.546136>
+					<W=0.000000>
+				>
+				<R3=
+					<X=-13.681196>
+					<Y=116.509933>
+					<Z=65.444542>
+					<W=1.000000>
+				>
+			>
+		>
+		<Viewport=
+			<Index=1>
+			<CameraUid=-10>
+			<Matrix=
+				<R0=
+					<X=1.000000>
+					<Y=0.000000>
+					<Z=0.000000>
+					<W=0.000000>
+				>
+				<R1=
+					<X=0.000000>
+					<Y=1.000000>
+					<Z=0.000000>
+					<W=0.000000>
+				>
+				<R2=
+					<X=0.000000>
+					<Y=0.000000>
+					<Z=1.000000>
+					<W=0.000000>
+				>
+				<R3=
+					<X=0.000000>
+					<Y=10.000000>
+					<Z=0.000000>
+					<W=1.000000>
+				>
+			>
+		>
+		<Viewport=
+			<Index=2>
+			<CameraUid=-11>
+			<Matrix=
+				<R0=
+					<X=1.000000>
+					<Y=0.000000>
+					<Z=0.000000>
+					<W=0.000000>
+				>
+				<R1=
+					<X=0.000000>
+					<Y=1.000000>
+					<Z=0.000000>
+					<W=0.000000>
+				>
+				<R2=
+					<X=0.000000>
+					<Y=0.000000>
+					<Z=1.000000>
+					<W=0.000000>
+				>
+				<R3=
+					<X=0.000000>
+					<Y=-10.000000>
+					<Z=0.000000>
+					<W=1.000000>
+				>
+			>
+		>
+		<Viewport=
+			<Index=3>
+			<CameraUid=-12>
+			<Matrix=
+				<R0=
+					<X=1.000000>
+					<Y=0.000000>
+					<Z=0.000000>
+					<W=0.000000>
+				>
+				<R1=
+					<X=0.000000>
+					<Y=1.000000>
+					<Z=0.000000>
+					<W=0.000000>
+				>
+				<R2=
+					<X=0.000000>
+					<Y=0.000000>
+					<Z=1.000000>
+					<W=0.000000>
+				>
+				<R3=
+					<X=-10.000000>
+					<Y=0.000000>
+					<Z=0.000000>
+					<W=1.000000>
+				>
+			>
+		>
 	>
 >

@@ -16,9 +16,9 @@ class	Trails
 	base_color				=	0
 	record_clock			=	0
 
-	half_width				=	0.3
+	half_width				=	0.6
 
-	emitter_exponent		=	8.0
+	emitter_exponent		=	12.0
 
 	emitter_timeout			=	0.0
 
@@ -47,8 +47,8 @@ class	Trails
 	function	AppendSection(t, sections, prev_p, p, y)
 	{
 		local v = (p - prev_p).Normalize()
-		local u = v.Cross(y).Normalize(half_width + sin(t * 4.0) * 0.29)	// smoke like, pretty cool
-//		local u = v.Cross(y).Normalize(half_width)	// beam like
+//		local u = v.Cross(y).Normalize(half_width + sin(t * 4.0) * 0.29)	// smoke like, pretty cool
+		local u = v.Cross(y).Normalize(half_width)	// beam like
 
 		// TODO add UV here
 		sections.append({p = p - u})

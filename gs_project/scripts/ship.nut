@@ -14,6 +14,7 @@ class	Ship	extends	PhysicItemXZPlane
 {
 
 	thrust					=	10.0
+	angular_speed			=	90.0
 	vector_front			=	0
 	orientation				=	0
 	target_orientation		=	0
@@ -48,9 +49,9 @@ class	Ship	extends	PhysicItemXZPlane
 		if (_torque.y > Deg(180.0) || _torque.y < Deg(-180.0))
 			_torque = orientation - target_orientation
 
-		_torque.y = Clamp(_torque.y, Deg(-45.0), Deg(45.0))
+		_torque.y = Clamp(_torque.y, Deg(-angular_speed), Deg(angular_speed))
 
-		local	_acc_feedback = RangeAdjust(Abs(_torque.y), Deg(45.0), Deg(0.0), 0.0, 1.0)
+		local	_acc_feedback = RangeAdjust(Abs(_torque.y), Deg(angular_speed * 1.5), Deg(0.0), 0.0, 1.0)
 		_acc_feedback = Pow(Clamp(_acc_feedback, 0.0, 1.0), 4.0)	
 		_torque -= ItemGetAngularVelocity(item).Scale(_acc_feedback)
 
@@ -77,7 +78,7 @@ class	Ship	extends	PhysicItemXZPlane
 		vector_front = g_zero_vector
 		
 		base.SetLinearDamping(0.1)
-		base.SetAngularDamping(0.1)
+		base.SetAngularDamping(1.0)
 
 		orientation = ItemGetRotation(item)
 		target_orientation = clone(orientation)
