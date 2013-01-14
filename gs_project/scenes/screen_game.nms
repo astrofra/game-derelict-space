@@ -353,7 +353,7 @@ Xçå\XçåÝ×3Q**ªi**ªiXçå\XçåÝ×3Q**ªi>
 								<Y=1.000000>
 								<Z=1.000000>
 							>
-							<Mesh="E:/works/projects/games/derelict-space/svn_game-derelict-space/gs_project/assets/asteroid_s3_0.nmg">
+							<Mesh="assets/asteroid_s3_0.nmg">
 							<StaticFriction=0.500000>
 							<DynamicFriction=0.500000>
 							<Restitution=0.500000>
@@ -368,7 +368,6 @@ Xçå\XçåÝ×3Q**ªi**ªiXçå\XçåÝ×3Q**ªi>
 						<Y=0.000000>
 						<Z=13.184607>
 					>
-					<ItemFlag>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
@@ -506,7 +505,7 @@ Xçå\Xçå]×3Ñ**ªi**ªiXçå\Xçå]×3Ñ**ªi>
 								<Y=1.000000>
 								<Z=1.000000>
 							>
-							<Mesh="E:/works/projects/games/derelict-space/svn_game-derelict-space/gs_project/assets/asteroid_s2_1.nmg">
+							<Mesh="assets/asteroid_s2_1.nmg">
 							<StaticFriction=0.500000>
 							<DynamicFriction=0.500000>
 							<Restitution=0.500000>
@@ -521,7 +520,6 @@ Xçå\Xçå]×3Ñ**ªi**ªiXçå\Xçå]×3Ñ**ªi>
 						<Y=0.167527>
 						<Z=23.349524>
 					>
-					<ItemFlag>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
@@ -659,7 +657,7 @@ Xçå\***ª******ªi**ªiXçå\***ª******ªi>
 								<Y=1.000000>
 								<Z=1.000000>
 							>
-							<Mesh="E:/works/projects/games/derelict-space/svn_game-derelict-space/gs_project/assets/asteroid_s2_0.nmg">
+							<Mesh="assets/asteroid_s2_0.nmg">
 							<StaticFriction=0.500000>
 							<DynamicFriction=0.500000>
 							<Restitution=0.500000>
@@ -674,7 +672,6 @@ Xçå\***ª******ªi**ªiXçå\***ª******ªi>
 						<Y=0.348552>
 						<Z=23.171110>
 					>
-					<ItemFlag>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
@@ -812,7 +809,7 @@ Xçå\***ª******ªi**ªiXçå\***ª******ªi>
 								<Y=1.000000>
 								<Z=1.000000>
 							>
-							<Mesh="E:/works/projects/games/derelict-space/svn_game-derelict-space/gs_project/assets/asteroid_s1_0.nmg">
+							<Mesh="assets/asteroid_s1_0.nmg">
 							<StaticFriction=0.500000>
 							<DynamicFriction=0.500000>
 							<Restitution=0.500000>
@@ -827,7 +824,6 @@ Xçå\***ª******ªi**ªiXçå\***ª******ªi>
 						<Y=-0.556304>
 						<Z=32.492592>
 					>
-					<ItemFlag>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
@@ -965,7 +961,7 @@ Xçå\Xçå]×3Ñ**ªi**ªiXçå\Xçå]×3Ñ**ªi>
 								<Y=1.000000>
 								<Z=1.000000>
 							>
-							<Mesh="E:/works/projects/games/derelict-space/svn_game-derelict-space/gs_project/assets/asteroid_s1_1.nmg">
+							<Mesh="assets/asteroid_s1_1.nmg">
 							<StaticFriction=0.500000>
 							<DynamicFriction=0.500000>
 							<Restitution=0.500000>
@@ -980,7 +976,6 @@ Xçå\Xçå]×3Ñ**ªi**ªiXçå\Xçå]×3Ñ**ªi>
 						<Y=-0.491677>
 						<Z=32.767460>
 					>
-					<ItemFlag>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
@@ -1118,7 +1113,7 @@ Xçå\***ª******ªi**ªiXçå\***ª******ªi>
 								<Y=1.000000>
 								<Z=1.000000>
 							>
-							<Mesh="E:/works/projects/games/derelict-space/svn_game-derelict-space/gs_project/assets/asteroid_s0_0.nmg">
+							<Mesh="assets/asteroid_s0_0.nmg">
 							<StaticFriction=0.500000>
 							<DynamicFriction=0.500000>
 							<Restitution=0.500000>
@@ -1133,7 +1128,6 @@ Xçå\***ª******ªi**ªiXçå\***ª******ªi>
 						<Y=-0.102030>
 						<Z=40.014080>
 					>
-					<ItemFlag>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
@@ -1271,7 +1265,7 @@ Xçå\***ª******ªi**ªiXçå\***ª******ªi>
 								<Y=1.000000>
 								<Z=1.000000>
 							>
-							<Mesh="E:/works/projects/games/derelict-space/svn_game-derelict-space/gs_project/assets/asteroid_s0_1.nmg">
+							<Mesh="assets/asteroid_s0_1.nmg">
 							<StaticFriction=0.500000>
 							<DynamicFriction=0.500000>
 							<Restitution=0.500000>
@@ -1286,7 +1280,6 @@ Xçå\***ª******ªi**ªiXçå\***ª******ªi>
 						<Y=-0.102030>
 						<Z=39.502918>
 					>
-					<ItemFlag>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
@@ -1424,7 +1417,7 @@ Xçå\***ª******ªi**ªiXçå\***ª******ªi>
 								<Y=1.000000>
 								<Z=1.000000>
 							>
-							<Mesh="E:/works/projects/games/derelict-space/svn_game-derelict-space/gs_project/assets/asteroid_s3_1.nmg">
+							<Mesh="assets/asteroid_s3_1.nmg">
 							<StaticFriction=0.500000>
 							<DynamicFriction=0.500000>
 							<Restitution=0.500000>
@@ -1439,7 +1432,6 @@ Xçå\***ª******ªi**ªiXçå\***ª******ªi>
 						<Y=-0.189348>
 						<Z=12.947569>
 					>
-					<ItemFlag>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
