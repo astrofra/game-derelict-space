@@ -13,8 +13,14 @@ Include("scripts/utils/trails.nut")
 class	Ship	extends	PhysicItemXZPlane
 {
 
+	max_thrust				=	10.0
+	max_angular_speed		=	90.0
+
+	max_speed				=	100.0
+
 	thrust					=	10.0
 	angular_speed			=	90.0
+
 	vector_front			=	0
 	orientation				=	0
 	target_orientation		=	0
@@ -30,6 +36,7 @@ class	Ship	extends	PhysicItemXZPlane
 	{
 		if ("OnUpdate" in base)	base.OnUpdate(item)
 		orientation = ItemGetRotation(item)
+		thrust	= Max(thrust -= g_dt_frame * 15.0, 0.0)
 		foreach(_trail in trails)
 			_trail.RecordPoint()
 	}
@@ -61,10 +68,24 @@ class	Ship	extends	PhysicItemXZPlane
 		SceneGetScriptInstance(g_scene).camera_handler.Update(SceneGetScriptInstance(g_scene).player_item)
 	}
 
+	function	SetOrientation(_euler)
+	{
+		target_orientation = _euler
+	}
+
+	function	SetThrustUp()
+	{
+		thrust	= Min(thrust += g_dt_frame * 60.0, max_thrust)
+	}
+
 	function	RenderUser(scene)
 	{
 		foreach(_trail in trails)
 			_trail.RenderUser(scene)
+
+		local	ship_position = ItemGetWorldPosition(body)
+		RendererDrawLine(g_render, ship_position, ship_position + linear_velocity)
+		RendererDrawLineColored(g_render, ship_position, ship_position + vector_front.Scale(1.0 + thrust), Vector(0.1,1.0,0.25))
 	}
 
 	/*!

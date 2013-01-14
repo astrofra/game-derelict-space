@@ -33,7 +33,6 @@ class	SceneGame	extends SceneGameBase
 
 		local	ship_screen_position
 		ship_screen_position = CameraWorldToScreen(camera_handler.camera, g_render, ItemGetPosition(player_item))
-//		print("mx, shipx = " + mx.tostring() + ", " + ship_screen_position.x.tostring())
 
 		ship_direction = Vector()
 		ship_direction.x = mx - ship_screen_position.x
@@ -43,7 +42,8 @@ class	SceneGame	extends SceneGameBase
 		if( DeviceIsKeyDown(mouse_device, KeyButton0))
 		{
 			local	ship_euler = EulerFromDirection(ship_direction)
-			ItemGetScriptInstance(player_item).target_orientation = ship_euler //target_direction = ship_direction
+			ItemGetScriptInstance(player_item).SetOrientation(ship_euler)
+			ItemGetScriptInstance(player_item).SetThrustUp()
 		}
 	}
 
@@ -51,10 +51,10 @@ class	SceneGame	extends SceneGameBase
 	{
 		RendererSetIdentityWorldMatrix(g_render)
 		starfield_handler.Update(camera_handler.position)
-
+/*
 		local	ship_position = ItemGetWorldPosition(player_item)
 		RendererDrawLine(g_render, ship_position, ship_position + ship_direction.Scale(10.0))
-
+*/
 		foreach(_callback in render_user_callback)
 			_callback["RenderUser"](scene)
 	}
