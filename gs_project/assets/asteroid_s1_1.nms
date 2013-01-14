@@ -3,7 +3,7 @@
 	<Items=
 		<MObject=
 			<MItem=
-				<Id="asteroid_s3_0">
+				<Id="asteroid_s1_1">
 				<UId=0>
 				<Active>
 				<Priority=0.500000>
@@ -16,13 +16,13 @@
 								<BinaryKeys=
 									<Count=21>
 									<Data==426:420@
-****Xçå\XçåÝ×3Q**ªi÷övgXçå\XçåÝ×3Q**ªi÷öögXçå\XçåÝ×3Q**ªiÄÃCh
-Xçå\XçåÝ×3Q**ªi÷övhXçå\XçåÝ×3Q**ªi**ªhXçå\XçåÝ×3Q**ªiÄÃÃhXçå\
-XçåÝ×3Q**ªi]]ÝhXçå\XçåÝ×3Q**ªi÷ööhXçå\XçåÝ×3Q**ªihXçå\XçåÝ
-×3Q**ªi***iXçå\XçåÝ×3Q**ªi÷ö6iXçå\XçåÝ×3Q**ªiÄÃCiXçå\XçåÝ×3Q
-**ªiPiXçå\XçåÝ×3Q**ªi]]]iXçå\XçåÝ×3Q**ªi**jiXçå\XçåÝ×3Q**ªi
-÷öviXçå\XçåÝ×3Q**ªiÄÃƒiXçå\XçåÝ×3Q**ªiiXçå\XçåÝ×3Q**ªi]]i
-Xçå\XçåÝ×3Q**ªi**ªiXçå\XçåÝ×3Q**ªi>
+****Xçå\Xçå]×3Ñ**ªi÷övgXçå\Xçå]×3Ñ**ªi÷öögXçå\Xçå]×3Ñ**ªiÄÃCh
+Xçå\Xçå]×3Ñ**ªi÷övhXçå\Xçå]×3Ñ**ªi**ªhXçå\Xçå]×3Ñ**ªiÄÃÃhXçå\
+Xçå]×3Ñ**ªi]]ÝhXçå\Xçå]×3Ñ**ªi÷ööhXçå\Xçå]×3Ñ**ªihXçå\Xçå]
+×3Ñ**ªi***iXçå\Xçå]×3Ñ**ªi÷ö6iXçå\Xçå]×3Ñ**ªiÄÃCiXçå\Xçå]×3Ñ
+**ªiPiXçå\Xçå]×3Ñ**ªi]]]iXçå\Xçå]×3Ñ**ªi**jiXçå\Xçå]×3Ñ**ªi
+÷öviXçå\Xçå]×3Ñ**ªiÄÃƒiXçå\Xçå]×3Ñ**ªiiXçå\Xçå]×3Ñ**ªi]]i
+Xçå\Xçå]×3Ñ**ªi**ªiXçå\Xçå]×3Ñ**ªi>
 								>
 							>
 							<Channel=
@@ -30,7 +30,7 @@ Xçå\XçåÝ×3Q**ªi**ªiXçå\XçåÝ×3Q**ªi>
 									<BinaryKnot=
 										<Count=2>
 										<Data==18:18@
-+****j‹Õj+**ªij‹Õj>
++****xmäê+**ªixmäê>
 									>
 								>
 								<Id="PositionX">
@@ -40,7 +40,7 @@ Xçå\XçåÝ×3Q**ªi**ªiXçå\XçåÝ×3Q**ªi>
 									<BinaryKnot=
 										<Count=2>
 										<Data==18:18@
-+******ªÞ+**ªi**ªÞ>
++****<ç%è+**ªi<ç%è>
 									>
 								>
 								<Id="PositionY">
@@ -49,8 +49,8 @@ Xçå\XçåÝ×3Q**ªi**ªiXçå\XçåÝ×3Q**ªi>
 								<Curve=
 									<BinaryKnot=
 										<Count=2>
-										<Data==18:18@
-+****²bë+**ªi²bë>
+										<Data==20:18@
++****=@%*k+**ªi=@%*k>
 									>
 								>
 								<Id="PositionZ">
@@ -126,7 +126,7 @@ Xçå\XçåÝ×3Q**ªi**ªiXçå\XçåÝ×3Q**ªi>
 								<Y=1.000000>
 								<Z=1.000000>
 							>
-							<Mesh="assets/asteroid_s3_0.nmg">
+							<Mesh="assets/asteroid_s1_1.nmg">
 							<StaticFriction=0.500000>
 							<DynamicFriction=0.500000>
 							<Restitution=0.500000>
@@ -136,7 +136,6 @@ Xçå\XçåÝ×3Q**ªi**ªiXçå\XçåÝ×3Q**ªi>
 			>
 			<Object=
 				<Item=
-					<ItemFlag>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
@@ -145,7 +144,7 @@ Xçå\XçåÝ×3Q**ªi**ªiXçå\XçåÝ×3Q**ªi>
 					<RotationOrder="YXZ">
 					<Registry>
 				>
-				<Geometry="assets/asteroid_s3_0.nmg">
+				<Geometry="assets/asteroid_s1_1.nmg">
 				<CacheGeometry=True>
 			>
 		>
