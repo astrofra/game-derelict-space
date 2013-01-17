@@ -3,6 +3,8 @@
 	Author: P. Blanche - F. Gutherz
 */
 
+g_gravitational_constant <-	6.6742 / Pow(10, 11)
+
 /*!
 	@short	PhysicItemZPlane
 	@author	P. Blanche - F. Gutherz
