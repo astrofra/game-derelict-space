@@ -2,7 +2,7 @@
 <Scene=
 	<ScriptedObject=
 		<ScriptUnit=
-			<Script="scripts/screen_game.nut">
+			<ScriptPath="scripts/screen_game.nut">
 			<Class="SceneGame">
 		>
 	>
@@ -231,7 +231,7 @@
 		<Instance=
 			<MItem=
 				<Id="Asteroid S0 0">
-				<UId=12>
+				<UId=4>
 				<Active>
 				<Priority=0.500000>
 				<MotionPlayer=
@@ -267,7 +267,7 @@
 		<Instance=
 			<MItem=
 				<Id="Asteroid S0 1">
-				<UId=13>
+				<UId=5>
 				<Active>
 				<Priority=0.500000>
 				<MotionPlayer=
@@ -303,7 +303,7 @@
 		<Instance=
 			<MItem=
 				<Id="Asteroid S1 0">
-				<UId=14>
+				<UId=6>
 				<Active>
 				<Priority=0.500000>
 				<MotionPlayer=
@@ -339,7 +339,7 @@
 		<Instance=
 			<MItem=
 				<Id="Asteroid S1 1">
-				<UId=15>
+				<UId=7>
 				<Active>
 				<Priority=0.500000>
 				<MotionPlayer=
@@ -375,7 +375,7 @@
 		<Instance=
 			<MItem=
 				<Id="Asteroid S2 0">
-				<UId=16>
+				<UId=8>
 				<Active>
 				<Priority=0.500000>
 				<MotionPlayer=
@@ -411,7 +411,7 @@
 		<Instance=
 			<MItem=
 				<Id="Asteroid S2 1">
-				<UId=17>
+				<UId=9>
 				<Active>
 				<Priority=0.500000>
 				<MotionPlayer=
@@ -447,7 +447,7 @@
 		<Instance=
 			<MItem=
 				<Id="Asteroid S3 0">
-				<UId=18>
+				<UId=10>
 				<Active>
 				<Priority=0.500000>
 				<MotionPlayer=
@@ -470,7 +470,6 @@
 					<Y=-0.000002>
 					<Z=23.360313>
 				>
-				<ItemFlag>
 				<Target=
 					<X=0.000000>
 					<Y=0.000000>
@@ -484,7 +483,7 @@
 		<Instance=
 			<MItem=
 				<Id="Asteroid S3 1">
-				<UId=19>
+				<UId=11>
 				<Active>
 				<Priority=0.500000>
 				<MotionPlayer=
@@ -547,27 +546,27 @@
 	<CurrentCamera="test_camera">
 	<ViewMatrix=
 		<R0=
-			<X=1.000000>
-			<Y=0.000000>
-			<Z=0.000000>
+			<X=0.947378>
+			<Y=-0.000000>
+			<Z=0.320117>
 			<W=0.000000>
 		>
 		<R1=
-			<X=0.000000>
-			<Y=0.000000>
-			<Z=1.000000>
+			<X=-0.316506>
+			<Y=0.149782>
+			<Z=0.936691>
 			<W=0.000000>
 		>
 		<R2=
-			<X=0.000000>
-			<Y=-1.000000>
-			<Z=0.000000>
+			<X=-0.047948>
+			<Y=-0.988719>
+			<Z=0.141900>
 			<W=0.000000>
 		>
 		<R3=
-			<X=0.000000>
-			<Y=1.391273>
-			<Z=0.000000>
+			<X=10.123507>
+			<Y=137.035416>
+			<Z=-15.163557>
 			<W=1.000000>
 		>
 	>
@@ -577,30 +576,30 @@
 		<Layout="Single">
 		<Viewport=
 			<Index=0>
-			<CameraUid=0>
+			<CameraUid=-16>
 			<Matrix=
 				<R0=
-					<X=1.000000>
-					<Y=0.000000>
-					<Z=0.000000>
+					<X=0.947378>
+					<Y=-0.000000>
+					<Z=0.320117>
 					<W=0.000000>
 				>
 				<R1=
-					<X=0.000000>
-					<Y=0.000000>
-					<Z=1.000000>
+					<X=-0.316506>
+					<Y=0.149782>
+					<Z=0.936691>
 					<W=0.000000>
 				>
 				<R2=
-					<X=0.000000>
-					<Y=-1.000000>
-					<Z=0.000000>
+					<X=-0.047948>
+					<Y=-0.988719>
+					<Z=0.141900>
 					<W=0.000000>
 				>
 				<R3=
-					<X=0.000000>
-					<Y=1.391273>
-					<Z=0.000000>
+					<X=10.123507>
+					<Y=137.035416>
+					<Z=-15.163557>
 					<W=1.000000>
 				>
 			>

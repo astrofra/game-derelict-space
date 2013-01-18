@@ -5,7 +5,7 @@
 	<Description="New project">
 	<Company="Copyright 2012">
 	<ScriptUnit=
-		<Script="scripts/project.nut">
+		<ScriptPath="scripts/project.nut">
 		<Class="ProjectHandler">
 	>
 	<Include>

@@ -90,7 +90,7 @@ Xçå\XçåÝ×3Q**ªi**ªiXçå\XçåÝ×3Q**ªi>
 				>
 				<ScriptedObject=
 					<ScriptUnit=
-						<Script="scripts/asteroid.nut">
+						<ScriptPath="scripts/asteroid.nut">
 						<Class="Asteroid">
 					>
 				>
@@ -127,6 +127,7 @@ Xçå\XçåÝ×3Q**ªi**ªiXçå\XçåÝ×3Q**ªi>
 								<Z=1.000000>
 							>
 							<Mesh="assets/asteroid_s3_0.nmg">
+							<Mass=100.000000>
 							<StaticFriction=0.500000>
 							<DynamicFriction=0.500000>
 							<Restitution=0.500000>
