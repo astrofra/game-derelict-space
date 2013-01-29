@@ -127,7 +127,7 @@ Xçå\***ª******ªi**ªiXçå\***ª******ªi>
 								<Z=1.000000>
 							>
 							<Mesh="assets/asteroid_s3_1.nmg">
-							<Mass=100.000000>
+							<Mass=100000.000000>
 							<StaticFriction=0.500000>
 							<DynamicFriction=0.500000>
 							<Restitution=0.500000>

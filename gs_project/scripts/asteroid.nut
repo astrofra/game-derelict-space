@@ -25,7 +25,7 @@ class	Asteroid	extends	PhysicItemXZPlane
 
 		if (dist_to_ship_sqr > 0.0)
 		{
-g_gravitational_constant = 1.0
+g_gravitational_constant = 0.001
 			local	F = vect_ship_to_this.Normalize().Scale(g_gravitational_constant * ((player_mass * mass) / dist_to_ship_sqr))
 //			print("F = " + F.Len())
 			ItemGetScriptInstance(player_item).ApplyAttraction(F)

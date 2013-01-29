@@ -54,7 +54,7 @@ class	Ship	extends	PhysicItemXZPlane
 
 		_torque = target_orientation - orientation
 		if (_torque.y > Deg(180.0) || _torque.y < Deg(-180.0))
-			_torque = orientation - target_orientation
+			_torque = (orientation - target_orientation)
 
 		_torque.y = Clamp(_torque.y, Deg(-angular_speed), Deg(angular_speed))
 
@@ -65,7 +65,7 @@ class	Ship	extends	PhysicItemXZPlane
 		ItemApplyTorque(item, _torque.Scale(100.0 * mass))
 
 		//	Camera Update
-		SceneGetScriptInstance(g_scene).camera_handler.Update(SceneGetScriptInstance(g_scene).player_item)
+		//SceneGetScriptInstance(g_scene).camera_handler.Update(SceneGetScriptInstance(g_scene).player_item)
 	}
 
 	function	SetOrientation(_euler)

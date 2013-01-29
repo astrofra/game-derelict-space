@@ -1,1230 +1,6 @@
 <Version=1.0>
 <Scene=
 	<Items=
-		<MObject=
-			<MItem=
-				<Id="asteroid_s3_0">
-				<UId=0>
-				<Active>
-				<Priority=0.500000>
-				<MotionPlayer=
-					<Motions=
-						<Motion=
-							<Id="Take 001">
-							<UseQuaternion=True>
-							<QChannel=
-								<BinaryKeys=
-									<Count=21>
-									<Data==426:420@
-****Xçå\XçåÝ×3Q**ªi÷övgXçå\XçåÝ×3Q**ªi÷öögXçå\XçåÝ×3Q**ªiÄÃCh
-Xçå\XçåÝ×3Q**ªi÷övhXçå\XçåÝ×3Q**ªi**ªhXçå\XçåÝ×3Q**ªiÄÃÃhXçå\
-XçåÝ×3Q**ªi]]ÝhXçå\XçåÝ×3Q**ªi÷ööhXçå\XçåÝ×3Q**ªihXçå\XçåÝ
-×3Q**ªi***iXçå\XçåÝ×3Q**ªi÷ö6iXçå\XçåÝ×3Q**ªiÄÃCiXçå\XçåÝ×3Q
-**ªiPiXçå\XçåÝ×3Q**ªi]]]iXçå\XçåÝ×3Q**ªi**jiXçå\XçåÝ×3Q**ªi
-÷öviXçå\XçåÝ×3Q**ªiÄÃƒiXçå\XçåÝ×3Q**ªiiXçå\XçåÝ×3Q**ªi]]i
-Xçå\XçåÝ×3Q**ªi**ªiXçå\XçåÝ×3Q**ªi>
-								>
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+****j‹Õj+**ªij‹Õj>
-									>
-								>
-								<Id="PositionX">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+******ªÞ+**ªi**ªÞ>
-									>
-								>
-								<Id="PositionY">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+****²bë+**ªi²bë>
-									>
-								>
-								<Id="PositionZ">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+******ªi+**ªi**ªi>
-									>
-								>
-								<Id="ScaleX">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+******ªi+**ªi**ªi>
-									>
-								>
-								<Id="ScaleY">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+******ªi+**ªi**ªi>
-									>
-								>
-								<Id="ScaleZ">
-							>
-						>
-					>
-				>
-				<ScriptedObject=
-					<ScriptUnit=
-						<Script="scripts/asteroid.nut">
-						<Class="Asteroid">
-					>
-				>
-				<PhysicItem=
-					<SelfMask=1>
-					<Mask=1>
-					<LinearDamping_v2=1.000000>
-					<AngularDamping_v2=1.000000>
-					<CharacterRadius=1.000000>
-					<CharacterHeight=1.000000>
-					<CharacterMaxStep=0.200000>
-					<Mode="Dynamic">
-					<Shapes=
-						<PhysicShape=
-							<Type="Convex">
-							<Position=
-								<X=0.000000>
-								<Y=0.000000>
-								<Z=0.000000>
-							>
-							<Rotation=
-								<X=0.000000>
-								<Y=0.000000>
-								<Z=0.000000>
-							>
-							<Scale=
-								<X=1.000000>
-								<Y=1.000000>
-								<Z=1.000000>
-							>
-							<Dimensions=
-								<X=1.000000>
-								<Y=1.000000>
-								<Z=1.000000>
-							>
-							<Mesh="E:/works/projects/games/derelict-space/svn_game-derelict-space/gs_project/assets/asteroid_s3_0.nmg">
-							<StaticFriction=0.500000>
-							<DynamicFriction=0.500000>
-							<Restitution=0.500000>
-						>
-					>
-				>
-			>
-			<Object=
-				<Item=
-					<Position=
-						<X=5.355621>
-						<Y=-0.000000>
-						<Z=-11.521370>
-					>
-					<ItemFlag>
-					<Target=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=1.000000>
-					>
-					<RotationOrder="YXZ">
-					<Registry>
-				>
-				<Geometry="assets/asteroid_s3_0.nmg">
-				<CacheGeometry=True>
-			>
-		>
-		<MObject=
-			<MItem=
-				<Id="asteroid_s2_1">
-				<UId=1>
-				<Active>
-				<Priority=0.500000>
-				<MotionPlayer=
-					<Motions=
-						<Motion=
-							<Id="Take 001">
-							<UseQuaternion=True>
-							<QChannel=
-								<BinaryKeys=
-									<Count=21>
-									<Data==426:420@
-****Xçå\Xçå]×3Ñ**ªi÷övgXçå\Xçå]×3Ñ**ªi÷öögXçå\Xçå]×3Ñ**ªiÄÃCh
-Xçå\Xçå]×3Ñ**ªi÷övhXçå\Xçå]×3Ñ**ªi**ªhXçå\Xçå]×3Ñ**ªiÄÃÃhXçå\
-Xçå]×3Ñ**ªi]]ÝhXçå\Xçå]×3Ñ**ªi÷ööhXçå\Xçå]×3Ñ**ªihXçå\Xçå]
-×3Ñ**ªi***iXçå\Xçå]×3Ñ**ªi÷ö6iXçå\Xçå]×3Ñ**ªiÄÃCiXçå\Xçå]×3Ñ
-**ªiPiXçå\Xçå]×3Ñ**ªi]]]iXçå\Xçå]×3Ñ**ªi**jiXçå\Xçå]×3Ñ**ªi
-÷öviXçå\Xçå]×3Ñ**ªiÄÃƒiXçå\Xçå]×3Ñ**ªiiXçå\Xçå]×3Ñ**ªi]]i
-Xçå\Xçå]×3Ñ**ªi**ªiXçå\Xçå]×3Ñ**ªi>
-								>
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+****<Kàê+**ªi<Kàê>
-									>
-								>
-								<Id="PositionX">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+****Z¶Uh+**ªiZ¶Uh>
-									>
-								>
-								<Id="PositionY">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+****jÊ×é+**ªijÊ×é>
-									>
-								>
-								<Id="PositionZ">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+******ªi+**ªi**ªi>
-									>
-								>
-								<Id="ScaleX">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+******ªi+**ªi**ªi>
-									>
-								>
-								<Id="ScaleY">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+******ªi+**ªi**ªi>
-									>
-								>
-								<Id="ScaleZ">
-							>
-						>
-					>
-				>
-				<ScriptedObject=
-					<ScriptUnit=
-						<Script="scripts/asteroid.nut">
-						<Class="Asteroid">
-					>
-				>
-				<PhysicItem=
-					<SelfMask=1>
-					<Mask=1>
-					<LinearDamping_v2=1.000000>
-					<AngularDamping_v2=1.000000>
-					<CharacterRadius=1.000000>
-					<CharacterHeight=1.000000>
-					<CharacterMaxStep=0.200000>
-					<Mode="Dynamic">
-					<Shapes=
-						<PhysicShape=
-							<Type="Convex">
-							<Position=
-								<X=0.000000>
-								<Y=0.000000>
-								<Z=0.000000>
-							>
-							<Rotation=
-								<X=0.000000>
-								<Y=0.000000>
-								<Z=0.000000>
-							>
-							<Scale=
-								<X=1.000000>
-								<Y=1.000000>
-								<Z=1.000000>
-							>
-							<Dimensions=
-								<X=1.000000>
-								<Y=1.000000>
-								<Z=1.000000>
-							>
-							<Mesh="E:/works/projects/games/derelict-space/svn_game-derelict-space/gs_project/assets/asteroid_s2_1.nmg">
-							<StaticFriction=0.500000>
-							<DynamicFriction=0.500000>
-							<Restitution=0.500000>
-						>
-					>
-				>
-			>
-			<Object=
-				<Item=
-					<Position=
-						<X=-5.691537>
-						<Y=0.167527>
-						<Z=-1.356453>
-					>
-					<ItemFlag>
-					<Target=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=1.000000>
-					>
-					<RotationOrder="YXZ">
-					<Registry>
-				>
-				<Geometry="assets/asteroid_s2_1.nmg">
-				<CacheGeometry=True>
-			>
-		>
-		<MObject=
-			<MItem=
-				<Id="asteroid_s2_0">
-				<UId=2>
-				<Active>
-				<Priority=0.500000>
-				<MotionPlayer=
-					<Motions=
-						<Motion=
-							<Id="Take 001">
-							<UseQuaternion=True>
-							<QChannel=
-								<BinaryKeys=
-									<Count=21>
-									<Data==426:420@
-****Xçå\***ª******ªi÷övgXçå\***ª******ªi÷öögXçå\***ª******ªiÄÃCh
-Xçå\***ª******ªi÷övhXçå\***ª******ªi**ªhXçå\***ª******ªiÄÃÃhXçå\
-***ª******ªi]]ÝhXçå\***ª******ªi÷ööhXçå\***ª******ªihXçå\***ª
-******ªi***iXçå\***ª******ªi÷ö6iXçå\***ª******ªiÄÃCiXçå\***ª****
-**ªiPiXçå\***ª******ªi]]]iXçå\***ª******ªi**jiXçå\***ª******ªi
-÷öviXçå\***ª******ªiÄÃƒiXçå\***ª******ªiiXçå\***ª******ªi]]i
-Xçå\***ª******ªi**ªiXçå\***ª******ªi>
-								>
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+****fOÇj+**ªifOÇj>
-									>
-								>
-								<Id="PositionX">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+****¢ŸÜh+**ªi¢ŸÜh>
-									>
-								>
-								<Id="PositionY">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+****ª îé+**ªiª îé>
-									>
-								>
-								<Id="PositionZ">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+******ªi+**ªi**ªi>
-									>
-								>
-								<Id="ScaleX">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+******ªi+**ªi**ªi>
-									>
-								>
-								<Id="ScaleY">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+******ªi+**ªi**ªi>
-									>
-								>
-								<Id="ScaleZ">
-							>
-						>
-					>
-				>
-				<ScriptedObject=
-					<ScriptUnit=
-						<Script="scripts/asteroid.nut">
-						<Class="Asteroid">
-					>
-				>
-				<PhysicItem=
-					<SelfMask=1>
-					<Mask=1>
-					<LinearDamping_v2=1.000000>
-					<AngularDamping_v2=1.000000>
-					<CharacterRadius=1.000000>
-					<CharacterHeight=1.000000>
-					<CharacterMaxStep=0.200000>
-					<Mode="Dynamic">
-					<Shapes=
-						<PhysicShape=
-							<Type="Convex">
-							<Position=
-								<X=0.000000>
-								<Y=0.000000>
-								<Z=0.000000>
-							>
-							<Rotation=
-								<X=0.000000>
-								<Y=0.000000>
-								<Z=0.000000>
-							>
-							<Scale=
-								<X=1.000000>
-								<Y=1.000000>
-								<Z=1.000000>
-							>
-							<Dimensions=
-								<X=1.000000>
-								<Y=1.000000>
-								<Z=1.000000>
-							>
-							<Mesh="E:/works/projects/games/derelict-space/svn_game-derelict-space/gs_project/assets/asteroid_s2_0.nmg">
-							<StaticFriction=0.500000>
-							<DynamicFriction=0.500000>
-							<Restitution=0.500000>
-						>
-					>
-				>
-			>
-			<Object=
-				<Item=
-					<Position=
-						<X=4.910795>
-						<Y=0.348552>
-						<Z=-1.534866>
-					>
-					<ItemFlag>
-					<Target=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=1.000000>
-					>
-					<RotationOrder="YXZ">
-					<Registry>
-				>
-				<Geometry="assets/asteroid_s2_0.nmg">
-				<CacheGeometry=True>
-			>
-		>
-		<MObject=
-			<MItem=
-				<Id="asteroid_s1_0">
-				<UId=3>
-				<Active>
-				<Priority=0.500000>
-				<MotionPlayer=
-					<Motions=
-						<Motion=
-							<Id="Take 001">
-							<UseQuaternion=True>
-							<QChannel=
-								<BinaryKeys=
-									<Count=21>
-									<Data==426:420@
-****Xçå\***ª******ªi÷övgXçå\***ª******ªi÷öögXçå\***ª******ªiÄÃCh
-Xçå\***ª******ªi÷övhXçå\***ª******ªi**ªhXçå\***ª******ªiÄÃÃhXçå\
-***ª******ªi]]ÝhXçå\***ª******ªi÷ööhXçå\***ª******ªihXçå\***ª
-******ªi***iXçå\***ª******ªi÷ö6iXçå\***ª******ªiÄÃCiXçå\***ª****
-**ªiPiXçå\***ª******ªi]]]iXçå\***ª******ªi**jiXçå\***ª******ªi
-÷öviXçå\***ª******ªiÄÃƒiXçå\***ª******ªiiXçå\***ª******ªi]]i
-Xçå\***ª******ªi**ªiXçå\***ª******ªi>
-								>
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+****VÈj+**ªiVÈj>
-									>
-								>
-								<Id="PositionX">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+****“8é+**ªi“8é>
-									>
-								>
-								<Id="PositionY">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+****U#j+**ªiU#j>
-									>
-								>
-								<Id="PositionZ">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+******ªi+**ªi**ªi>
-									>
-								>
-								<Id="ScaleX">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+******ªi+**ªi**ªi>
-									>
-								>
-								<Id="ScaleY">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+******ªi+**ªi**ªi>
-									>
-								>
-								<Id="ScaleZ">
-							>
-						>
-					>
-				>
-				<ScriptedObject=
-					<ScriptUnit=
-						<Script="scripts/asteroid.nut">
-						<Class="Asteroid">
-					>
-				>
-				<PhysicItem=
-					<SelfMask=1>
-					<Mask=1>
-					<LinearDamping_v2=1.000000>
-					<AngularDamping_v2=1.000000>
-					<CharacterRadius=1.000000>
-					<CharacterHeight=1.000000>
-					<CharacterMaxStep=0.200000>
-					<Mode="Dynamic">
-					<Shapes=
-						<PhysicShape=
-							<Type="Convex">
-							<Position=
-								<X=0.000000>
-								<Y=0.000000>
-								<Z=0.000000>
-							>
-							<Rotation=
-								<X=0.000000>
-								<Y=0.000000>
-								<Z=0.000000>
-							>
-							<Scale=
-								<X=1.000000>
-								<Y=1.000000>
-								<Z=1.000000>
-							>
-							<Dimensions=
-								<X=1.000000>
-								<Y=1.000000>
-								<Z=1.000000>
-							>
-							<Mesh="E:/works/projects/games/derelict-space/svn_game-derelict-space/gs_project/assets/asteroid_s1_0.nmg">
-							<StaticFriction=0.500000>
-							<DynamicFriction=0.500000>
-							<Restitution=0.500000>
-						>
-					>
-				>
-			>
-			<Object=
-				<Item=
-					<Position=
-						<X=4.965841>
-						<Y=-0.556304>
-						<Z=7.786614>
-					>
-					<ItemFlag>
-					<Target=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=1.000000>
-					>
-					<RotationOrder="YXZ">
-					<Registry>
-				>
-				<Geometry="assets/asteroid_s1_0.nmg">
-				<CacheGeometry=True>
-			>
-		>
-		<MObject=
-			<MItem=
-				<Id="asteroid_s1_1">
-				<UId=4>
-				<Active>
-				<Priority=0.500000>
-				<MotionPlayer=
-					<Motions=
-						<Motion=
-							<Id="Take 001">
-							<UseQuaternion=True>
-							<QChannel=
-								<BinaryKeys=
-									<Count=21>
-									<Data==426:420@
-****Xçå\Xçå]×3Ñ**ªi÷övgXçå\Xçå]×3Ñ**ªi÷öögXçå\Xçå]×3Ñ**ªiÄÃCh
-Xçå\Xçå]×3Ñ**ªi÷övhXçå\Xçå]×3Ñ**ªi**ªhXçå\Xçå]×3Ñ**ªiÄÃÃhXçå\
-Xçå]×3Ñ**ªi]]ÝhXçå\Xçå]×3Ñ**ªi÷ööhXçå\Xçå]×3Ñ**ªihXçå\Xçå]
-×3Ñ**ªi***iXçå\Xçå]×3Ñ**ªi÷ö6iXçå\Xçå]×3Ñ**ªiÄÃCiXçå\Xçå]×3Ñ
-**ªiPiXçå\Xçå]×3Ñ**ªi]]]iXçå\Xçå]×3Ñ**ªi**jiXçå\Xçå]×3Ñ**ªi
-÷öviXçå\Xçå]×3Ñ**ªiÄÃƒiXçå\Xçå]×3Ñ**ªiiXçå\Xçå]×3Ñ**ªi]]i
-Xçå\Xçå]×3Ñ**ªi**ªiXçå\Xçå]×3Ñ**ªi>
-								>
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+****xmäê+**ªixmäê>
-									>
-								>
-								<Id="PositionX">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+****<ç%è+**ªi<ç%è>
-									>
-								>
-								<Id="PositionY">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==20:18@
-+****=@%*k+**ªi=@%*k>
-									>
-								>
-								<Id="PositionZ">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+******ªi+**ªi**ªi>
-									>
-								>
-								<Id="ScaleX">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+******ªi+**ªi**ªi>
-									>
-								>
-								<Id="ScaleY">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+******ªi+**ªi**ªi>
-									>
-								>
-								<Id="ScaleZ">
-							>
-						>
-					>
-				>
-				<ScriptedObject=
-					<ScriptUnit=
-						<Script="scripts/asteroid.nut">
-						<Class="Asteroid">
-					>
-				>
-				<PhysicItem=
-					<SelfMask=1>
-					<Mask=1>
-					<LinearDamping_v2=1.000000>
-					<AngularDamping_v2=1.000000>
-					<CharacterRadius=1.000000>
-					<CharacterHeight=1.000000>
-					<CharacterMaxStep=0.200000>
-					<Mode="Dynamic">
-					<Shapes=
-						<PhysicShape=
-							<Type="Convex">
-							<Position=
-								<X=0.000000>
-								<Y=0.000000>
-								<Z=0.000000>
-							>
-							<Rotation=
-								<X=0.000000>
-								<Y=0.000000>
-								<Z=0.000000>
-							>
-							<Scale=
-								<X=1.000000>
-								<Y=1.000000>
-								<Z=1.000000>
-							>
-							<Dimensions=
-								<X=1.000000>
-								<Y=1.000000>
-								<Z=1.000000>
-							>
-							<Mesh="E:/works/projects/games/derelict-space/svn_game-derelict-space/gs_project/assets/asteroid_s1_1.nmg">
-							<StaticFriction=0.500000>
-							<DynamicFriction=0.500000>
-							<Restitution=0.500000>
-						>
-					>
-				>
-			>
-			<Object=
-				<Item=
-					<Position=
-						<X=-5.820716>
-						<Y=-0.491677>
-						<Z=8.061483>
-					>
-					<ItemFlag>
-					<Target=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=1.000000>
-					>
-					<RotationOrder="YXZ">
-					<Registry>
-				>
-				<Geometry="assets/asteroid_s1_1.nmg">
-				<CacheGeometry=True>
-			>
-		>
-		<MObject=
-			<MItem=
-				<Id="asteroid_s0_0">
-				<UId=5>
-				<Active>
-				<Priority=0.500000>
-				<MotionPlayer=
-					<Motions=
-						<Motion=
-							<Id="Take 001">
-							<UseQuaternion=True>
-							<QChannel=
-								<BinaryKeys=
-									<Count=21>
-									<Data==426:420@
-****Xçå\***ª******ªi÷övgXçå\***ª******ªi÷öögXçå\***ª******ªiÄÃCh
-Xçå\***ª******ªi÷övhXçå\***ª******ªi**ªhXçå\***ª******ªiÄÃÃhXçå\
-***ª******ªi]]ÝhXçå\***ª******ªi÷ööhXçå\***ª******ªihXçå\***ª
-******ªi***iXçå\***ª******ªi÷ö6iXçå\***ª******ªiÄÃCiXçå\***ª****
-**ªiPiXçå\***ª******ªi]]]iXçå\***ª******ªi**jiXçå\***ª******ªi
-÷öviXçå\***ª******ªiÄÃƒiXçå\***ª******ªiiXçå\***ª******ªi]]i
-Xçå\***ª******ªi**ªiXçå\***ª******ªi>
-								>
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+****<‘Åj+**ªi<‘Åj>
-									>
-								>
-								<Id="PositionX">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==20:18@
-+****=Júç+**ªi=Júç>
-									>
-								>
-								<Id="PositionY">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+****(žk+**ªi(žk>
-									>
-								>
-								<Id="PositionZ">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+******ªi+**ªi**ªi>
-									>
-								>
-								<Id="ScaleX">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+******ªi+**ªi**ªi>
-									>
-								>
-								<Id="ScaleY">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+******ªi+**ªi**ªi>
-									>
-								>
-								<Id="ScaleZ">
-							>
-						>
-					>
-				>
-				<ScriptedObject=
-					<ScriptUnit=
-						<Script="scripts/asteroid.nut">
-						<Class="Asteroid">
-					>
-				>
-				<PhysicItem=
-					<SelfMask=1>
-					<Mask=1>
-					<LinearDamping_v2=1.000000>
-					<AngularDamping_v2=1.000000>
-					<CharacterRadius=1.000000>
-					<CharacterHeight=1.000000>
-					<CharacterMaxStep=0.200000>
-					<Mode="Dynamic">
-					<Shapes=
-						<PhysicShape=
-							<Type="Convex">
-							<Position=
-								<X=0.000000>
-								<Y=0.000000>
-								<Z=0.000000>
-							>
-							<Rotation=
-								<X=0.000000>
-								<Y=0.000000>
-								<Z=0.000000>
-							>
-							<Scale=
-								<X=1.000000>
-								<Y=1.000000>
-								<Z=1.000000>
-							>
-							<Dimensions=
-								<X=1.000000>
-								<Y=1.000000>
-								<Z=1.000000>
-							>
-							<Mesh="E:/works/projects/games/derelict-space/svn_game-derelict-space/gs_project/assets/asteroid_s0_0.nmg">
-							<StaticFriction=0.500000>
-							<DynamicFriction=0.500000>
-							<Restitution=0.500000>
-						>
-					>
-				>
-			>
-			<Object=
-				<Item=
-					<Position=
-						<X=4.856332>
-						<Y=-0.102030>
-						<Z=15.308104>
-					>
-					<ItemFlag>
-					<Target=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=1.000000>
-					>
-					<RotationOrder="YXZ">
-					<Registry>
-				>
-				<Geometry="assets/asteroid_s0_0.nmg">
-				<CacheGeometry=True>
-			>
-		>
-		<MObject=
-			<MItem=
-				<Id="asteroid_s0_1">
-				<UId=6>
-				<Active>
-				<Priority=0.500000>
-				<MotionPlayer=
-					<Motions=
-						<Motion=
-							<Id="Take 001">
-							<UseQuaternion=True>
-							<QChannel=
-								<BinaryKeys=
-									<Count=21>
-									<Data==426:420@
-****Xçå\***ª******ªi÷övgXçå\***ª******ªi÷öögXçå\***ª******ªiÄÃCh
-Xçå\***ª******ªi÷övhXçå\***ª******ªi**ªhXçå\***ª******ªiÄÃÃhXçå\
-***ª******ªi]]ÝhXçå\***ª******ªi÷ööhXçå\***ª******ªihXçå\***ª
-******ªi***iXçå\***ª******ªi÷ö6iXçå\***ª******ªiÄÃCiXçå\***ª****
-**ªiPiXçå\***ª******ªi]]]iXçå\***ª******ªi**jiXçå\***ª******ªi
-÷öviXçå\***ª******ªiÄÃƒiXçå\***ª******ªiiXçå\***ª******ªi]]i
-Xçå\***ª******ªi**ªiXçå\***ª******ªi>
-								>
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+****°cúê+**ªi°cúê>
-									>
-								>
-								<Id="PositionX">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==20:18@
-+****=Júç+**ªi=Júç>
-									>
-								>
-								<Id="PositionY">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+****oê–k+**ªioê–k>
-									>
-								>
-								<Id="PositionZ">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+******ªi+**ªi**ªi>
-									>
-								>
-								<Id="ScaleX">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+******ªi+**ªi**ªi>
-									>
-								>
-								<Id="ScaleY">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+******ªi+**ªi**ªi>
-									>
-								>
-								<Id="ScaleZ">
-							>
-						>
-					>
-				>
-				<ScriptedObject=
-					<ScriptUnit=
-						<Script="scripts/asteroid.nut">
-						<Class="Asteroid">
-					>
-				>
-				<PhysicItem=
-					<SelfMask=1>
-					<Mask=1>
-					<LinearDamping_v2=1.000000>
-					<AngularDamping_v2=1.000000>
-					<CharacterRadius=1.000000>
-					<CharacterHeight=1.000000>
-					<CharacterMaxStep=0.200000>
-					<Mode="Dynamic">
-					<Shapes=
-						<PhysicShape=
-							<Type="Convex">
-							<Position=
-								<X=0.000000>
-								<Y=0.000000>
-								<Z=0.000000>
-							>
-							<Rotation=
-								<X=0.000000>
-								<Y=0.000000>
-								<Z=0.000000>
-							>
-							<Scale=
-								<X=1.000000>
-								<Y=1.000000>
-								<Z=1.000000>
-							>
-							<Dimensions=
-								<X=1.000000>
-								<Y=1.000000>
-								<Z=1.000000>
-							>
-							<Mesh="E:/works/projects/games/derelict-space/svn_game-derelict-space/gs_project/assets/asteroid_s0_1.nmg">
-							<StaticFriction=0.500000>
-							<DynamicFriction=0.500000>
-							<Restitution=0.500000>
-						>
-					>
-				>
-			>
-			<Object=
-				<Item=
-					<Position=
-						<X=-6.507022>
-						<Y=-0.102030>
-						<Z=14.796941>
-					>
-					<ItemFlag>
-					<Target=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=1.000000>
-					>
-					<RotationOrder="YXZ">
-					<Registry>
-				>
-				<Geometry="assets/asteroid_s0_1.nmg">
-				<CacheGeometry=True>
-			>
-		>
-		<MObject=
-			<MItem=
-				<Id="asteroid_s3_1">
-				<UId=7>
-				<Active>
-				<Priority=0.500000>
-				<MotionPlayer=
-					<Motions=
-						<Motion=
-							<Id="Take 001">
-							<UseQuaternion=True>
-							<QChannel=
-								<BinaryKeys=
-									<Count=21>
-									<Data==426:420@
-****Xçå\***ª******ªi÷övgXçå\***ª******ªi÷öögXçå\***ª******ªiÄÃCh
-Xçå\***ª******ªi÷övhXçå\***ª******ªi**ªhXçå\***ª******ªiÄÃÃhXçå\
-***ª******ªi]]ÝhXçå\***ª******ªi÷ööhXçå\***ª******ªihXçå\***ª
-******ªi***iXçå\***ª******ªi÷ö6iXçå\***ª******ªiÄÃCiXçå\***ª****
-**ªiPiXçå\***ª******ªi]]]iXçå\***ª******ªi**jiXçå\***ª******ªi
-÷öviXçå\***ª******ªiÄÃƒiXçå\***ª******ªiiXçå\***ª******ªi]]i
-Xçå\***ª******ªi**ªiXçå\***ª******ªi>
-								>
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+****¶Áåê+**ªi¶Áåê>
-									>
-								>
-								<Id="PositionX">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+****zkè+**ªizkè>
-									>
-								>
-								<Id="PositionY">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+****šLfë+**ªišLfë>
-									>
-								>
-								<Id="PositionZ">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+******ªi+**ªi**ªi>
-									>
-								>
-								<Id="ScaleX">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+******ªi+**ªi**ªi>
-									>
-								>
-								<Id="ScaleY">
-							>
-							<Channel=
-								<Curve=
-									<BinaryKnot=
-										<Count=2>
-										<Data==18:18@
-+******ªi+**ªi**ªi>
-									>
-								>
-								<Id="ScaleZ">
-							>
-						>
-					>
-				>
-				<ScriptedObject=
-					<ScriptUnit=
-						<Script="scripts/asteroid.nut">
-						<Class="Asteroid">
-					>
-				>
-				<PhysicItem=
-					<SelfMask=1>
-					<Mask=1>
-					<LinearDamping_v2=1.000000>
-					<AngularDamping_v2=1.000000>
-					<CharacterRadius=1.000000>
-					<CharacterHeight=1.000000>
-					<CharacterMaxStep=0.200000>
-					<Mode="Dynamic">
-					<Shapes=
-						<PhysicShape=
-							<Type="Convex">
-							<Position=
-								<X=0.000000>
-								<Y=0.000000>
-								<Z=0.000000>
-							>
-							<Rotation=
-								<X=0.000000>
-								<Y=0.000000>
-								<Z=0.000000>
-							>
-							<Scale=
-								<X=1.000000>
-								<Y=1.000000>
-								<Z=1.000000>
-							>
-							<Dimensions=
-								<X=1.000000>
-								<Y=1.000000>
-								<Z=1.000000>
-							>
-							<Mesh="E:/works/projects/games/derelict-space/svn_game-derelict-space/gs_project/assets/asteroid_s3_1.nmg">
-							<StaticFriction=0.500000>
-							<DynamicFriction=0.500000>
-							<Restitution=0.500000>
-						>
-					>
-				>
-			>
-			<Object=
-				<Item=
-					<Position=
-						<X=-5.862249>
-						<Y=-0.189348>
-						<Z=-11.758408>
-					>
-					<ItemFlag>
-					<Target=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=1.000000>
-					>
-					<RotationOrder="YXZ">
-					<Registry>
-				>
-				<Geometry="assets/asteroid_s3_1.nmg">
-				<CacheGeometry=True>
-			>
-		>
 		<MLight=
 			<MItem=
 				<Id="New Light">
@@ -1298,6 +74,295 @@ Xçå\***ª******ªi**ªiXçå\***ª******ªi>
 				<VolumetricRange=8.000000>
 			>
 		>
+		<Instance=
+			<MItem=
+				<Id="Asteroid S0 0">
+				<UId=9>
+				<Active>
+				<Priority=0.500000>
+				<MotionPlayer=
+					<Motions>
+				>
+				<PhysicItem=
+					<SelfMask=1>
+					<Mask=1>
+					<LinearDamping_v2=1.000000>
+					<AngularDamping_v2=1.000000>
+					<CharacterRadius=1.000000>
+					<CharacterHeight=1.000000>
+					<CharacterMaxStep=0.200000>
+					<Mode="None">
+				>
+			>
+			<Item=
+				<Position=
+					<X=-0.633415>
+					<Y=0.000008>
+					<Z=-15.010460>
+				>
+				<Target=
+					<X=0.000000>
+					<Y=0.000000>
+					<Z=1.000000>
+				>
+				<RotationOrder="YXZ">
+				<Registry>
+			>
+			<Template="assets/asteroid_s0_0.nms">
+		>
+		<Instance=
+			<MItem=
+				<Id="Asteroid S0 1">
+				<UId=10>
+				<Active>
+				<Priority=0.500000>
+				<MotionPlayer=
+					<Motions>
+				>
+				<PhysicItem=
+					<SelfMask=1>
+					<Mask=1>
+					<LinearDamping_v2=1.000000>
+					<AngularDamping_v2=1.000000>
+					<CharacterRadius=1.000000>
+					<CharacterHeight=1.000000>
+					<CharacterMaxStep=0.200000>
+					<Mode="None">
+				>
+			>
+			<Item=
+				<Position=
+					<X=-9.321962>
+					<Y=0.000000>
+					<Z=-16.151947>
+				>
+				<Target=
+					<X=0.000000>
+					<Y=0.000000>
+					<Z=1.000000>
+				>
+				<RotationOrder="YXZ">
+				<Registry>
+			>
+			<Template="assets/asteroid_s0_1.nms">
+		>
+		<Instance=
+			<MItem=
+				<Id="Asteroid S1 0">
+				<UId=11>
+				<Active>
+				<Priority=0.500000>
+				<MotionPlayer=
+					<Motions>
+				>
+				<PhysicItem=
+					<SelfMask=1>
+					<Mask=1>
+					<LinearDamping_v2=1.000000>
+					<AngularDamping_v2=1.000000>
+					<CharacterRadius=1.000000>
+					<CharacterHeight=1.000000>
+					<CharacterMaxStep=0.200000>
+					<Mode="None">
+				>
+			>
+			<Item=
+				<Position=
+					<X=5.038124>
+					<Y=-0.000008>
+					<Z=-6.706879>
+				>
+				<Target=
+					<X=0.000000>
+					<Y=0.000000>
+					<Z=1.000000>
+				>
+				<RotationOrder="YXZ">
+				<Registry>
+			>
+			<Template="assets/asteroid_s1_0.nms">
+		>
+		<Instance=
+			<MItem=
+				<Id="Asteroid S1 1">
+				<UId=12>
+				<Active>
+				<Priority=0.500000>
+				<MotionPlayer=
+					<Motions>
+				>
+				<PhysicItem=
+					<SelfMask=1>
+					<Mask=1>
+					<LinearDamping_v2=1.000000>
+					<AngularDamping_v2=1.000000>
+					<CharacterRadius=1.000000>
+					<CharacterHeight=1.000000>
+					<CharacterMaxStep=0.200000>
+					<Mode="None">
+				>
+			>
+			<Item=
+				<Position=
+					<X=-9.660353>
+					<Y=-0.000008>
+					<Z=-6.550476>
+				>
+				<Target=
+					<X=0.000000>
+					<Y=0.000000>
+					<Z=1.000000>
+				>
+				<RotationOrder="YXZ">
+				<Registry>
+			>
+			<Template="assets/asteroid_s1_1.nms">
+		>
+		<Instance=
+			<MItem=
+				<Id="Asteroid S2 0">
+				<UId=13>
+				<Active>
+				<Priority=0.500000>
+				<MotionPlayer=
+					<Motions>
+				>
+				<PhysicItem=
+					<SelfMask=1>
+					<Mask=1>
+					<LinearDamping_v2=1.000000>
+					<AngularDamping_v2=1.000000>
+					<CharacterRadius=1.000000>
+					<CharacterHeight=1.000000>
+					<CharacterMaxStep=0.200000>
+					<Mode="None">
+				>
+			>
+			<Item=
+				<Position=
+					<X=6.800934>
+					<Y=0.000008>
+					<Z=1.937080>
+				>
+				<Target=
+					<X=0.000000>
+					<Y=0.000000>
+					<Z=1.000000>
+				>
+				<RotationOrder="YXZ">
+				<Registry>
+			>
+			<Template="assets/asteroid_s2_0.nms">
+		>
+		<Instance=
+			<MItem=
+				<Id="Asteroid S2 1">
+				<UId=14>
+				<Active>
+				<Priority=0.500000>
+				<MotionPlayer=
+					<Motions>
+				>
+				<PhysicItem=
+					<SelfMask=1>
+					<Mask=1>
+					<LinearDamping_v2=1.000000>
+					<AngularDamping_v2=1.000000>
+					<CharacterRadius=1.000000>
+					<CharacterHeight=1.000000>
+					<CharacterMaxStep=0.200000>
+					<Mode="None">
+				>
+			>
+			<Item=
+				<Position=
+					<X=-8.614618>
+					<Y=0.000000>
+					<Z=0.987022>
+				>
+				<Target=
+					<X=0.000000>
+					<Y=0.000000>
+					<Z=1.000000>
+				>
+				<RotationOrder="YXZ">
+				<Registry>
+			>
+			<Template="assets/asteroid_s2_1.nms">
+		>
+		<Instance=
+			<MItem=
+				<Id="Asteroid S3 0">
+				<UId=15>
+				<Active>
+				<Priority=0.500000>
+				<MotionPlayer=
+					<Motions>
+				>
+				<PhysicItem=
+					<SelfMask=1>
+					<Mask=1>
+					<LinearDamping_v2=1.000000>
+					<AngularDamping_v2=1.000000>
+					<CharacterRadius=1.000000>
+					<CharacterHeight=1.000000>
+					<CharacterMaxStep=0.200000>
+					<Mode="None">
+				>
+			>
+			<Item=
+				<Position=
+					<X=8.265808>
+					<Y=0.000000>
+					<Z=11.217728>
+				>
+				<ItemFlag>
+				<Target=
+					<X=0.000000>
+					<Y=0.000000>
+					<Z=1.000000>
+				>
+				<RotationOrder="YXZ">
+				<Registry>
+			>
+			<Template="assets/asteroid_s3_0.nms">
+		>
+		<Instance=
+			<MItem=
+				<Id="Asteroid S3 1">
+				<UId=16>
+				<Active>
+				<Priority=0.500000>
+				<MotionPlayer=
+					<Motions>
+				>
+				<PhysicItem=
+					<SelfMask=1>
+					<Mask=1>
+					<LinearDamping_v2=1.000000>
+					<AngularDamping_v2=1.000000>
+					<CharacterRadius=1.000000>
+					<CharacterHeight=1.000000>
+					<CharacterMaxStep=0.200000>
+					<Mode="None">
+				>
+			>
+			<Item=
+				<Position=
+					<X=-7.874632>
+					<Y=0.000000>
+					<Z=11.217545>
+				>
+				<Target=
+					<X=0.000000>
+					<Y=0.000000>
+					<Z=1.000000>
+				>
+				<RotationOrder="YXZ">
+				<Registry>
+			>
+			<Template="assets/asteroid_s3_1.nms">
+		>
 	>
 	<Constraints>
 	<Globals=
@@ -1327,27 +392,27 @@ Xçå\***ª******ªi**ªiXçå\***ª******ªi>
 	>
 	<ViewMatrix=
 		<R0=
-			<X=-0.970747>
-			<Y=0.000000>
-			<Z=-0.240105>
+			<X=0.829965>
+			<Y=-0.000000>
+			<Z=-0.557815>
 			<W=0.000000>
 		>
 		<R1=
-			<X=0.198503>
-			<Y=0.562594>
-			<Z=-0.802549>
+			<X=0.435520>
+			<Y=0.624829>
+			<Z=0.648005>
 			<W=0.000000>
 		>
 		<R2=
-			<X=0.135082>
-			<Y=-0.826733>
-			<Z=-0.546136>
+			<X=0.348539>
+			<Y=-0.780761>
+			<Z=0.518587>
 			<W=0.000000>
 		>
 		<R3=
-			<X=-13.681196>
-			<Y=116.509933>
-			<Z=65.444542>
+			<X=-33.351982>
+			<Y=70.231422>
+			<Z=-49.030731>
 			<W=1.000000>
 		>
 	>
@@ -1360,27 +425,27 @@ Xçå\***ª******ªi**ªiXçå\***ª******ªi>
 			<CameraUid=-16>
 			<Matrix=
 				<R0=
-					<X=-0.970747>
-					<Y=0.000000>
-					<Z=-0.240105>
+					<X=0.829965>
+					<Y=-0.000000>
+					<Z=-0.557815>
 					<W=0.000000>
 				>
 				<R1=
-					<X=0.198503>
-					<Y=0.562594>
-					<Z=-0.802549>
+					<X=0.435520>
+					<Y=0.624829>
+					<Z=0.648005>
 					<W=0.000000>
 				>
 				<R2=
-					<X=0.135082>
-					<Y=-0.826733>
-					<Z=-0.546136>
+					<X=0.348539>
+					<Y=-0.780761>
+					<Z=0.518587>
 					<W=0.000000>
 				>
 				<R3=
-					<X=-13.681196>
-					<Y=116.509933>
-					<Z=65.444542>
+					<X=-33.351982>
+					<Y=70.231422>
+					<Z=-49.030731>
 					<W=1.000000>
 				>
 			>

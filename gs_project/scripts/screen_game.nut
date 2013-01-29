@@ -6,6 +6,7 @@
 Include("scripts/utils/scene_game_base.nut")
 Include("scripts/camera_game.nut")
 Include("scripts/starfield.nut")
+Include("scripts/ship_control.nut")
 
 /*!
 	@short	SceneGame
@@ -16,6 +17,7 @@ class	SceneGame	extends SceneGameBase
 	player_item				=	0
 	camera_handler			=	0
 	starfield_handler		=	0
+	ship_control_handler	=	0
 
 	ship_direction			=	0
 
@@ -28,33 +30,21 @@ class	SceneGame	extends SceneGameBase
 	function	OnUpdate(scene)
 	{
 		local	mouse_device = GetInputDevice("mouse")
-		local	mx = DeviceInputValue(mouse_device, DeviceAxisX)
-		local	my = DeviceInputValue(mouse_device, DeviceAxisY)
+	
+		ship_control_handler.Update()
 
-		local	ship_screen_position
-		ship_screen_position = CameraWorldToScreen(camera_handler.camera, g_render, ItemGetPosition(player_item))
+		local	mouse_wheel = DeviceInputValue(mouse_device, DeviceAxisRotY)
+		camera_handler.OffsetCameraY(mouse_wheel * Mtr(-15.0))
+		starfield_handler.SetSize(camera_handler.target_pos_offset.y)
 
-		ship_direction = Vector()
-		ship_direction.x = mx - ship_screen_position.x
-		ship_direction.z = -(my - ship_screen_position.y)
-		ship_direction = ship_direction.Normalize()
-
-		if( DeviceIsKeyDown(mouse_device, KeyButton0))
-		{
-			local	ship_euler = EulerFromDirection(ship_direction)
-			ItemGetScriptInstance(player_item).SetOrientation(ship_euler)
-			ItemGetScriptInstance(player_item).SetThrustUp()
-		}
+		camera_handler.Update(player_item)
 	}
 
 	function	OnRenderUser(scene)
 	{
 		RendererSetIdentityWorldMatrix(g_render)
 		starfield_handler.Update(camera_handler.position)
-/*
-		local	ship_position = ItemGetWorldPosition(player_item)
-		RendererDrawLine(g_render, ship_position, ship_position + ship_direction.Scale(10.0))
-*/
+
 		foreach(_callback in render_user_callback)
 			_callback["RenderUser"](scene)
 	}
@@ -68,6 +58,7 @@ class	SceneGame	extends SceneGameBase
 		base.OnSetup(scene)
 		camera_handler = CameraGame(scene)
 		player_item = SceneFindItem(scene, "ship")
+		ship_control_handler = ShipControl(scene)
 		starfield_handler = Starfield()
 
 		render_user_callback = []
