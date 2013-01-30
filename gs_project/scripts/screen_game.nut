@@ -56,12 +56,13 @@ class	SceneGame	extends SceneGameBase
 	function	OnSetup(scene)
 	{
 		base.OnSetup(scene)
+		render_user_callback = []
+
 		camera_handler = CameraGame(scene)
 		player_item = SceneFindItem(scene, "ship")
 		ship_control_handler = ShipControl(scene)
 		starfield_handler = Starfield()
 
-		render_user_callback = []
 		ship_direction = g_zero_vector
 	}
 }

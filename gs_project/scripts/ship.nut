@@ -85,11 +85,9 @@ class	Ship	extends	PhysicItemXZPlane
 
 		local	ship_position = ItemGetWorldPosition(body)
 		RendererDrawLine(g_render, ship_position, ship_position + linear_velocity)
-		RendererDrawLineColored(g_render, ship_position, ship_position + vector_front.Scale(1.0 + thrust), Vector(0.1,1.0,0.25))
 
 		foreach(_F in attraction_forces_list)
 			RendererDrawLineColored(g_render, position, position + _F, Vector(0.1,0.2,1.0))
-
 	}
 
 	/*!

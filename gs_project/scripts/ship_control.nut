@@ -10,9 +10,17 @@
 class	ShipControl
 {
 	scene					=	0
-	ship_direction			=	0
+
 	mouse_device			=	0
-	control_function		=	0		//	The current function that handles the control scheme
+	keyboard_device			=	0
+	mx						=	0
+	my						=	0
+
+	callbacks				=	0		//	The current function that handles the control scheme
+
+	ship_direction			=	0
+	ship_screen_position	=	0
+	player_item				=	0
 
 	/*!
 		@short	OnUpdate
@@ -20,19 +28,25 @@ class	ShipControl
 	*/
 	function	Update()
 	{
-		control_function()
-	}
-
-	function	NewOrbitControl()
-	{
-		local	mx = DeviceInputValue(mouse_device, DeviceAxisX)
-		local	my = DeviceInputValue(mouse_device, DeviceAxisY)
-
-		local	ship_screen_position, player_item
+		mx = DeviceInputValue(mouse_device, DeviceAxisX)
+		my = DeviceInputValue(mouse_device, DeviceAxisY)
 
 		player_item = SceneGetScriptInstance(scene).player_item
 		ship_screen_position = CameraWorldToScreen(SceneGetScriptInstance(scene).camera_handler.camera, g_render, ItemGetPosition(player_item))
 
+		this[callbacks.control_function]()
+	}
+
+	function	RenderUser(scene)
+	{
+		this[callbacks.render_function](scene)		
+	}
+
+	/*
+		New Orbit Scheme	
+	*/
+	function	NewOrbitControl()
+	{
 		ship_direction = Vector()
 		ship_direction.x = mx - ship_screen_position.x
 		ship_direction.z = -(my - ship_screen_position.y)
@@ -46,11 +60,52 @@ class	ShipControl
 		}
 	}
 
+	function	NewOrbitRenderUser(scene)
+	{
+		local	ship_position = ItemGetWorldPosition(player_item)
+		local	vector_front = ItemGetScriptInstance(player_item).vector_front
+		RendererDrawLineColored(g_render, ship_position, ship_position + vector_front.Scale(1 + ItemGetScriptInstance(player_item).thrust), Vector(0.1,1.0,0.25))
+	}
+
+	/*
+		Pascal Blanche Scheme	
+	*/
+	function	BlancheControl()
+	{
+		ship_direction = Vector()
+		ship_direction.x = mx - ship_screen_position.x
+		ship_direction.z = -(my - ship_screen_position.y)
+		ship_direction = ship_direction.Normalize()
+
+		if( DeviceIsKeyDown(mouse_device, KeyButton0))
+		{
+			local	ship_euler = EulerFromDirection(ship_direction)
+			ItemGetScriptInstance(player_item).SetOrientation(ship_euler)
+		}
+
+		if (DeviceIsKeyDown(keyboard_device, KeySpace))
+			ItemGetScriptInstance(player_item).SetThrustUp()
+
+	}
+
+	function	BlancheRenderUser(scene)
+	{
+		local	ship_position = ItemGetWorldPosition(player_item)
+		local	vector_front = ship_direction
+		RendererDrawLineColored(g_render, ship_position, ship_position + vector_front.Scale(10.0), Vector(0.1,1.0,0.25))
+	}
+
+
 	constructor(_scene)
 	{
 		scene = _scene
 		ship_direction = g_zero_vector
 		mouse_device = GetInputDevice("mouse")
-		control_function = NewOrbitControl
+		keyboard_device = GetInputDevice("keyboard")
+
+		callbacks = {control_function = "NewOrbitControl",	render_function = "NewOrbitRenderUser"}
+//		callbacks = {control_function = "BlancheControl",	render_function = "BlancheRenderUser"}
+
+		SceneGetScriptInstance(g_scene).render_user_callback.append(this)
 	}
 }
