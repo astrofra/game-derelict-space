@@ -31,7 +31,6 @@ class	ShipControl
 		mx = DeviceInputValue(mouse_device, DeviceAxisX)
 		my = DeviceInputValue(mouse_device, DeviceAxisY)
 
-		player_item = SceneGetScriptInstance(scene).player_item
 		ship_screen_position = CameraWorldToScreen(SceneGetScriptInstance(scene).camera_handler.camera, g_render, ItemGetPosition(player_item))
 
 		this[callbacks.control_function]()
@@ -67,6 +66,13 @@ class	ShipControl
 		RendererDrawLineColored(g_render, ship_position, ship_position + vector_front.Scale(1 + ItemGetScriptInstance(player_item).thrust), Vector(0.1,1.0,0.25))
 	}
 
+	function	NewOrbitShipSettings()
+	{
+		ItemGetScriptInstance(player_item).max_angular_speed = 90.0
+		ItemGetScriptInstance(player_item).SetAngularDamping(1.0)
+	}
+
+
 	/*
 		Pascal Blanche Scheme	
 	*/
@@ -88,6 +94,12 @@ class	ShipControl
 
 	}
 
+	function	BlancheShipSettings()
+	{
+		ItemGetScriptInstance(player_item).max_angular_speed = 10.0
+		ItemGetScriptInstance(player_item).SetAngularDamping(0.1)
+	}
+
 	function	BlancheRenderUser(scene)
 	{
 		local	ship_position = ItemGetWorldPosition(player_item)
@@ -102,10 +114,14 @@ class	ShipControl
 		ship_direction = g_zero_vector
 		mouse_device = GetInputDevice("mouse")
 		keyboard_device = GetInputDevice("keyboard")
+		player_item = SceneGetScriptInstance(scene).player_item
 
-		callbacks = {control_function = "NewOrbitControl",	render_function = "NewOrbitRenderUser"}
-//		callbacks = {control_function = "BlancheControl",	render_function = "BlancheRenderUser"}
+//		callbacks = {control_function = "NewOrbitControl",	render_function = "NewOrbitRenderUser"}
+		callbacks = {control_function = "BlancheControl",	render_function = "BlancheRenderUser", settings_function = "BlancheShipSettings"}
 
 		SceneGetScriptInstance(g_scene).render_user_callback.append(this)
+
+		if ("settings_function" in callbacks)
+			this[callbacks.settings_function]()
 	}
 }
