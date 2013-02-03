@@ -39,7 +39,7 @@ class	SceneGame	extends SceneGameBase
 		camera_handler.OffsetCameraY(mouse_wheel * Mtr(-15.0))
 		starfield_handler.SetSize(camera_handler.target_pos_offset.y)
 
-		camera_handler.Update(player_item)
+		//camera_handler.Update(player_item)
 	}
 
 	function	OnRenderUser(scene)
