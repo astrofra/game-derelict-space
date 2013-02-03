@@ -38,6 +38,15 @@ class	Ship	extends	PhysicItemXZPlane
 		thrust	= Max(thrust -= g_dt_frame * 15.0, 0.0)
 		foreach(_trail in trails)
 			_trail.RecordPoint()
+
+		UpdateLabel(item)
+	}
+
+	function	UpdateLabel(item)
+	{
+		local	_script = ItemGetScriptInstanceFromClass(item, "ItemLabel3D")
+		if ("label" in _script)
+			_script.label = "Speed = " + linear_velocity.Len().tointeger().tostring() + " m/s\nRot = " + RadianToDegree(orientation.y).tointeger().tostring() + " deg."
 	}
 
 	function	OnPhysicStep(item, dt)
@@ -115,7 +124,7 @@ class	Ship	extends	PhysicItemXZPlane
 
 		//	Physics Settings Control UI
 		local	top_window = g_WindowsManager.CreateVerticalSizer(0, 1000)		
-		top_window.SetPos(Vector(0, 120, 0))
+		top_window.SetPos(Vector(256, 8, 0))
 
 		g_WindowsManager.CreateSliderButton(top_window, tr("Inertie"), 0.0, 1.0, 0.05, linear_damping, this, "SliderSetLinearDamping")
 		g_WindowsManager.CreateSliderButton(top_window, tr("Poussée"), 0.0, 100.0, 5.0, max_thrust, this, "SliderSetMaxThrust")

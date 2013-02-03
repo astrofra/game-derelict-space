@@ -17,6 +17,7 @@ class	ShipControl
 	my						=	0
 
 	callbacks				=	0		//	The current function that handles the control scheme
+	current_callback_index	=	0
 
 	ship_direction			=	0
 	ship_screen_position	=	0
@@ -34,13 +35,13 @@ class	ShipControl
 		if(!g_WindowsManager.mouse_locked_by_ui)
 		{
 			ship_screen_position = CameraWorldToScreen(SceneGetScriptInstance(scene).camera_handler.camera, g_render, ItemGetPosition(player_item))
-			this[callbacks.control_function]()
+			if ("control_function" in callbacks[current_callback_index])	this[callbacks[current_callback_index].control_function]()
 		}
 	}
 
 	function	RenderUser(scene)
 	{
-		this[callbacks.render_function](scene)		
+		if ("render_function" in callbacks[current_callback_index])	this[callbacks[current_callback_index].render_function](scene)		
 	}
 
 	/*
@@ -96,12 +97,6 @@ class	ShipControl
 
 	}
 
-	function	BlancheShipSettings()
-	{
-		ItemGetScriptInstance(player_item).max_angular_speed = 10.0
-		ItemGetScriptInstance(player_item).SetAngularDamping(0.1)
-	}
-
 	function	BlancheRenderUser(scene)
 	{
 		local	ship_position = ItemGetWorldPosition(player_item)
@@ -109,6 +104,19 @@ class	ShipControl
 		RendererDrawLineColored(g_render, ship_position, ship_position + vector_front.Scale(10.0), Vector(0.1,1.0,0.25))
 	}
 
+	function	ClickOnControl(_sprite)
+	{
+		print("ShipControl::ClickOnControl() _sprite = " + _sprite)
+
+		foreach(_idx, _callback in callbacks)
+		{
+			_callback.button.RefreshValueText(false)
+			if (_callback.button == _sprite)
+				current_callback_index = _idx
+		}
+
+		_sprite.RefreshValueText(true)
+	}
 
 	constructor(_scene)
 	{
@@ -118,12 +126,22 @@ class	ShipControl
 		keyboard_device = GetInputDevice("keyboard")
 		player_item = SceneGetScriptInstance(scene).player_item
 
-//		callbacks = {control_function = "NewOrbitControl",	render_function = "NewOrbitRenderUser"}
-		callbacks = {control_function = "BlancheControl",	render_function = "BlancheRenderUser", settings_function = "BlancheShipSettings"}
+		callbacks = []
+		callbacks.append({button = 0, name = tr("New Orbit Control"),	control_function = "NewOrbitControl",	render_function = "NewOrbitRenderUser"})
+		callbacks.append({button = 0, name = tr("LaBlanche Control"),	control_function = "BlancheControl",	render_function = "BlancheRenderUser"})
+		callbacks.append({button = 0, name = tr("Null Control")})
+
+		local	top_window = g_WindowsManager.CreateVerticalSizer(0, 1000)
+		top_window.SetPos(Vector(8, 8, 0))
+
+		for(local n = 0; n < callbacks.len();n++)
+		{
+			local	_bt
+ 			_bt = g_WindowsManager.CreateCheckButton(top_window, callbacks[n].name, current_callback_index == n?true:false, this, "ClickOnControl")
+			_bt.authorize_resize = false
+			callbacks[n].button = _bt
+		}
 
 		SceneGetScriptInstance(g_scene).render_user_callback.append(this)
-
-		if ("settings_function" in callbacks)
-			this[callbacks.settings_function]()
 	}
 }
