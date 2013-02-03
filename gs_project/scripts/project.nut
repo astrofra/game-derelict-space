@@ -1,7 +1,14 @@
 /*
 */
+Include("scripts/interface/windows_manager.nut")
+Include("scripts/locale/locale_function.nut")
+Include("scripts/utils/cursor.nut")
 
-g_project_instance		<-	0
+g_project_instance			<-	0
+g_WindowsManager			<-	0
+g_cursor 					<-	0
+
+ProjectLoadUIFontAliased(g_project, "ui/simu_font.ttf", "simu_font")
 
 class	ProjectHandler
 {

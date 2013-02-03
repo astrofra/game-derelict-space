@@ -88,6 +88,9 @@ class	Ship	extends	PhysicItemXZPlane
 			RendererDrawLineColored(g_render, position, position + _F, Vector(0.1,0.2,1.0))
 	}
 
+	function	SliderSetLinearDamping(_sprite, _value)
+	{	base.SetLinearDamping(_value)	}
+
 	/*!
 		@short	OnSetup
 		Called when the item is about to be setup.
@@ -104,6 +107,9 @@ class	Ship	extends	PhysicItemXZPlane
 		orientation = ItemGetRotation(item)
 		target_orientation = clone(orientation)
 		target_direction = clone(vector_front)
+
+		//	Physics Settings Control UI
+		g_WindowsManager.CreateSliderButton(0, tr("Inertie"), 0.0, 1.0, 0.05, 0.1, this, "SliderSetLinearDamping")
 
 		//	Reactor's trails
 		trails = []

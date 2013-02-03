@@ -29,6 +29,8 @@ class	SceneGame	extends SceneGameBase
 	*/
 	function	OnUpdate(scene)
 	{
+		if ("OnUpdate" in base)	base.OnUpdate(scene)
+
 		local	mouse_device = GetInputDevice("mouse")
 	
 		ship_control_handler.Update()
@@ -55,7 +57,7 @@ class	SceneGame	extends SceneGameBase
 	*/
 	function	OnSetup(scene)
 	{
-		base.OnSetup(scene)
+		if ("OnSetup" in base)	base.OnSetup(scene)
 		render_user_callback = []
 
 		camera_handler = CameraGame(scene)

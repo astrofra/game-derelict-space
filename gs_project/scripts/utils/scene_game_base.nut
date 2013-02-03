@@ -15,6 +15,19 @@ class	SceneGameBase
 	*/
 	function	OnSetup(scene)
 	{
+		//	UI
+		g_cursor = CCursor()
+		g_cursor.Setup()
+		g_cursor.ui = SceneGetUI(scene)
+		g_WindowsManager = WindowsManager()
+		g_WindowsManager.current_ui = SceneGetUI(scene)
+
+		//	Physic
 		SceneSetGravity(scene, Vector(0,0,0))
+	}
+
+	function	OnUpdate(scene)
+	{
+		if (g_cursor != 0)	g_cursor.Update()
 	}
 }
