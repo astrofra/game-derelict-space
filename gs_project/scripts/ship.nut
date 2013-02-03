@@ -91,6 +91,10 @@ class	Ship	extends	PhysicItemXZPlane
 
 	function	SliderSetLinearDamping(_sprite, _value)
 	{	base.SetLinearDamping(_value)	}
+	function	SliderSetMaxThrust(_sprite, _value)
+	{	max_thrust = _value	}
+	function	SliderSetMaxAngularSpeed(_sprite, _value)
+	{	max_angular_speed = _value	}
 
 	/*!
 		@short	OnSetup
@@ -110,7 +114,12 @@ class	Ship	extends	PhysicItemXZPlane
 		target_direction = clone(vector_front)
 
 		//	Physics Settings Control UI
-		g_WindowsManager.CreateSliderButton(0, tr("Inertie"), 0.0, 1.0, 0.05, 0.1, this, "SliderSetLinearDamping")
+		local	top_window = g_WindowsManager.CreateVerticalSizer(0, 1000)		
+		top_window.SetPos(Vector(0, 120, 0))
+
+		g_WindowsManager.CreateSliderButton(top_window, tr("Inertie"), 0.0, 1.0, 0.05, linear_damping, this, "SliderSetLinearDamping")
+		g_WindowsManager.CreateSliderButton(top_window, tr("Poussée"), 0.0, 100.0, 5.0, max_thrust, this, "SliderSetMaxThrust")
+		g_WindowsManager.CreateSliderButton(top_window, tr("Rotation"), 0.0, 180.0, 1.0, max_angular_speed, this, "SliderSetMaxAngularSpeed")
 
 		//	Reactor's trails
 		trails = []
