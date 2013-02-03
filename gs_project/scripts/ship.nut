@@ -33,6 +33,7 @@ class	Ship	extends	PhysicItemXZPlane
 	function	OnUpdate(item)
 	{
 		if ("OnUpdate" in base)	base.OnUpdate(item)
+
 		orientation = ItemGetRotation(item)
 		thrust	= Max(thrust -= g_dt_frame * 15.0, 0.0)
 		foreach(_trail in trails)
@@ -41,7 +42,7 @@ class	Ship	extends	PhysicItemXZPlane
 
 	function	OnPhysicStep(item, dt)
 	{
-		base.OnPhysicStep(item, dt)
+		if ("OnPhysicStep" in base)	base.OnPhysicStep(item, dt)
 
 		local	body_matrix = ItemGetMatrix(item)
 		vector_front = body_matrix.GetFront()

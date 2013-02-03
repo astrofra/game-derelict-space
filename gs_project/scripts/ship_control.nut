@@ -31,9 +31,11 @@ class	ShipControl
 		mx = DeviceInputValue(mouse_device, DeviceAxisX)
 		my = DeviceInputValue(mouse_device, DeviceAxisY)
 
-		ship_screen_position = CameraWorldToScreen(SceneGetScriptInstance(scene).camera_handler.camera, g_render, ItemGetPosition(player_item))
-
-		this[callbacks.control_function]()
+		if(!g_WindowsManager.mouse_locked_by_ui)
+		{
+			ship_screen_position = CameraWorldToScreen(SceneGetScriptInstance(scene).camera_handler.camera, g_render, ItemGetPosition(player_item))
+			this[callbacks.control_function]()
+		}
 	}
 
 	function	RenderUser(scene)
