@@ -28,6 +28,7 @@ class	Trails
 		point_list = []
 		base_color = _color
 		record_clock = g_clock
+		half_width = ItemGetScale(item).x * 0.5
 	}
 
 	function	RecordPoint()

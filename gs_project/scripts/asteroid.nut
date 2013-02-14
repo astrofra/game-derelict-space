@@ -16,7 +16,7 @@ class	Asteroid	extends	PhysicItemXZPlane
 	function	OnUpdate(item)
 	{
 		if ("OnUpdate" in base)	base.OnUpdate(item)
-
+return
 		//	F(A->B) = -G * ((mA * mB) / (d^2)) * Vector(A,B) 
 		local	F = g_zero_vector
 		local	player_mass = ItemGetMass(player_item)

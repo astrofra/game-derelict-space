@@ -16,7 +16,7 @@ class	Ship	extends	PhysicItemXZPlane
 
 	max_speed				=	100.0
 	max_thrust				=	10.0
-	max_angular_speed		=	90.0
+	max_angular_speed		=	45.0
 
 	thrust					=	10.0
 	vector_front			=	0
@@ -67,10 +67,16 @@ class	Ship	extends	PhysicItemXZPlane
 		_torque.y = Clamp(_torque.y, Deg(-max_angular_speed), Deg(max_angular_speed))
 
 		local	_acc_feedback = RangeAdjust(Abs(_torque.y), Deg(max_angular_speed * 1.5), Deg(0.0), 0.0, 1.0)
-		_acc_feedback = Pow(Clamp(_acc_feedback, 0.0, 1.0), 4.0)	
+		_acc_feedback = Pow(Clamp(_acc_feedback, 0.0, 1.0), 4.0)
 		_torque -= ItemGetAngularVelocity(item).Scale(_acc_feedback)
 
-		ItemApplyTorque(item, _torque.Scale(100.0 * mass))
+		//	Velocity contribution
+		local	_vel_factor = linear_velocity.Len()
+		_vel_factor = RangeAdjust(_vel_factor, 5.0, 10.0, 0.0, 1.0)
+		_vel_factor = Clamp(_vel_factor, 0.0, 1.0)
+print("_vel_factor = " + _vel_factor)
+
+		ItemApplyTorque(item, _torque.Scale(100.0 * mass * _vel_factor))
 
 		//	Camera Update
 		SceneGetScriptInstance(g_scene).camera_handler.Update(SceneGetScriptInstance(g_scene).player_item)
@@ -128,7 +134,7 @@ class	Ship	extends	PhysicItemXZPlane
 
 		g_WindowsManager.CreateSliderButton(top_window, tr("Inertie"), 0.0, 1.0, 0.05, linear_damping, this, "SliderSetLinearDamping")
 		g_WindowsManager.CreateSliderButton(top_window, tr("Poussée"), 0.0, 100.0, 5.0, max_thrust, this, "SliderSetMaxThrust")
-		g_WindowsManager.CreateSliderButton(top_window, tr("Rotation"), 0.0, 180.0, 1.0, max_angular_speed, this, "SliderSetMaxAngularSpeed")
+		g_WindowsManager.CreateSliderButton(top_window, tr("Rotation"), 0.0, 90.0, 0.1, max_angular_speed, this, "SliderSetMaxAngularSpeed")
 
 		//	Reactor's trails
 		trails = []
