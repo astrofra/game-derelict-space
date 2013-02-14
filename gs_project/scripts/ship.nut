@@ -31,6 +31,9 @@ class	Ship	extends	PhysicItemXZPlane
 	banking_item			=	0
 	trails					=	0
 
+	samples					=	0
+	channels				=	0
+
 	/*!
 		@short	OnUpdate
 		Called during the scene update, each frame.
@@ -47,6 +50,8 @@ class	Ship	extends	PhysicItemXZPlane
 			_trail.RecordPoint()
 
 		UpdateLabel(item)
+
+		UpdateAudio()
 	}
 
 	function	UpdateLabel(item)
@@ -64,6 +69,16 @@ class	Ship	extends	PhysicItemXZPlane
 		local	_angle = banking
 		_angle = Clamp(banking, -180.0, 180.0)
 		ItemSetRotation(banking_item, Vector(0,0,DegreeToRadian(_angle)))
+	}
+
+	function	UpdateAudio()
+	{
+		local	_speed = RangeAdjust(thrust, 0.0, max_thrust, 0.0, 1.0)
+		local	_gain = Clamp(_speed, 0.1, 1.0)
+		local	_pitch = Clamp(RangeAdjust(_speed, 0.0, 1.0, 0.8, 1.2), 0.8, 1.2)
+		MixerChannelSetGain(g_mixer, channels["ship_reactor"], _gain)
+		MixerChannelSetPitch(g_mixer, channels["ship_reactor"], _pitch)
+		
 	}
 
 	function	OnPhysicStep(item, dt)
@@ -98,8 +113,7 @@ class	Ship	extends	PhysicItemXZPlane
 		local	_dot = 1.0 - vector_front.Normalize().Dot(linear_velocity.Normalize())
 		local	_cross = vector_front.Normalize().Cross(linear_velocity.Normalize())
 		if (_cross.y > 0.0) _dot *= -1.0
-print("_dot   = " + _dot)
-print("_cross = " + _cross.y)
+
 		side_force = body_matrix.GetLeft().Scale(_dot * 50.0)
 		target_banking = _dot * linear_velocity.Len()
 
@@ -137,6 +151,13 @@ print("_cross = " + _cross.y)
 	function	SliderSetMaxAngularSpeed(_sprite, _value)
 	{	max_angular_speed = _value	}
 
+	function	LoadSample(_filename)
+	{
+		local	_fname = "sfx/" + _filename + ".wav"
+		if (FileExists(_fname))
+			samples.rawset(_filename, ResourceFactoryLoadSound(g_factory, _fname))
+	}
+
 	/*!
 		@short	OnSetup
 		Called when the item is about to be setup.
@@ -173,5 +194,12 @@ print("_cross = " + _cross.y)
 			if (ItemGetName(_child) == "trail")	trails.append(Trails(_child))
 
 		SceneGetScriptInstance(g_scene).render_user_callback.append(this)
+
+		samples = {}
+		channels = {}
+
+		LoadSample("ship_reactor")
+		channels.rawset("ship_reactor", MixerSoundStart(g_mixer, samples["ship_reactor"]))
+		MixerChannelSetLoopMode(g_mixer, channels["ship_reactor"], LoopRepeat)
 	}
 }
