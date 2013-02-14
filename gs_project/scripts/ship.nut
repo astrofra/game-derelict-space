@@ -24,6 +24,11 @@ class	Ship	extends	PhysicItemXZPlane
 	target_orientation		=	0
 	target_direction		=	0
 
+	side_force				=	0
+	banking					=	0.0
+	target_banking			=	0.0
+
+	banking_item			=	0
 	trails					=	0
 
 	/*!
@@ -34,6 +39,8 @@ class	Ship	extends	PhysicItemXZPlane
 	{
 		if ("OnUpdate" in base)	base.OnUpdate(item)
 
+		UpdateBanking()
+		
 		orientation = ItemGetRotation(item)
 		thrust	= Max(thrust -= g_dt_frame * 15.0, 0.0)
 		foreach(_trail in trails)
@@ -47,6 +54,16 @@ class	Ship	extends	PhysicItemXZPlane
 		local	_script = ItemGetScriptInstanceFromClass(item, "ItemLabel3D")
 		if ("label" in _script)
 			_script.label = "Speed = " + linear_velocity.Len().tointeger().tostring() + " m/s\nRot = " + RadianToDegree(orientation.y).tointeger().tostring() + " deg."
+	}
+
+	function	UpdateBanking()
+	{
+		local	_dt = target_banking - banking
+		_dt *= g_dt_frame
+		banking += _dt
+		local	_angle = banking
+		_angle = Clamp(banking, -180.0, 180.0)
+		ItemSetRotation(banking_item, Vector(0,0,DegreeToRadian(_angle)))
 	}
 
 	function	OnPhysicStep(item, dt)
@@ -74,9 +91,17 @@ class	Ship	extends	PhysicItemXZPlane
 		local	_vel_factor = linear_velocity.Len()
 		_vel_factor = RangeAdjust(_vel_factor, 5.0, 10.0, 0.0, 1.0)
 		_vel_factor = Clamp(_vel_factor, 0.0, 1.0)
-print("_vel_factor = " + _vel_factor)
 
 		ItemApplyTorque(item, _torque.Scale(100.0 * mass * _vel_factor))
+
+		//	Banking
+		local	_dot = 1.0 - vector_front.Normalize().Dot(linear_velocity.Normalize())
+		local	_cross = vector_front.Normalize().Cross(linear_velocity.Normalize())
+		if (_cross.y > 0.0) _dot *= -1.0
+print("_dot   = " + _dot)
+print("_cross = " + _cross.y)
+		side_force = body_matrix.GetLeft().Scale(_dot * 50.0)
+		target_banking = _dot * linear_velocity.Len()
 
 		//	Camera Update
 		SceneGetScriptInstance(g_scene).camera_handler.Update(SceneGetScriptInstance(g_scene).player_item)
@@ -99,6 +124,7 @@ print("_vel_factor = " + _vel_factor)
 
 		local	ship_position = ItemGetWorldPosition(body)
 		RendererDrawLine(g_render, ship_position, ship_position + linear_velocity)
+		RendererDrawLine(g_render, ship_position, ship_position + side_force)
 
 		foreach(_F in attraction_forces_list)
 			RendererDrawLineColored(g_render, position, position + _F, Vector(0.1,0.2,1.0))
@@ -119,7 +145,10 @@ print("_vel_factor = " + _vel_factor)
 	{
 		base.OnSetup(item)
 
-		vector_front = g_zero_vector
+		banking_item = ItemGetChild(item, "ship_banking")
+
+		vector_front = clone(g_zero_vector)
+		side_force = clone(g_zero_vector)
 		
 		base.SetLinearDamping(0.1)
 		base.SetAngularDamping(1.0)
@@ -138,7 +167,8 @@ print("_vel_factor = " + _vel_factor)
 
 		//	Reactor's trails
 		trails = []
-		local	_list = ItemGetChildList(item)
+		local	_list = ItemGetChildList(banking_item)
+		if (_list.len() == 0)	_list = ItemGetChildList(item)
 		foreach(_child in _list)
 			if (ItemGetName(_child) == "trail")	trails.append(Trails(_child))
 
