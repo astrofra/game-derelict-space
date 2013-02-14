@@ -8,6 +8,9 @@ Include("scripts/camera_game.nut")
 Include("scripts/starfield.nut")
 Include("scripts/ship_control.nut")
 
+if (!("ship_name" in getroottable()))
+	ship_name				<-	"ship_0"
+
 /*!
 	@short	SceneGame
 	@author	P. Blanche - F. Gutherz
@@ -20,6 +23,9 @@ class	SceneGame	extends SceneGameBase
 	ship_control_handler	=	0
 
 	ship_direction			=	0
+
+	ship_group				=	0
+	ships					=	0
 
 	render_user_callback	=	0
 
@@ -51,6 +57,55 @@ class	SceneGame	extends SceneGameBase
 			_callback["RenderUser"](scene)
 	}
 
+	function	ShipSelectorMenu()
+	{
+		local	top_window = g_WindowsManager.CreateVerticalSizer(0, 1000)
+		top_window.SetPos(Vector(8, 256, 0))
+
+		ships = []
+		ships.append({name = "ship_0", button = 0})
+		ships.append({name = "frigate_0", button = 0})
+		ships.append({name = "frigate_1", button = 0})
+		ships.append({name = "frigate_2", button = 0})
+
+		for(local n = 0; n < ships.len();n++)
+		{
+			local	_bt
+ 			_bt = g_WindowsManager.CreateCheckButton(top_window, ships[n].name, ship_name == ships[n].name?true:false, this, "ClickOnShip")
+			_bt.authorize_resize = false
+			ships[n].button = _bt
+		}
+	}
+
+	function	ClickOnShip(_sprite)
+	{
+		foreach(_idx, _ship in ships)
+		{
+			_ship.button.RefreshValueText(false)
+			if (_ship.button == _sprite)
+				ship_name = _ship.name
+		}
+
+		_sprite.RefreshValueText(true)
+
+		SceneEnd(g_scene)
+		ProjectGetScriptInstance(g_project).dispatch =  ProjectGetScriptInstance(g_project).ReloadScene
+	}
+
+	function	SpawnShip(scene)
+	{
+		if (ship_group != 0)
+			SceneDeleteGroup(scene, ship_group)
+
+		local	spawnpoint = SceneFindItem(scene, "spawnpoint")
+		ship_group = SceneLoadAndStoreGroup(scene, "assets/" + ship_name + ".nms", ImportFlagAll & ~ImportFlagGlobals)
+		GroupRenderSetup(ship_group, g_factory)
+		player_item = GroupFindItem(ship_group, "ship")
+		local	_list = GroupGetItemList(ship_group)
+//		foreach(_item in _list)
+//			SceneSetupItem(scene, _item)
+	}
+
 	/*!
 		@short	OnSetup
 		Called when the scene is about to be setup.
@@ -60,8 +115,11 @@ class	SceneGame	extends SceneGameBase
 		if ("OnSetup" in base)	base.OnSetup(scene)
 		render_user_callback = []
 
+		ShipSelectorMenu()
+
 		camera_handler = CameraGame(scene)
-		player_item = SceneFindItem(scene, "ship")
+		SpawnShip(scene)
+//		player_item = SceneFindItem(scene, "ship")
 		ship_control_handler = ShipControl(scene)
 		starfield_handler = Starfield()
 

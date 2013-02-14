@@ -16,7 +16,7 @@ class	Ship	extends	PhysicItemXZPlane
 
 	max_speed				=	100.0
 	max_thrust				=	10.0
-	max_angular_speed		=	45.0
+	max_angular_speed		=	5.0
 
 	thrust					=	10.0
 	vector_front			=	0
@@ -52,6 +52,11 @@ class	Ship	extends	PhysicItemXZPlane
 		UpdateLabel(item)
 
 		UpdateAudio()
+	}
+
+	function	OnDelete(item)
+	{
+		MixerChannelStop(g_mixer,  channels["ship_reactor"])
 	}
 
 	function	UpdateLabel(item)
@@ -138,7 +143,7 @@ class	Ship	extends	PhysicItemXZPlane
 
 		local	ship_position = ItemGetWorldPosition(body)
 		RendererDrawLine(g_render, ship_position, ship_position + linear_velocity)
-		RendererDrawLine(g_render, ship_position, ship_position + side_force)
+//		RendererDrawLine(g_render, ship_position, ship_position + side_force)
 
 		foreach(_F in attraction_forces_list)
 			RendererDrawLineColored(g_render, position, position + _F, Vector(0.1,0.2,1.0))
@@ -166,12 +171,14 @@ class	Ship	extends	PhysicItemXZPlane
 	{
 		base.OnSetup(item)
 
+		thrust					=	10.0
+
 		banking_item = ItemGetChild(item, "ship_banking")
 
 		vector_front = clone(g_zero_vector)
 		side_force = clone(g_zero_vector)
 		
-		base.SetLinearDamping(0.1)
+		base.SetLinearDamping(0.5)
 		base.SetAngularDamping(1.0)
 
 		orientation = ItemGetRotation(item)
@@ -189,7 +196,6 @@ class	Ship	extends	PhysicItemXZPlane
 		//	Reactor's trails
 		trails = []
 		local	_list = ItemGetChildList(banking_item)
-		if (_list.len() == 0)	_list = ItemGetChildList(item)
 		foreach(_child in _list)
 			if (ItemGetName(_child) == "trail")	trails.append(Trails(_child))
 

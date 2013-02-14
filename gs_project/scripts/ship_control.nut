@@ -71,7 +71,7 @@ class	ShipControl
 
 	function	NewOrbitShipSettings()
 	{
-		ItemGetScriptInstance(player_item).max_angular_speed = 45.0
+		ItemGetScriptInstance(player_item).max_angular_speed = 5.0
 		ItemGetScriptInstance(player_item).SetAngularDamping(1.0)
 	}
 

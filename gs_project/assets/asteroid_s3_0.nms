@@ -1,5 +1,6 @@
 <Version=1.0>
 <Scene=
+	<SceneMotionContainer>
 	<Items=
 		<MObject=
 			<MItem=
@@ -16,12 +17,12 @@
 								<BinaryKeys=
 									<Count=21>
 									<Data==426:420@
-****Xçå\XçåÝ×3Q**ªi÷övgXçå\XçåÝ×3Q**ªi÷öögXçå\XçåÝ×3Q**ªiÄÃCh
-Xçå\XçåÝ×3Q**ªi÷övhXçå\XçåÝ×3Q**ªi**ªhXçå\XçåÝ×3Q**ªiÄÃÃhXçå\
-XçåÝ×3Q**ªi]]ÝhXçå\XçåÝ×3Q**ªi÷ööhXçå\XçåÝ×3Q**ªihXçå\XçåÝ
-×3Q**ªi***iXçå\XçåÝ×3Q**ªi÷ö6iXçå\XçåÝ×3Q**ªiÄÃCiXçå\XçåÝ×3Q
+****Xçå\XçåÝ×3Q**ªiöövgXçå\XçåÝ×3Q**ªiööögXçå\XçåÝ×3Q**ªiÃÃCh
+Xçå\XçåÝ×3Q**ªiöövhXçå\XçåÝ×3Q**ªi**ªhXçå\XçåÝ×3Q**ªiÃÃÃhXçå\
+XçåÝ×3Q**ªi]]ÝhXçå\XçåÝ×3Q**ªiöööhXçå\XçåÝ×3Q**ªihXçå\XçåÝ
+×3Q**ªi***iXçå\XçåÝ×3Q**ªi÷ö6iXçå\XçåÝ×3Q**ªiÃÃCiXçå\XçåÝ×3Q
 **ªiPiXçå\XçåÝ×3Q**ªi]]]iXçå\XçåÝ×3Q**ªi**jiXçå\XçåÝ×3Q**ªi
-÷öviXçå\XçåÝ×3Q**ªiÄÃƒiXçå\XçåÝ×3Q**ªiiXçå\XçåÝ×3Q**ªi]]i
+ööviXçå\XçåÝ×3Q**ªiÃÃƒiXçå\XçåÝ×3Q**ªiiXçå\XçåÝ×3Q**ªi]]i
 Xçå\XçåÝ×3Q**ªi**ªiXçå\XçåÝ×3Q**ªi>
 								>
 							>
@@ -127,7 +128,7 @@ Xçå\XçåÝ×3Q**ªi**ªiXçå\XçåÝ×3Q**ªi>
 								<Z=1.000000>
 							>
 							<Mesh="assets/asteroid_s3_0.nmg">
-							<Mass=100000.000000>
+							<Mass=20.000000>
 							<StaticFriction=0.500000>
 							<DynamicFriction=0.500000>
 							<Restitution=0.500000>

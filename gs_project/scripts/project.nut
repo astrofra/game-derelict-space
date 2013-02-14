@@ -42,6 +42,15 @@ class	ProjectHandler
 
 		dispatch = MainUpdate
 	}
+
+	function	ReloadScene(project)
+	{
+		if (scene != 0)	
+		{
+			ProjectUnloadScene(project, scene)
+		}
+		dispatch =  LoadScene
+	}
 	
 	function	MainUpdate(project)
 	{
