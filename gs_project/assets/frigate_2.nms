@@ -107,6 +107,7 @@ Xçå\***ª******ªi**ªiXçå\***ª******ªi>
 						<Y=1.570796>
 						<Z=0.000000>
 					>
+					<ItemFlag>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
@@ -341,6 +342,7 @@ Xçå\***ª******ªi**ªiXçå\***ª******ªi>
 						<Y=1.000000>
 						<Z=1.000000>
 					>
+					<ItemFlag>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
@@ -356,7 +358,7 @@ Xçå\***ª******ªi**ªiXçå\***ª******ªi>
 		<MLight=
 			<MItem=
 				<Id="New Light">
-				<UId=5>
+				<UId=4>
 				<Active>
 				<Helper>
 				<Priority=1.000000>
@@ -429,7 +431,7 @@ Xçå\***ª******ªi**ªiXçå\***ª******ªi>
 		<MObject=
 			<MItem=
 				<Id="trail">
-				<UId=8>
+				<UId=5>
 				<Active>
 				<Priority=0.500000>
 				<MotionPlayer=
@@ -458,6 +460,7 @@ Xçå\***ª******ªi**ªiXçå\***ª******ªi>
 						<Y=1.000000>
 						<Z=1.000000>
 					>
+					<ItemFlag>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
@@ -473,7 +476,7 @@ Xçå\***ª******ªi**ªiXçå\***ª******ªi>
 		<MObject=
 			<MItem=
 				<Id="trail">
-				<UId=10>
+				<UId=6>
 				<Active>
 				<Priority=0.500000>
 				<MotionPlayer=
@@ -515,22 +518,60 @@ Xçå\***ª******ªi**ªiXçå\***ª******ªi>
 				<CacheGeometry=True>
 			>
 		>
+		<MObject=
+			<MItem=
+				<Id="ship_banking">
+				<UId=7>
+				<Active>
+				<Priority=0.500000>
+				<MotionPlayer=
+					<Motions>
+				>
+				<PhysicItem=
+					<SelfMask=1>
+					<Mask=1>
+					<LinearDamping_v2=1.000000>
+					<AngularDamping_v2=1.000000>
+					<CharacterRadius=1.000000>
+					<CharacterHeight=1.000000>
+					<CharacterMaxStep=0.200000>
+					<Mode="None">
+				>
+			>
+			<Object=
+				<Item=
+					<Target=
+						<X=0.000000>
+						<Y=0.000000>
+						<Z=1.000000>
+					>
+					<RotationOrder="YXZ">
+					<Registry>
+				>
+				<Geometry="">
+				<CacheGeometry=True>
+			>
+		>
 	>
 	<Links=
 		<Link=
 			<Item=0>
-			<Link=2>
+			<Link=7>
 		>
 		<Link=
 			<Item=3>
-			<Link=2>
+			<Link=7>
 		>
 		<Link=
-			<Item=8>
-			<Link=2>
+			<Item=5>
+			<Link=7>
 		>
 		<Link=
-			<Item=10>
+			<Item=6>
+			<Link=7>
+		>
+		<Link=
+			<Item=7>
 			<Link=2>
 		>
 	>
