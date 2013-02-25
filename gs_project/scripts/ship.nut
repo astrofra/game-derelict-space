@@ -86,6 +86,12 @@ class	Ship	extends	PhysicItemXZPlane
 		
 	}
 
+	function	SfxSetOrientationTarget()
+	{
+		local	_chan = MixerSoundStart(g_mixer, samples["gui_up_down"])
+		MixerChannelSetGain(g_mixer, _chan, 0.25)
+	}
+
 	function	OnPhysicStep(item, dt)
 	{
 		if ("OnPhysicStep" in base)	base.OnPhysicStep(item, dt)
@@ -207,5 +213,7 @@ class	Ship	extends	PhysicItemXZPlane
 		LoadSample("ship_reactor")
 		channels.rawset("ship_reactor", MixerSoundStart(g_mixer, samples["ship_reactor"]))
 		MixerChannelSetLoopMode(g_mixer, channels["ship_reactor"], LoopRepeat)
+
+		LoadSample("gui_up_down")
 	}
 }

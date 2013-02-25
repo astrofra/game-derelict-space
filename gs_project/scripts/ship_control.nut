@@ -95,6 +95,7 @@ class	ShipControl
 			target_direction = clone(ship_direction)
 			local	ship_euler = EulerFromDirection(target_direction)
 			ItemGetScriptInstance(player_item).SetOrientation(ship_euler)
+			ItemGetScriptInstance(player_item).SfxSetOrientationTarget()
 		}
 
 		display_target_dir += (target_direction - display_target_dir).Scale(10.0 * g_dt_frame)
