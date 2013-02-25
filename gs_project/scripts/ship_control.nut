@@ -22,6 +22,8 @@ class	ShipControl
 	current_callback_index	=	0
 
 	ship_direction			=	0
+	target_direction		=	0
+	display_target_dir		=	0
 	ship_screen_position	=	0
 	player_item				=	0
 
@@ -88,11 +90,15 @@ class	ShipControl
 		ship_direction.z = -(my - ship_screen_position.y)
 		ship_direction = ship_direction.Normalize()
 
-		if( DeviceIsKeyDown(mouse_device, KeyButton0))
+		if(DeviceKeyPressed(mouse_device, KeyButton0) && !DeviceWasKeyDown(mouse_device, KeyButton0))
 		{
-			local	ship_euler = EulerFromDirection(ship_direction)
+			target_direction = clone(ship_direction)
+			local	ship_euler = EulerFromDirection(target_direction)
 			ItemGetScriptInstance(player_item).SetOrientation(ship_euler)
 		}
+
+		display_target_dir += (target_direction - display_target_dir).Scale(10.0 * g_dt_frame)
+		display_target_dir = display_target_dir.Normalize()
 
 		if (DeviceIsKeyDown(keyboard_device, KeySpace))
 			ItemGetScriptInstance(player_item).SetThrustUp()
@@ -105,7 +111,7 @@ class	ShipControl
 		local	vector_front = ship_direction
 		//RendererDrawLineColored(g_render, ship_position, ship_position + vector_front.Scale(10.0), g_vector_green)
 		DrawCircleInXZPlane(ship_position, Mtr(10.0), g_vector_green, 15.0)
-		DrawArrowInXZPlane(ship_position + vector_front.Scale(9.75), vector_front, Mtr(1.0), g_vector_green)
+		DrawArrowInXZPlane(ship_position + display_target_dir.Scale(9.75), display_target_dir, Mtr(1.0), g_vector_green)
 	}
 
 	function	BlancheShipSettings()
@@ -131,7 +137,9 @@ class	ShipControl
 	constructor(_scene)
 	{
 		scene = _scene
-		ship_direction = g_zero_vector
+		ship_direction = Vector(0,0,1)
+		target_direction = Vector(0,0,1)
+		display_target_dir = target_direction
 		mouse_device = GetInputDevice("mouse")
 		keyboard_device = GetInputDevice("keyboard")
 		player_item = SceneGetScriptInstance(scene).player_item
