@@ -3,6 +3,8 @@
 	Author: P. Blanche - F. Gutherz
 */
 
+Include("scripts/utils/utils.nut")
+
 /*!
 	@short	ShipControl
 	@author	P. Blanche - F. Gutherz
@@ -101,7 +103,14 @@ class	ShipControl
 	{
 		local	ship_position = ItemGetWorldPosition(player_item)
 		local	vector_front = ship_direction
-		RendererDrawLineColored(g_render, ship_position, ship_position + vector_front.Scale(10.0), Vector(0.1,1.0,0.25))
+		RendererDrawLineColored(g_render, ship_position, ship_position + vector_front.Scale(10.0), g_vector_green)
+		DrawCircleInXZPlane(ship_position, Mtr(10.0), g_vector_green, 15.0)
+	}
+
+	function	BlancheShipSettings()
+	{
+		ItemGetScriptInstance(player_item).max_angular_speed = 5.0
+		ItemGetScriptInstance(player_item).SetAngularDamping(1.0)
 	}
 
 	function	ClickOnControl(_sprite)
@@ -127,8 +136,8 @@ class	ShipControl
 		player_item = SceneGetScriptInstance(scene).player_item
 
 		callbacks = []
-		callbacks.append({button = 0, name = tr("New Orbit Control"),	control_function = "NewOrbitControl",	render_function = "NewOrbitRenderUser"})
 		callbacks.append({button = 0, name = tr("LaBlanche Control"),	control_function = "BlancheControl",	render_function = "BlancheRenderUser"})
+		callbacks.append({button = 0, name = tr("New Orbit Control"),	control_function = "NewOrbitControl",	render_function = "NewOrbitRenderUser"})
 		callbacks.append({button = 0, name = tr("Null Control")})
 
 		local	top_window = g_WindowsManager.CreateVerticalSizer(0, 1000)

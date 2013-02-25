@@ -15,8 +15,8 @@ class	Ship	extends	PhysicItemXZPlane
 
 
 	max_speed				=	100.0
-	max_thrust				=	10.0
-	max_angular_speed		=	5.0
+	max_thrust				=	20.0
+	max_angular_speed		=	1.2
 
 	thrust					=	10.0
 	vector_front			=	0
@@ -171,7 +171,7 @@ class	Ship	extends	PhysicItemXZPlane
 	{
 		base.OnSetup(item)
 
-		thrust					=	10.0
+		thrust					=	0.0
 
 		banking_item = ItemGetChild(item, "ship_banking")
 

@@ -3,6 +3,25 @@
 _OUTPUT_ERROR_		<-	1
 _OUTPUT_INFO_		<-	0
 
+g_vector_green		<-	Vector(0.1,1.0,0.25)
+
+function	DrawCircleInXZPlane(_pos = Vector(0,0,0), _radius = Mtr(1.0), _color = Vector(1,1,1), _step = 5.0)
+{
+	local	a, _point, _prev_point = -1
+	for(a = 0.0; a <= 360.0; a += _step)
+	{
+		_point = clone(_pos)
+		_point.x += cos(Deg(a)) * _radius
+		_point.z += sin(Deg(a)) * _radius
+
+		if (_prev_point != -1)
+			RendererDrawLineColored(g_render, _point, _prev_point, _color)
+
+		_prev_point = clone(_point)
+	}
+		
+}
+
 //----------------------------------
 function	FormatNumberString(s, n)
 {
