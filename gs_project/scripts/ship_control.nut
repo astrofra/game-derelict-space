@@ -103,8 +103,9 @@ class	ShipControl
 	{
 		local	ship_position = ItemGetWorldPosition(player_item)
 		local	vector_front = ship_direction
-		RendererDrawLineColored(g_render, ship_position, ship_position + vector_front.Scale(10.0), g_vector_green)
+		//RendererDrawLineColored(g_render, ship_position, ship_position + vector_front.Scale(10.0), g_vector_green)
 		DrawCircleInXZPlane(ship_position, Mtr(10.0), g_vector_green, 15.0)
+		DrawArrowInXZPlane(ship_position + vector_front.Scale(9.75), vector_front, Mtr(1.0), g_vector_green)
 	}
 
 	function	BlancheShipSettings()

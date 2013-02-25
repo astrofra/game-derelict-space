@@ -22,6 +22,15 @@ function	DrawCircleInXZPlane(_pos = Vector(0,0,0), _radius = Mtr(1.0), _color = 
 		
 }
 
+function	DrawArrowInXZPlane(_pos, _direction, _size = Mtr(1.0), _color = Vector(1,1,1))
+{
+		local	a,b,c
+		a = clone(_direction)
+		b = Vector(-a.z, a.y, a.x)
+		c = Vector(a.z, a.y, -a.x)
+		RendererDrawTriangle(g_render,	_pos + a.Scale(_size), _pos + b.Scale(_size), _pos + c.Scale(_size), g_vector_green, g_vector_green, g_vector_green,	MaterialBlendAdd, MaterialRenderDoubleSided | MaterialRenderNoDepthWrite)
+}
+
 //----------------------------------
 function	FormatNumberString(s, n)
 {
