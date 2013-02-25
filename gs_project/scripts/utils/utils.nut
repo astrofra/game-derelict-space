@@ -7,20 +7,30 @@ g_vector_green		<-	Vector(0.1,1.0,0.25)
 
 function	DrawCircleInXZPlane(_pos = Vector(0,0,0), _radius = Mtr(1.0), _color = Vector(1,1,1), _step = 5.0)
 {
-	local	a, _point, _prev_point = -1
-	for(a = 0.0; a <= 360.0; a += _step)
+	local	_point, _prev_point = -1, i
+	local	ct = cos(Deg(_step))
+	local	st = sin(Deg(_step))
+	local	x = _radius, y = 0.0
+
+	for (i = 0.0; i <= 360.0; i += _step)
 	{
+
+		_prev_point = clone(_pos)
+		_prev_point.x += x // * _radius
+		_prev_point.z += y // * _radius
+
+		local tmp = x * ct - y * st
+		y = x * st + y * ct
+		x = tmp
+
 		_point = clone(_pos)
-		_point.x += cos(Deg(a)) * _radius
-		_point.z += sin(Deg(a)) * _radius
+		_point.x += x // * _radius
+		_point.z += y // * _radius
 
-		if (_prev_point != -1)
-			RendererDrawLineColored(g_render, _point, _prev_point, _color)
-
-		_prev_point = clone(_point)
+		RendererDrawLineColored(g_render, _point, _prev_point, _color)
 	}
-		
 }
+
 
 function	DrawArrowInXZPlane(_pos, _direction, _size = Mtr(1.0), _color = Vector(1,1,1))
 {

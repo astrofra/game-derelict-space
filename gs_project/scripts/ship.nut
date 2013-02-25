@@ -72,7 +72,7 @@ class	Ship	extends	PhysicItemXZPlane
 		_dt *= g_dt_frame
 		banking += _dt
 		local	_angle = banking
-		_angle = Clamp(banking, -180.0, 180.0)
+		_angle = -Clamp(banking, -180.0, 180.0)
 		ItemSetRotation(banking_item, Vector(0,0,DegreeToRadian(_angle)))
 	}
 
