@@ -50,5 +50,7 @@ class	CameraGame
 		pos_offset += dt_offset
 
 		ItemSetPosition(camera_item, position + pos_offset)
+		//local	tilt_angle = RangeAdjust(dir.Len(), 0.0, 5.0, 0.0, 15.0)
+		//ItemSetRotation(camera_item, Vector(DegreeToRadian(90.0 + tilt_angle), 0.0, 0.0))
 	}
 }

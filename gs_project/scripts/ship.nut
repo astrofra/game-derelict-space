@@ -4,7 +4,7 @@
 */
 
 Include("scripts/utils/physic_item_xz_plane.nut")
-Include("scripts/utils/trails.nut")
+Include("scripts/utils/trails_sprite.nut")
 
 /*!
 	@short	Ship
@@ -46,12 +46,16 @@ class	Ship	extends	PhysicItemXZPlane
 		
 		orientation = ItemGetRotation(item)
 		thrust	= Max(thrust -= g_dt_frame * 15.0, 0.0)
-		foreach(_trail in trails)
-			_trail.RecordPoint()
 
 		UpdateLabel(item)
 
 		UpdateAudio()
+	}
+
+	function	RecordTrails()
+	{
+		foreach(_trail in trails)
+			_trail.RecordPoint()
 	}
 
 	function	OnDelete(item)
@@ -101,24 +105,28 @@ class	Ship	extends	PhysicItemXZPlane
 
 		ItemApplyLinearForce(item, vector_front.Scale(mass * thrust))
 
-		local	_torque
+		//	Align the ship to the desired orientation
+		//	If the reactor are ON
+		if (thrust > 0.0)
+		{
+			local	_torque
+			_torque = target_orientation - orientation
+			if (_torque.y > Deg(180.0) || _torque.y < Deg(-180.0))
+				_torque = (orientation - target_orientation)
 
-		_torque = target_orientation - orientation
-		if (_torque.y > Deg(180.0) || _torque.y < Deg(-180.0))
-			_torque = (orientation - target_orientation)
+			_torque.y = Clamp(_torque.y, Deg(-max_angular_speed), Deg(max_angular_speed))
 
-		_torque.y = Clamp(_torque.y, Deg(-max_angular_speed), Deg(max_angular_speed))
+			local	_acc_feedback = RangeAdjust(Abs(_torque.y), Deg(max_angular_speed * 1.5), Deg(0.0), 0.0, 1.0)
+			_acc_feedback = Pow(Clamp(_acc_feedback, 0.0, 1.0), 4.0)
+			_torque -= ItemGetAngularVelocity(item).Scale(_acc_feedback)
 
-		local	_acc_feedback = RangeAdjust(Abs(_torque.y), Deg(max_angular_speed * 1.5), Deg(0.0), 0.0, 1.0)
-		_acc_feedback = Pow(Clamp(_acc_feedback, 0.0, 1.0), 4.0)
-		_torque -= ItemGetAngularVelocity(item).Scale(_acc_feedback)
+			//	Velocity contribution
+			local	_vel_factor = linear_velocity.Len()
+			_vel_factor = RangeAdjust(_vel_factor, 5.0, 10.0, 0.0, 1.0)
+			_vel_factor = Clamp(_vel_factor, 0.0, 1.0)
 
-		//	Velocity contribution
-		local	_vel_factor = linear_velocity.Len()
-		_vel_factor = RangeAdjust(_vel_factor, 5.0, 10.0, 0.0, 1.0)
-		_vel_factor = Clamp(_vel_factor, 0.0, 1.0)
-
-		ItemApplyTorque(item, _torque.Scale(100.0 * mass * _vel_factor))
+			ItemApplyTorque(item, _torque.Scale(100.0 * mass * _vel_factor))
+		}
 
 		//	Banking
 		local	_dot = 1.0 - vector_front.Normalize().Dot(linear_velocity.Normalize())
@@ -140,10 +148,13 @@ class	Ship	extends	PhysicItemXZPlane
 	function	SetThrustUp()
 	{
 		thrust	= Min(thrust += g_dt_frame * 60.0, max_thrust)
+		if (thrust > 0.1)	RecordTrails()
 	}
 
 	function	RenderUser(scene)
 	{
+		if ("RenderUser" in base)	base.RenderUser(scene)
+
 		foreach(_trail in trails)
 			_trail.RenderUser(scene)
 
@@ -203,7 +214,7 @@ class	Ship	extends	PhysicItemXZPlane
 		trails = []
 		local	_list = ItemGetChildList(banking_item)
 		foreach(_child in _list)
-			if (ItemGetName(_child) == "trail")	trails.append(Trails(_child))
+			if (ItemGetName(_child) == "trail")	trails.append(TrailsSprite(_child))
 
 		SceneGetScriptInstance(g_scene).render_user_callback.append(this)
 

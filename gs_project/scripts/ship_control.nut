@@ -46,6 +46,9 @@ class	ShipControl
 	function	RenderUser(scene)
 	{
 		if ("render_function" in callbacks[current_callback_index])	this[callbacks[current_callback_index].render_function](scene)		
+//		local	mouse_3d_pos = CameraScreenToWorld(SceneGetScriptInstance(scene).camera_handler.camera, g_render, mx, my)
+//		RendererDrawCross(g_render, mouse_3d_pos)
+//		RendererDrawLine(g_render, ship_screen_position, ship_screen_position + ship_direction.Scale(10.0))
 	}
 
 	/*

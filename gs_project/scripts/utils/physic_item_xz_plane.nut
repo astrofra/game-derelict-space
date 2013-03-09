@@ -17,7 +17,9 @@ class	PhysicItemXZPlane
 	angular_damping				=	0.0
 	position 					= 	0
 	linear_velocity				=	0
+	prev_linear_velocity		=	0
 	angular_velocity			=	0
+	linear_acceleration			=	0
 
 	attraction_forces_list		=	0
 
@@ -28,7 +30,9 @@ class	PhysicItemXZPlane
 		ItemPhysicSetLinearFactor(item, Vector(1,0,1))
 		ItemPhysicSetAngularFactor(item, Vector(0,1,0))
 		linear_velocity = g_zero_vector
+		prev_linear_velocity = g_zero_vector
 		angular_velocity = g_zero_vector
+		linear_acceleration = g_zero_vector
 		position = ItemGetWorldPosition(item)
 		attraction_forces_list = []
 	}
@@ -37,8 +41,9 @@ class	PhysicItemXZPlane
 	{
 		linear_velocity = ItemGetLinearVelocity(item)
 		angular_velocity = ItemGetAngularVelocity(item)
+		linear_acceleration = linear_velocity - prev_linear_velocity
 		position = ItemGetWorldPosition(item)
-
+print("linear_acceleration.x = " + linear_acceleration.x)
 		if (linear_damping > 0.0)
 		{
 			local	_scale = Clamp(linear_damping, 0.0, 1.0) * -1.0 * mass
@@ -55,6 +60,13 @@ class	PhysicItemXZPlane
 			ItemApplyLinearForce(item, _F.Scale(mass))
 
 		attraction_forces_list = []
+
+		prev_linear_velocity = clone(linear_velocity)
+	}
+
+	function	RenderUser(scene)
+	{
+		RendererDrawLineColored(g_render, position, position + linear_acceleration.Scale(10.0), Vector(1,0,1))
 	}
 
 	function	ApplyAttraction(_F)

@@ -118,9 +118,9 @@ class	CCursor
 		cursor_prev_y = temp_y
 
 		//	Actual desktop cursor
-		local	dr = RendererGetViewport(g_render)
+		local	dr = RendererGetOutputDimensions(g_render)
 
-		local	viewport_ar = dr.z / dr.w
+		local	viewport_ar = dr.x / dr.y
 		local	reference_ar = 1280.0 / 960.0
 
 		local	kx = viewport_ar / reference_ar, ky = 1.0
