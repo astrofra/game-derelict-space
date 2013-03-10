@@ -5,6 +5,7 @@ _OUTPUT_INFO_		<-	0
 
 g_vector_green		<-	Vector(0.1,1.0,0.25)
 g_vector_blue		<-	Vector(0.05,0.15,0.5)
+g_vector_cyan		<-	Vector(0.05,0.7,0.75)
 
 function	DrawCircleInXZPlane(_pos = Vector(0,0,0), _radius = Mtr(1.0), _color = Vector(1,1,1), _step = 5.0)
 {

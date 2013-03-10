@@ -17,12 +17,12 @@
 								<BinaryKeys=
 									<Count=21>
 									<Data==426:420@
-****Xçå\XçåÝ×3Q**ªiöövgXçå\XçåÝ×3Q**ªiööögXçå\XçåÝ×3Q**ªiÃÃCh
-Xçå\XçåÝ×3Q**ªiöövhXçå\XçåÝ×3Q**ªi**ªhXçå\XçåÝ×3Q**ªiÃÃÃhXçå\
-XçåÝ×3Q**ªi]]ÝhXçå\XçåÝ×3Q**ªiöööhXçå\XçåÝ×3Q**ªihXçå\XçåÝ
-×3Q**ªi***iXçå\XçåÝ×3Q**ªi÷ö6iXçå\XçåÝ×3Q**ªiÃÃCiXçå\XçåÝ×3Q
+****Xçå\XçåÝ×3Q**ªiõövgXçå\XçåÝ×3Q**ªiõöögXçå\XçåÝ×3Q**ªiÂÃCh
+Xçå\XçåÝ×3Q**ªiõövhXçå\XçåÝ×3Q**ªi**ªhXçå\XçåÝ×3Q**ªiÂÃÃhXçå\
+XçåÝ×3Q**ªi]]ÝhXçå\XçåÝ×3Q**ªiõööhXçå\XçåÝ×3Q**ªihXçå\XçåÝ
+×3Q**ªi***iXçå\XçåÝ×3Q**ªi÷ö6iXçå\XçåÝ×3Q**ªiÂÃCiXçå\XçåÝ×3Q
 **ªiPiXçå\XçåÝ×3Q**ªi]]]iXçå\XçåÝ×3Q**ªi**jiXçå\XçåÝ×3Q**ªi
-ööviXçå\XçåÝ×3Q**ªiÃÃƒiXçå\XçåÝ×3Q**ªiiXçå\XçåÝ×3Q**ªi]]i
+õöviXçå\XçåÝ×3Q**ªiÂÃƒiXçå\XçåÝ×3Q**ªiiXçå\XçåÝ×3Q**ªi]]i
 Xçå\XçåÝ×3Q**ªi**ªiXçå\XçåÝ×3Q**ªi>
 								>
 							>
@@ -128,7 +128,7 @@ Xçå\XçåÝ×3Q**ªi**ªiXçå\XçåÝ×3Q**ªi>
 								<Z=1.000000>
 							>
 							<Mesh="assets/asteroid_s3_0.nmg">
-							<Mass=20.000000>
+							<Mass=64.000000>
 							<StaticFriction=0.500000>
 							<DynamicFriction=0.500000>
 							<Restitution=0.500000>
@@ -152,6 +152,7 @@ Xçå\XçåÝ×3Q**ªi**ªiXçå\XçåÝ×3Q**ªi>
 			>
 		>
 	>
+	<Links>
 	<Constraints>
 	<Globals=
 		<BackgroundColor=

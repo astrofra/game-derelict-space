@@ -12,6 +12,7 @@ g_gravitational_constant <-	6.6742 / Pow(10.0, 11.0)
 class	PhysicItemXZPlane
 {
 	body						=	0
+	bounding_box				=	0
 	mass						=	0
 	linear_damping				=	0.0
 	angular_damping				=	0.0
@@ -27,6 +28,7 @@ class	PhysicItemXZPlane
 	{
 		body = item
 		mass = ItemGetMass(body)
+		bounding_box = ItemGetMinMax(item)
 		ItemPhysicSetLinearFactor(item, Vector(1,0,1))
 		ItemPhysicSetAngularFactor(item, Vector(0,1,0))
 		linear_velocity = g_zero_vector
