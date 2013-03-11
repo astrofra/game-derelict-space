@@ -3,14 +3,14 @@
 	Author: P. Blanche - F. Gutherz
 */
 
-Include("scripts/utils/physic_item_xz_plane.nut")
+Include("scripts/utils/physic_item_orbiting.nut")
 Include("scripts/utils/trails_sprite.nut")
 
 /*!
 	@short	Ship
 	@author	P. Blanche - F. Gutherz
 */
-class	Ship	extends	PhysicItemXZPlane
+class	Ship	extends	PhysicOrbitingItem
 {
 
 
@@ -107,7 +107,10 @@ class	Ship	extends	PhysicItemXZPlane
 
 		//	Align the ship to the desired orientation
 		//	If the reactor are ON
-		if (thrust > 0.0)
+		local	should_rotate = false
+		if (thrust > 0.0)	should_rotate = true
+
+		if (should_rotate)
 		{
 			local	_torque
 			_torque = target_orientation - orientation
@@ -186,7 +189,7 @@ class	Ship	extends	PhysicItemXZPlane
 	*/
 	function	OnSetup(item)
 	{
-		base.OnSetup(item)
+		if ("OnSetup" in base)	base.OnSetup(item)
 
 		thrust					=	0.0
 
@@ -226,5 +229,7 @@ class	Ship	extends	PhysicItemXZPlane
 		MixerChannelSetLoopMode(g_mixer, channels["ship_reactor"], LoopRepeat)
 
 		LoadSample("gui_up_down")
+
+		SetOrbitOnItem(SceneFindItem(g_scene, "asteroid_s3_0"))
 	}
 }

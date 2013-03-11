@@ -26,7 +26,7 @@ class	PhysicItemGravitySource	extends	PhysicItemXZPlane
 	function	RenderUser(scene)
 	{
 		if ("RenderUser" in base)	base.RenderUser(scene)
-		DrawCircleInXZPlane(position, orbiting_radius, g_vector_cyan, 20.0)
+		DrawCircleInXZPlane(position, orbiting_radius, g_vector_cyan, 32.0)
 	}
 
 	function	OnSetup(item)
@@ -36,7 +36,7 @@ class	PhysicItemGravitySource	extends	PhysicItemXZPlane
 				_max = bounding_box.max
 		_min.y = 0.0
 		_max.y = 0.0
-		orbiting_radius = _min.Dist(_max) * Pow(mass, 0.5) * 0.5
+		orbiting_radius = _min.Dist(_max) * Pow(mass, 0.5) * 0.25
 	}
 
 }
