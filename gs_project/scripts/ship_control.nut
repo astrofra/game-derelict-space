@@ -17,6 +17,8 @@ class	ShipControl
 	keyboard_device			=	0
 	mx						=	0
 	my						=	0
+	mouse_pos_3d			=	0
+	mouse_dir_3d			=	0
 
 	callbacks				=	0		//	The current function that handles the control scheme
 	current_callback_index	=	0
@@ -35,6 +37,10 @@ class	ShipControl
 	{
 		mx = DeviceInputValue(mouse_device, DeviceAxisX)
 		my = DeviceInputValue(mouse_device, DeviceAxisY)
+
+		mouse_pos_3d = CameraScreenToWorld(SceneGetScriptInstance(scene).camera_handler.camera, g_render, mx, my)
+		local	_cam_pos = ItemGetPosition(CameraGetItem(SceneGetScriptInstance(scene).camera_handler.camera))
+		mouse_dir_3d = (mouse_pos_3d - _cam_pos).Normalize()
 
 		if(!g_WindowsManager.mouse_locked_by_ui)
 		{
@@ -95,10 +101,20 @@ class	ShipControl
 
 		if(DeviceKeyPressed(mouse_device, KeyButton0) && !DeviceWasKeyDown(mouse_device, KeyButton0))
 		{
-			target_direction = clone(ship_direction)
-			local	ship_euler = EulerFromDirection(target_direction)
-			ItemGetScriptInstance(player_item).SetOrientation(ship_euler)
-			ItemGetScriptInstance(player_item).SfxSetOrientationTarget()
+			local	hit = SceneCollisionRaytrace(g_scene, mouse_pos_3d, mouse_dir_3d, -1, CollisionTraceAll, Mtr(200.0))
+			if (hit.hit)
+			{
+				local	hit_item = hit.item
+				if (ItemGetName(hit_item).find("asteroid") != null)
+					ItemGetScriptInstance(player_item).SetOrbitOnItem(hit_item)
+			}
+			else
+			{
+				target_direction = clone(ship_direction)
+				local	ship_euler = EulerFromDirection(target_direction)
+				ItemGetScriptInstance(player_item).SetOrientation(ship_euler)
+				ItemGetScriptInstance(player_item).SfxSetOrientationTarget()
+			}
 		}
 
 		display_target_dir += (target_direction - display_target_dir).Scale(10.0 * g_dt_frame)
@@ -113,6 +129,7 @@ class	ShipControl
 	{
 		local	ship_position = ItemGetWorldPosition(player_item)
 		local	vector_front = ship_direction
+
 		//RendererDrawLineColored(g_render, ship_position, ship_position + vector_front.Scale(10.0), g_vector_green)
 		DrawCircleInXZPlane(ship_position, Mtr(10.0), g_vector_green, 15.0)
 		DrawArrowInXZPlane(ship_position + display_target_dir.Scale(9.75), display_target_dir, Mtr(1.0), g_vector_green)
@@ -141,6 +158,7 @@ class	ShipControl
 	constructor(_scene)
 	{
 		scene = _scene
+		mouse_pos_3d = g_zero_vector
 		ship_direction = Vector(0,0,1)
 		target_direction = Vector(0,0,1)
 		display_target_dir = target_direction

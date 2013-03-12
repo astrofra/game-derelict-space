@@ -230,6 +230,6 @@ class	Ship	extends	PhysicOrbitingItem
 
 		LoadSample("gui_up_down")
 
-		SetOrbitOnItem(SceneFindItem(g_scene, "asteroid_s3_0"))
+//		SetOrbitOnItem(SceneFindItem(g_scene, "asteroid_s3_0"))
 	}
 }
