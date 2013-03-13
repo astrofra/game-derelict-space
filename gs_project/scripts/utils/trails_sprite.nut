@@ -55,7 +55,7 @@ class	TrailsSprite
 			//RendererDrawCrossColored(g_render, _point.p, base_color)
 			local	_age = Pow(_point.age, 0.25)
 			DrawQuadInXZPlane(_point.p, _point.y * Vector(1,0,1), Mtr(1.0), g_vector_blue.Scale(_age))
-			point_list[idx].p += (_point.a.Scale(_point.s))
+			point_list[idx].p += (_point.a.Scale(g_dt_frame * g_dt_frame))
 			point_list[idx].s = Max(0.0, _point.s - (g_dt_frame * 0.1))
 			point_list[idx].age = Max(0.0, _point.age - g_dt_frame)
 		}
