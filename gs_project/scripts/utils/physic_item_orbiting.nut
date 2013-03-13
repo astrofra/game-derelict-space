@@ -15,6 +15,7 @@ class	PhysicOrbitingItem 	extends	PhysicItemXZPlane
 	target_orbit_point		=	0
 	orbit_tangent_vector	=	0
 	dir_to_orbiting_point	=	0
+	first_orbit_update_done	=	false
 
 	function	OnUpdate(item)
 	{
@@ -30,10 +31,12 @@ class	PhysicOrbitingItem 	extends	PhysicItemXZPlane
 	function	SetOrbitOnItem(_gravity_source_item)
 	{
 		item_gravity_source = _gravity_source_item
+		first_orbit_update_done	=	false
 	}
 
 	function	FreeFromOrbit()
 	{
+		item_gravity_source = 0
 	}
 
 	function	OnPhysicStep(item, dt)
@@ -41,10 +44,23 @@ class	PhysicOrbitingItem 	extends	PhysicItemXZPlane
 		if ("OnPhysicStep" in base)	base.OnPhysicStep(item, dt)
 		if (item_gravity_source != 0)
 		{
+			if (!first_orbit_update_done)
+			{
+				local	a = (target_orbit_point - ItemGetScriptInstance(item_gravity_source).position).Normalize()
+				orbit_tangent_vector = Vector(a.z, a.y, -a.x)
+				local	orbit_target_orientation = EulerFromDirection(orbit_tangent_vector)
+				ItemPhysicResetTransformation(body, target_orbit_point, orbit_target_orientation)
+				ItemSetPosition(body, target_orbit_point)
+				first_orbit_update_done = true
+				position = target_orbit_point
+			}
+
 			//	Stick item to orbit radius
 			local	force
 			force = target_orbit_point - position
-			local	impulse_intensity = RangeAdjustClamped(force.Len(), 0.0, 5.0, 0.1, 10.0)
+			local	impulse_intensity = RangeAdjust(force.Len(), 0.0, 1.0, 0.0, 1.0)
+			impulse_intensity = Clamp(impulse_intensity, 0.0, 1.0)
+			impulse_intensity = Pow(impulse_intensity, 2.0) * 10.0
 			ItemApplyLinearImpulse(item, force.Scale(impulse_intensity))
 
 			//	Set item orientation to the orbit tangent

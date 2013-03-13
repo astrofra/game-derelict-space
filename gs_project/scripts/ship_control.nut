@@ -121,7 +121,10 @@ class	ShipControl
 		display_target_dir = display_target_dir.Normalize()
 
 		if (DeviceIsKeyDown(keyboard_device, KeySpace))
+		{
+			ItemGetScriptInstance(player_item).FreeFromOrbit()
 			ItemGetScriptInstance(player_item).SetThrustUp()
+		}
 
 	}
 
