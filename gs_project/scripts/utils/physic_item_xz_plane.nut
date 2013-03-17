@@ -45,7 +45,7 @@ class	PhysicItemXZPlane
 		angular_velocity = ItemGetAngularVelocity(item)
 		linear_acceleration = linear_velocity - prev_linear_velocity
 		position = ItemGetWorldPosition(item)
-print("linear_acceleration.x = " + linear_acceleration.x)
+
 		if (linear_damping > 0.0)
 		{
 			local	_scale = Clamp(linear_damping, 0.0, 1.0) * -1.0 * mass

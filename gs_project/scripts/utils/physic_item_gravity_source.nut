@@ -12,6 +12,7 @@ Include("scripts/utils/physic_item_xz_plane.nut")
 class	PhysicItemGravitySource	extends	PhysicItemXZPlane
 {
 	orbiting_radius	=	0
+	focus			=	false
 
 	function	OnUpdate(item)
 	{
@@ -26,7 +27,7 @@ class	PhysicItemGravitySource	extends	PhysicItemXZPlane
 	function	RenderUser(scene)
 	{
 		if ("RenderUser" in base)	base.RenderUser(scene)
-		DrawCircleInXZPlane(position, orbiting_radius, g_vector_cyan, 32.0)
+		if(focus)	DrawCircleInXZPlane(position, orbiting_radius, g_vector_cyan, 8.0)
 	}
 
 	function	OnSetup(item)
@@ -37,6 +38,7 @@ class	PhysicItemGravitySource	extends	PhysicItemXZPlane
 		_min.y = 0.0
 		_max.y = 0.0
 		orbiting_radius = _min.Dist(_max) * Pow(mass, 0.5) * 0.25
+		focus = false
 	}
 
 }
