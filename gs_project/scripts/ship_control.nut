@@ -22,6 +22,7 @@ class	ShipControl
 
 	callbacks				=	0		//	The current function that handles the control scheme
 	current_callback_index	=	0
+	autopilot_item_target	=	0
 
 	ship_direction			=	0
 	target_direction		=	0
@@ -47,47 +48,15 @@ class	ShipControl
 			ship_screen_position = CameraWorldToScreen(SceneGetScriptInstance(scene).camera_handler.camera, g_render, ItemGetPosition(player_item))
 			if ("control_function" in callbacks[current_callback_index])	this[callbacks[current_callback_index].control_function]()
 		}
+
+		if (autopilot_item_target != 0)
+			this[callbacks[current_callback_index].autopilot_function]()
 	}
 
 	function	RenderUser(scene)
 	{
 		if ("render_function" in callbacks[current_callback_index])	this[callbacks[current_callback_index].render_function](scene)		
-//		local	mouse_3d_pos = CameraScreenToWorld(SceneGetScriptInstance(scene).camera_handler.camera, g_render, mx, my)
-//		RendererDrawCross(g_render, mouse_3d_pos)
-//		RendererDrawLine(g_render, ship_screen_position, ship_screen_position + ship_direction.Scale(10.0))
 	}
-
-	/*
-		New Orbit Scheme	
-	*/
-	function	NewOrbitControl()
-	{
-		ship_direction = Vector()
-		ship_direction.x = mx - ship_screen_position.x
-		ship_direction.z = -(my - ship_screen_position.y)
-		ship_direction = ship_direction.Normalize()
-
-		if( DeviceIsKeyDown(mouse_device, KeyButton0))
-		{
-			local	ship_euler = EulerFromDirection(ship_direction)
-			ItemGetScriptInstance(player_item).SetOrientation(ship_euler)
-			ItemGetScriptInstance(player_item).SetThrustUp()
-		}
-	}
-
-	function	NewOrbitRenderUser(scene)
-	{
-		local	ship_position = ItemGetWorldPosition(player_item)
-		local	vector_front = ItemGetScriptInstance(player_item).vector_front
-		RendererDrawLineColored(g_render, ship_position, ship_position + vector_front.Scale(1 + ItemGetScriptInstance(player_item).thrust), Vector(0.1,1.0,0.25))
-	}
-
-	function	NewOrbitShipSettings()
-	{
-		ItemGetScriptInstance(player_item).max_angular_speed = 5.0
-		ItemGetScriptInstance(player_item).SetAngularDamping(1.0)
-	}
-
 
 	/*
 		Pascal Blanche Scheme	
@@ -106,7 +75,7 @@ class	ShipControl
 			{
 				local	hit_item = hit.item
 				if (ItemGetName(hit_item).find("asteroid") != null)
-					ItemGetScriptInstance(player_item).SetOrbitOnItem(hit_item)
+					autopilot_item_target = hit_item
 			}
 			else
 			{
@@ -114,6 +83,7 @@ class	ShipControl
 				local	ship_euler = EulerFromDirection(target_direction)
 				ItemGetScriptInstance(player_item).SetOrientation(ship_euler)
 				ItemGetScriptInstance(player_item).SfxSetOrientationTarget()
+				autopilot_item_target = 0
 			}
 		}
 
@@ -122,10 +92,16 @@ class	ShipControl
 
 		if (DeviceIsKeyDown(keyboard_device, KeySpace))
 		{
-			ItemGetScriptInstance(player_item).FreeFromOrbit()
 			ItemGetScriptInstance(player_item).SetThrustUp()
 		}
 
+	}
+
+	function	BlancheAutopilot()
+	{
+		target_direction = (ItemGetWorldPosition(autopilot_item_target) - ItemGetScriptInstance(player_item).position).Normalize()
+		local	ship_euler = EulerFromDirection(target_direction)
+		ItemGetScriptInstance(player_item).SetOrientation(ship_euler)
 	}
 
 	function	BlancheRenderUser(scene)
@@ -133,7 +109,6 @@ class	ShipControl
 		local	ship_position = ItemGetWorldPosition(player_item)
 		local	vector_front = ship_direction
 
-		//RendererDrawLineColored(g_render, ship_position, ship_position + vector_front.Scale(10.0), g_vector_green)
 		DrawCircleInXZPlane(ship_position, Mtr(10.0), g_vector_green, 15.0)
 		DrawArrowInXZPlane(ship_position + display_target_dir.Scale(9.75), display_target_dir, Mtr(1.0), g_vector_green)
 	}
@@ -170,8 +145,7 @@ class	ShipControl
 		player_item = SceneGetScriptInstance(scene).player_item
 
 		callbacks = []
-		callbacks.append({button = 0, name = tr("LaBlanche Control"),	control_function = "BlancheControl",	render_function = "BlancheRenderUser"})
-		callbacks.append({button = 0, name = tr("New Orbit Control"),	control_function = "NewOrbitControl",	render_function = "NewOrbitRenderUser"})
+		callbacks.append({button = 0, name = tr("LaBlanche Control"),	control_function = "BlancheControl",	autopilot_function = "BlancheAutopilot",	render_function = "BlancheRenderUser"})
 		callbacks.append({button = 0, name = tr("Null Control")})
 
 		local	top_window = g_WindowsManager.CreateVerticalSizer(0, 1000)
@@ -186,5 +160,20 @@ class	ShipControl
 		}
 
 		SceneGetScriptInstance(g_scene).render_user_callback.append(this)
+	}
+
+	/*
+		New Orbit Scheme	
+	*/
+	function	NewOrbitControl()
+	{
+	}
+
+	function	NewOrbitRenderUser(scene)
+	{
+	}
+
+	function	NewOrbitShipSettings()
+	{
 	}
 }
