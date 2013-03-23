@@ -30,7 +30,7 @@ class	CameraGame
 		ItemSetPosition(camera_item, pos_offset)
 		ItemSetRotation(camera_item, Vector(Deg(90),0,0))
 		SceneSetCurrentCamera(scene, camera)
-		ItemRegistrySetKey (camera_item, "PostProcess:Bloom:Strength;", 5.0)
+		ItemRegistrySetKey (camera_item, "PostProcess:Bloom:Strength;", 15.0)
 		ItemRegistrySetKey (camera_item, "PostProcess:Bloom:Radius;", 25.0)
 		ItemRegistrySetKey (camera_item, "PostProcess:Bloom:Threshold;", 0.85)
 	}
