@@ -77,6 +77,8 @@ class	ShipControl
 			if (hit_range_dir.Len() < 0.5)
 				hit_range_dir = ItemGetMatrix(player_item).GetFront().Scale(0.5)
 
+			hit_range_dir = hit_range_dir.Scale(0.5)
+
 			local	max_step = hit_range_dir.Len() * 20.0
 			local	hit = {hit = false}
 			local	step = hit_range_dir.Scale(0.5 / max_step)

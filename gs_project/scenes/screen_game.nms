@@ -56,7 +56,7 @@
 		<MLight=
 			<MItem=
 				<Id="sun">
-				<UId=2>
+				<UId=1>
 				<Active>
 				<Priority=1.000000>
 				<MotionPlayer=
@@ -80,6 +80,7 @@
 						<Y=-1.055052>
 						<Z=0.000000>
 					>
+					<ItemFlag>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
@@ -89,9 +90,9 @@
 					<Registry>
 				>
 				<Diffuse=
-					<X=1.000000>
-					<Y=1.000000>
-					<Z=1.000000>
+					<X=0.564706>
+					<Y=0.603922>
+					<Z=0.690196>
 				>
 				<Specular=
 					<X=1.000000>
@@ -128,8 +129,9 @@
 		<MLight=
 			<MItem=
 				<Id="back_light">
-				<UId=3>
-				<Active>
+				<UId=2>
+				<Inactive>
+				<Helper>
 				<Priority=1.000000>
 				<MotionPlayer=
 					<Motions>
@@ -152,6 +154,7 @@
 						<Y=1.696527>
 						<Z=0.000124>
 					>
+					<ItemFlag>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
@@ -200,7 +203,7 @@
 		<Instance=
 			<MItem=
 				<Id="Asteroid S0 0">
-				<UId=4>
+				<UId=3>
 				<Active>
 				<Priority=0.500000>
 				<MotionPlayer=
@@ -236,7 +239,7 @@
 		<Instance=
 			<MItem=
 				<Id="Asteroid S0 1">
-				<UId=5>
+				<UId=4>
 				<Active>
 				<Priority=0.500000>
 				<MotionPlayer=
@@ -272,7 +275,7 @@
 		<Instance=
 			<MItem=
 				<Id="Asteroid S1 0">
-				<UId=6>
+				<UId=5>
 				<Active>
 				<Priority=0.500000>
 				<MotionPlayer=
@@ -308,7 +311,7 @@
 		<Instance=
 			<MItem=
 				<Id="Asteroid S1 1">
-				<UId=7>
+				<UId=6>
 				<Active>
 				<Priority=0.500000>
 				<MotionPlayer=
@@ -344,7 +347,7 @@
 		<Instance=
 			<MItem=
 				<Id="Asteroid S2 0">
-				<UId=8>
+				<UId=7>
 				<Active>
 				<Priority=0.500000>
 				<MotionPlayer=
@@ -380,7 +383,7 @@
 		<Instance=
 			<MItem=
 				<Id="Asteroid S2 1">
-				<UId=9>
+				<UId=8>
 				<Active>
 				<Priority=0.500000>
 				<MotionPlayer=
@@ -416,7 +419,7 @@
 		<Instance=
 			<MItem=
 				<Id="Asteroid S3 0">
-				<UId=10>
+				<UId=9>
 				<Active>
 				<Priority=0.500000>
 				<MotionPlayer=
@@ -452,7 +455,7 @@
 		<Instance=
 			<MItem=
 				<Id="Asteroid S3 1">
-				<UId=11>
+				<UId=10>
 				<Active>
 				<Priority=0.500000>
 				<MotionPlayer=
@@ -488,7 +491,7 @@
 		<MObject=
 			<MItem=
 				<Id="spawnpoint">
-				<UId=12>
+				<UId=11>
 				<Active>
 				<Priority=0.500000>
 				<MotionPlayer=
@@ -519,13 +522,390 @@
 				<CacheGeometry=True>
 			>
 		>
+		<Instance=
+			<MItem=
+				<Id="star_background">
+				<UId=12>
+				<Active>
+				<Priority=0.500000>
+				<MotionPlayer=
+					<Motions>
+				>
+				<PhysicItem=
+					<SelfMask=1>
+					<Mask=1>
+					<LinearDamping_v2=1.000000>
+					<AngularDamping_v2=1.000000>
+					<CharacterRadius=1.000000>
+					<CharacterHeight=1.000000>
+					<CharacterMaxStep=0.200000>
+					<Mode="None">
+				>
+			>
+			<Item=
+				<Position=
+					<X=0.000000>
+					<Y=-150.000000>
+					<Z=0.000000>
+				>
+				<Target=
+					<X=0.000000>
+					<Y=0.000000>
+					<Z=1.000000>
+				>
+				<RotationOrder="YXZ">
+				<Registry>
+			>
+			<Template="assets/star_background.nms">
+		>
+		<MObject=
+			<MItem=
+				<Id="asteroids_background">
+				<UId=13>
+				<Active>
+				<Static>
+				<Priority=0.500000>
+				<MotionPlayer=
+					<Motions>
+				>
+				<PhysicItem=
+					<SelfMask=1>
+					<Mask=1>
+					<LinearDamping_v2=1.000000>
+					<AngularDamping_v2=1.000000>
+					<CharacterRadius=1.000000>
+					<CharacterHeight=1.000000>
+					<CharacterMaxStep=0.200000>
+					<Mode="Static">
+				>
+			>
+			<Object=
+				<Item=
+					<Position=
+						<X=0.000000>
+						<Y=-100.000000>
+						<Z=0.000000>
+					>
+					<Scale=
+						<X=0.500000>
+						<Y=0.500000>
+						<Z=0.500000>
+					>
+					<Target=
+						<X=0.000000>
+						<Y=0.000000>
+						<Z=1.000000>
+					>
+					<RotationOrder="YXZ">
+					<Registry>
+				>
+				<Geometry="assets/asteroids_cloud.nmg">
+				<CacheGeometry=True>
+			>
+		>
+		<MObject=
+			<MItem=
+				<Id="asteroids_background">
+				<UId=14>
+				<Active>
+				<Static>
+				<Priority=0.500000>
+				<MotionPlayer=
+					<Motions>
+				>
+				<PhysicItem=
+					<SelfMask=1>
+					<Mask=1>
+					<LinearDamping_v2=1.000000>
+					<AngularDamping_v2=1.000000>
+					<CharacterRadius=1.000000>
+					<CharacterHeight=1.000000>
+					<CharacterMaxStep=0.200000>
+					<Mode="Static">
+				>
+			>
+			<Object=
+				<Item=
+					<Position=
+						<X=253.022018>
+						<Y=-23.413986>
+						<Z=378.918152>
+					>
+					<Rotation=
+						<X=-0.000000>
+						<Y=0.785398>
+						<Z=0.000000>
+					>
+					<Target=
+						<X=0.000000>
+						<Y=0.000000>
+						<Z=1.000000>
+					>
+					<RotationOrder="YXZ">
+					<Registry>
+				>
+				<Geometry="assets/asteroids_cloud.nmg">
+				<CacheGeometry=True>
+			>
+		>
+		<MObject=
+			<MItem=
+				<Id="asteroids_background">
+				<UId=15>
+				<Active>
+				<Static>
+				<Priority=0.500000>
+				<MotionPlayer=
+					<Motions>
+				>
+				<PhysicItem=
+					<SelfMask=1>
+					<Mask=1>
+					<LinearDamping_v2=1.000000>
+					<AngularDamping_v2=1.000000>
+					<CharacterRadius=1.000000>
+					<CharacterHeight=1.000000>
+					<CharacterMaxStep=0.200000>
+					<Mode="Static">
+				>
+			>
+			<Object=
+				<Item=
+					<Position=
+						<X=247.509476>
+						<Y=24.792709>
+						<Z=-364.768951>
+					>
+					<Rotation=
+						<X=-0.000000>
+						<Y=0.785398>
+						<Z=0.000000>
+					>
+					<Target=
+						<X=0.000000>
+						<Y=0.000000>
+						<Z=1.000000>
+					>
+					<RotationOrder="YXZ">
+					<Registry>
+				>
+				<Geometry="assets/asteroids_cloud.nmg">
+				<CacheGeometry=True>
+			>
+		>
+		<MObject=
+			<MItem=
+				<Id="asteroids_background">
+				<UId=16>
+				<Active>
+				<Static>
+				<Priority=0.500000>
+				<MotionPlayer=
+					<Motions>
+				>
+				<PhysicItem=
+					<SelfMask=1>
+					<Mask=1>
+					<LinearDamping_v2=1.000000>
+					<AngularDamping_v2=1.000000>
+					<CharacterRadius=1.000000>
+					<CharacterHeight=1.000000>
+					<CharacterMaxStep=0.200000>
+					<Mode="Static">
+				>
+			>
+			<Object=
+				<Item=
+					<Position=
+						<X=411.670715>
+						<Y=-23.413925>
+						<Z=6.676392>
+					>
+					<Rotation=
+						<X=-0.000000>
+						<Y=0.785398>
+						<Z=0.000000>
+					>
+					<Target=
+						<X=0.000000>
+						<Y=0.000000>
+						<Z=1.000000>
+					>
+					<RotationOrder="YXZ">
+					<Registry>
+				>
+				<Geometry="assets/asteroids_cloud.nmg">
+				<CacheGeometry=True>
+			>
+		>
+		<MObject=
+			<MItem=
+				<Id="asteroids_background">
+				<UId=17>
+				<Active>
+				<Static>
+				<Priority=0.500000>
+				<MotionPlayer=
+					<Motions>
+				>
+				<PhysicItem=
+					<SelfMask=1>
+					<Mask=1>
+					<LinearDamping_v2=1.000000>
+					<AngularDamping_v2=1.000000>
+					<CharacterRadius=1.000000>
+					<CharacterHeight=1.000000>
+					<CharacterMaxStep=0.200000>
+					<Mode="Static">
+				>
+			>
+			<Object=
+				<Item=
+					<Position=
+						<X=-281.056061>
+						<Y=0.000183>
+						<Z=-270.936523>
+					>
+					<Rotation=
+						<X=-0.000000>
+						<Y=0.785398>
+						<Z=0.000000>
+					>
+					<Target=
+						<X=0.000000>
+						<Y=0.000000>
+						<Z=1.000000>
+					>
+					<RotationOrder="YXZ">
+					<Registry>
+				>
+				<Geometry="assets/asteroids_cloud.nmg">
+				<CacheGeometry=True>
+			>
+		>
+		<MObject=
+			<MItem=
+				<Id="asteroids_background">
+				<UId=18>
+				<Active>
+				<Static>
+				<Priority=0.500000>
+				<MotionPlayer=
+					<Motions>
+				>
+				<PhysicItem=
+					<SelfMask=1>
+					<Mask=1>
+					<LinearDamping_v2=1.000000>
+					<AngularDamping_v2=1.000000>
+					<CharacterRadius=1.000000>
+					<CharacterHeight=1.000000>
+					<CharacterMaxStep=0.200000>
+					<Mode="Static">
+				>
+			>
+			<Object=
+				<Item=
+					<Position=
+						<X=-166.952454>
+						<Y=-23.413925>
+						<Z=312.313538>
+					>
+					<Rotation=
+						<X=-0.000000>
+						<Y=0.785398>
+						<Z=0.000000>
+					>
+					<Target=
+						<X=0.000000>
+						<Y=0.000000>
+						<Z=1.000000>
+					>
+					<RotationOrder="YXZ">
+					<Registry>
+				>
+				<Geometry="assets/asteroids_cloud.nmg">
+				<CacheGeometry=True>
+			>
+		>
+		<MObject=
+			<MItem=
+				<Id="asteroids_background">
+				<UId=19>
+				<Active>
+				<Static>
+				<Priority=0.500000>
+				<MotionPlayer=
+					<Motions>
+				>
+				<PhysicItem=
+					<SelfMask=1>
+					<Mask=1>
+					<LinearDamping_v2=1.000000>
+					<AngularDamping_v2=1.000000>
+					<CharacterRadius=1.000000>
+					<CharacterHeight=1.000000>
+					<CharacterMaxStep=0.200000>
+					<Mode="Static">
+				>
+			>
+			<Object=
+				<Item=
+					<Position=
+						<X=-396.412109>
+						<Y=0.000183>
+						<Z=38.845184>
+					>
+					<Rotation=
+						<X=-0.000000>
+						<Y=0.785398>
+						<Z=0.000000>
+					>
+					<Target=
+						<X=0.000000>
+						<Y=0.000000>
+						<Z=1.000000>
+					>
+					<RotationOrder="YXZ">
+					<Registry>
+				>
+				<Geometry="assets/asteroids_cloud.nmg">
+				<CacheGeometry=True>
+			>
+		>
+	>
+	<Links=
+		<Link=
+			<Item=14>
+			<Link=13>
+		>
+		<Link=
+			<Item=15>
+			<Link=13>
+		>
+		<Link=
+			<Item=16>
+			<Link=13>
+		>
+		<Link=
+			<Item=17>
+			<Link=13>
+		>
+		<Link=
+			<Item=18>
+			<Link=13>
+		>
+		<Link=
+			<Item=19>
+			<Link=13>
+		>
 	>
 	<Constraints>
 	<Globals=
 		<BackgroundColor=
-			<X=0.047059>
-			<Y=0.050980>
-			<Z=0.062745>
+			<X=0.000000>
+			<Y=0.000000>
+			<Z=0.000000>
 		>
 		<AmbientColor=
 			<X=0.376471>
@@ -533,7 +913,7 @@
 			<Z=0.501961>
 		>
 		<TimeOfDay=0.500000>
-		<AmbientIntensity=0.250000>
+		<AmbientIntensity=0.500000>
 		<TargetExposure=0.250000>
 		<FogNear=0.000000>
 		<FogFar=0.000000>
@@ -549,27 +929,27 @@
 	<CurrentCamera="test_camera">
 	<ViewMatrix=
 		<R0=
-			<X=0.997142>
-			<Y=0.000000>
-			<Z=-0.075549>
+			<X=-0.945010>
+			<Y=-0.000000>
+			<Z=0.327042>
 			<W=0.000000>
 		>
 		<R1=
-			<X=0.075090>
-			<Y=0.110108>
-			<Z=0.991079>
+			<X=-0.173158>
+			<Y=0.848331>
+			<Z=-0.500351>
 			<W=0.000000>
 		>
 		<R2=
-			<X=0.008319>
-			<Y=-0.993920>
-			<Z=0.109793>
+			<X=-0.277440>
+			<Y=-0.529467>
+			<Z=-0.801681>
 			<W=0.000000>
 		>
 		<R3=
-			<X=-1.171506>
-			<Y=139.973892>
-			<Z=-15.462162>
+			<X=156.466217>
+			<Y=576.857300>
+			<Z=1044.271729>
 			<W=1.000000>
 		>
 	>
@@ -582,27 +962,27 @@
 			<CameraUid=-16>
 			<Matrix=
 				<R0=
-					<X=0.997142>
-					<Y=0.000000>
-					<Z=-0.075549>
+					<X=-0.945010>
+					<Y=-0.000000>
+					<Z=0.327042>
 					<W=0.000000>
 				>
 				<R1=
-					<X=0.075090>
-					<Y=0.110108>
-					<Z=0.991079>
+					<X=-0.173158>
+					<Y=0.848331>
+					<Z=-0.500351>
 					<W=0.000000>
 				>
 				<R2=
-					<X=0.008319>
-					<Y=-0.993920>
-					<Z=0.109793>
+					<X=-0.277440>
+					<Y=-0.529467>
+					<Z=-0.801681>
 					<W=0.000000>
 				>
 				<R3=
-					<X=-1.171506>
-					<Y=139.973892>
-					<Z=-15.462162>
+					<X=156.466217>
+					<Y=576.857300>
+					<Z=1044.271729>
 					<W=1.000000>
 				>
 			>

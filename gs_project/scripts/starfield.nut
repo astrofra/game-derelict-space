@@ -32,18 +32,21 @@ class	Starfield
 				RendererDrawLine(g_render, _star_pos, _star_pos + Vector(0.1,0,0.1))		
 			}	
 
-		//	Grid
-		for(x = -size; x < size; x+=grid_step)
+		if (false)
 		{
-			local	_line_pos = Vector(x + offset.x, -0.5, z + offset.z)
-			RendererDrawLineColored(g_render, _line_pos + Vector(0,0,2.0 * size), _line_pos + Vector(0,0,-2.0 * size), grid_color)		
-		}
+			//	Grid
+			for(x = -size; x < size; x+=grid_step)
+			{
+				local	_line_pos = Vector(x + offset.x, -0.5, z + offset.z)
+				RendererDrawLineColored(g_render, _line_pos + Vector(0,0,2.0 * size), _line_pos + Vector(0,0,-2.0 * size), grid_color)		
+			}
 
-		for(z = -size; z < size; z+=grid_step)
-		{
-			local	_line_pos = Vector(x + offset.x, -0.5, z + offset.z)
-			RendererDrawLineColored(g_render, _line_pos + Vector(2.0 * size,0,0), _line_pos + Vector(-2.0 * size, 0, 0), grid_color)		
-		}	
+			for(z = -size; z < size; z+=grid_step)
+			{
+				local	_line_pos = Vector(x + offset.x, -0.5, z + offset.z)
+				RendererDrawLineColored(g_render, _line_pos + Vector(2.0 * size,0,0), _line_pos + Vector(-2.0 * size, 0, 0), grid_color)		
+			}	
+		}
 
 
 	}

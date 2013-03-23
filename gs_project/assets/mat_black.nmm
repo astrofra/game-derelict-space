@@ -12,9 +12,9 @@
 		<Z=0.000000>
 	>
 	<Ambient=
-		<X=0.588235>
-		<Y=0.588235>
-		<Z=0.588235>
+		<X=0.000000>
+		<Y=0.000000>
+		<Z=0.000000>
 	>
 	<Glossiness=0.031250>
 	<AlphaThreshold=0.100000>
@@ -25,12 +25,5 @@
 	>
 	<RenderMask=
 		<Smoothing>
-		<NoFog>
-	>
-	<TextureStage=
-		<Index=0>
-		<Texture="assets/star_background_color.png">
-		<UV=0>
-		<Channel="SelfIllum">
 	>
 >
