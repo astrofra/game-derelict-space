@@ -3,9 +3,10 @@
 _OUTPUT_ERROR_		<-	1
 _OUTPUT_INFO_		<-	0
 
-g_vector_green		<-	Vector(0.1,1.0,0.25)
+g_vector_green		<-	Vector(0.25,1.0,0.05)
 g_vector_blue		<-	Vector(0.05,0.15,0.5)
 g_vector_cyan		<-	Vector(0.05,0.7,0.75)
+g_vector_orange		<-	Vector(1.0, 0.75, 0.0)
 
 function	DrawCircleInXZPlane(_pos = Vector(0,0,0), _radius = Mtr(1.0), _color = Vector(1,1,1), _step = 5.0)
 {
@@ -43,7 +44,7 @@ function	DrawArrowInXZPlane(_pos, _direction, _size = Mtr(1.0), _color = Vector(
 		RendererDrawTriangle(g_render,	_pos + a.Scale(_size), _pos + b.Scale(_size), _pos + c.Scale(_size), _color, _color, _color,	MaterialBlendAdd, MaterialRenderDoubleSided | MaterialRenderNoDepthWrite)
 }
 
-function	DrawQuadInXZPlane(_pos, _direction, _size = Mtr(1.0), _color = Vector(1,1,1))
+function	DrawQuadInXZPlane(_pos, _direction, _size = Mtr(1.0), _color = Vector(1,1,1), _blendmode = MaterialBlendAlpha)
 {
 		local	a,b,c,d
 		a = _direction.Normalize()
@@ -51,8 +52,8 @@ function	DrawQuadInXZPlane(_pos, _direction, _size = Mtr(1.0), _color = Vector(1
 		c = Vector(a.z, a.y, -a.x)
 		d = Vector(c.z, c.y, -c.x)
 
-		RendererDrawTriangle(g_render,	_pos + a.Scale(_size), _pos + b.Scale(_size), _pos + c.Scale(_size), _color, _color, _color,	MaterialBlendAdd, MaterialRenderDoubleSided | MaterialRenderNoDepthWrite)
-		RendererDrawTriangle(g_render,	_pos + b.Scale(_size), _pos + c.Scale(_size), _pos + d.Scale(_size), _color, _color, _color,	MaterialBlendAdd, MaterialRenderDoubleSided | MaterialRenderNoDepthWrite)
+		RendererDrawTriangle(g_render,	_pos + a.Scale(_size), _pos + b.Scale(_size), _pos + c.Scale(_size), _color, _color, _color,	_blendmode, MaterialRenderDoubleSided | MaterialRenderNoDepthWrite)
+		RendererDrawTriangle(g_render,	_pos + b.Scale(_size), _pos + c.Scale(_size), _pos + d.Scale(_size), _color, _color, _color,	_blendmode, MaterialRenderDoubleSided | MaterialRenderNoDepthWrite)
 }
 
 

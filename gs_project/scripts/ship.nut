@@ -217,7 +217,7 @@ class	Ship	extends	PhysicOrbitingItem
 		trails = []
 		local	_list = ItemGetChildList(banking_item)
 		foreach(_child in _list)
-			if (ItemGetName(_child) == "trail")	trails.append(TrailsSprite(_child))
+			if (ItemGetName(_child) == "trail")	trails.append(TrailsSprite(_child, g_vector_orange, MaterialBlendNone))
 
 		SceneGetScriptInstance(g_scene).render_user_callback.append(this)
 
