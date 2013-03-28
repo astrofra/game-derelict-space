@@ -73,25 +73,7 @@ class	ShipControl
 		{
 			if (autopilot_item_target != 0) ItemGetScriptInstance(autopilot_item_target).focus = false
 
-			local	hit_range_dir = ItemGetScriptInstance(player_item).linear_velocity
-			if (hit_range_dir.Len() < 0.5)
-				hit_range_dir = ItemGetMatrix(player_item).GetFront().Scale(0.5)
-
-			hit_range_dir = hit_range_dir.Scale(0.5)
-
-			local	max_step = hit_range_dir.Len() * 20.0
-			local	hit = {hit = false}
-			local	step = hit_range_dir.Scale(0.5 / max_step)
-			local	tmp_mouse_pos_3d = clone(mouse_pos_3d) - hit_range_dir.Scale(0.5)
-			while(!hit.hit && max_step >= 0)
-			{
-				local	_cam_pos = ItemGetPosition(CameraGetItem(SceneGetScriptInstance(scene).camera_handler.camera))
-				local	tmp_mouse_dir_3d = (tmp_mouse_pos_3d - _cam_pos).Normalize()
-
-				hit = SceneCollisionRaytrace(g_scene, tmp_mouse_pos_3d, tmp_mouse_dir_3d, -1, CollisionTraceAll, Mtr(500.0))
-				tmp_mouse_pos_3d += step
-				max_step -= 0.5
-			}
+			local	hit = SceneCollisionRaytrace(g_scene, mouse_pos_3d, mouse_dir_3d, -1, CollisionTraceAll, Mtr(500.0))
 
 			if (hit.hit)
 			{

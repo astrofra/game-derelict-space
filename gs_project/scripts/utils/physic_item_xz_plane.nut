@@ -21,6 +21,7 @@ class	PhysicItemXZPlane
 	prev_linear_velocity		=	0
 	angular_velocity			=	0
 	linear_acceleration			=	0
+	front						=	0
 
 	attraction_forces_list		=	0
 
@@ -37,10 +38,14 @@ class	PhysicItemXZPlane
 		linear_acceleration = g_zero_vector
 		position = ItemGetWorldPosition(item)
 		attraction_forces_list = []
+		front = g_zero_vector
 	}
 
 	function	OnPhysicStep(item, dt)
 	{
+		local	item_matrix	= ItemGetMatrix(item)
+		front = item_matrix.GetFront()
+
 		linear_velocity = ItemGetLinearVelocity(item)
 		angular_velocity = ItemGetAngularVelocity(item)
 		linear_acceleration = linear_velocity - prev_linear_velocity

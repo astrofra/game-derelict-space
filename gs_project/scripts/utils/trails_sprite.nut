@@ -27,7 +27,7 @@ class	TrailsSprite
 
 	function	RecordPoint()
 	{
-		emitter_timeout = (g_clock - record_clock) / SecToTick(Sec(0.05))
+		emitter_timeout = (g_clock - record_clock) / SecToTick(Sec(0.01))
 		if	(emitter_timeout <= 1.0)
 			return
 
@@ -54,7 +54,9 @@ class	TrailsSprite
 		{
 			//RendererDrawCrossColored(g_render, _point.p, base_color)
 			local	_age = Pow(_point.age, 0.25)
-			DrawQuadInXZPlane(_point.p, _point.y * Vector(1,0,1), Mtr(1.0), g_vector_blue.Scale(_age))
+			local	_scale = Pow(Clamp(_age, 0.01, 1.0), 4.0)
+			_scale *= Pow(Clamp(RangeAdjust(_point.age, 1.0, 0.9, 0.0, 1.0), 0.0, 1.0), 2.0)
+			DrawQuadInXZPlane(_point.p, _point.y * Vector(1,0,1), Mtr(1.0 * _scale), g_vector_blue.Scale(_age))
 			point_list[idx].p += (_point.a.Scale(g_dt_frame * g_dt_frame))
 			point_list[idx].s = Max(0.0, _point.s - (g_dt_frame * 0.1))
 			point_list[idx].age = Max(0.0, _point.age - g_dt_frame)

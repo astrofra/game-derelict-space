@@ -1,0 +1,29 @@
+<Version=1.0>
+<Material=
+	<Diffuse=
+		<X=0.301961>
+		<Y=0.301961>
+		<Z=0.301961>
+		<W=1.000000>
+	>
+	<Specular=
+		<X=0.184841>
+		<Y=0.184841>
+		<Z=0.184841>
+	>
+	<Ambient=
+		<X=0.150980>
+		<Y=0.150980>
+		<Z=0.150980>
+	>
+	<Glossiness=0.500000>
+	<AlphaThreshold=0.100000>
+	<PhysicMaterial=
+		<StaticFriction=0.750000>
+		<DynamicFriction=0.500000>
+		<Restitution=0.100000>
+	>
+	<RenderMask=
+		<Smoothing>
+	>
+>
