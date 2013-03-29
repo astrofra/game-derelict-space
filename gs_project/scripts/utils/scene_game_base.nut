@@ -15,6 +15,9 @@ class	SceneGameBase
 	*/
 	function	OnSetup(scene)
 	{
+		if (!("g_cursor" in getroottable()))
+			return
+
 		//	UI
 		g_cursor = CCursor()
 		g_cursor.Setup()
@@ -28,6 +31,7 @@ class	SceneGameBase
 
 	function	OnUpdate(scene)
 	{
-		if (g_cursor != 0)	g_cursor.Update()
+		if (("g_cursor" in getroottable()) && g_cursor != 0)
+			g_cursor.Update()
 	}
 }

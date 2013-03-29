@@ -29,7 +29,7 @@
 	>
 	<TextureStage=
 		<Index=0>
-		<Texture="assets/star_background_color.png">
+		<Texture="assets/space_bakground_02.png">
 		<UV=0>
 		<Channel="SelfIllum">
 	>
