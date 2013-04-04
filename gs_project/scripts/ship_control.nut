@@ -99,9 +99,27 @@ class	ShipControl
 		display_target_dir += (target_direction - display_target_dir).Scale(10.0 * g_dt_frame)
 		display_target_dir = display_target_dir.Normalize()
 
-		if (DeviceIsKeyDown(keyboard_device, KeySpace))
-		{
+		if (DeviceIsKeyDown(keyboard_device, KeyUpArrow))
 			ItemGetScriptInstance(player_item).SetThrustUp()
+
+		if (DeviceIsKeyDown(keyboard_device, KeyLeftArrow))
+		{
+			ItemGetScriptInstance(player_item).IncreaseOrientationAngle(-5.0)
+			local	_new_orientation = ItemGetScriptInstance(player_item).target_orientation
+			local	_a_offset = Deg(90.0)
+			display_target_dir = Vector(-cos(_new_orientation.y + _a_offset),0,sin(_new_orientation.y + _a_offset)).Normalize()
+			target_direction = clone(display_target_dir)
+			autopilot_item_target = 0
+		}
+		else
+		if (DeviceIsKeyDown(keyboard_device, KeyRightArrow))
+		{
+			ItemGetScriptInstance(player_item).IncreaseOrientationAngle(5.0)
+			local	_new_orientation = ItemGetScriptInstance(player_item).target_orientation
+			local	_a_offset = Deg(90.0)
+			display_target_dir = Vector(-cos(_new_orientation.y + _a_offset),0,sin(_new_orientation.y + _a_offset)).Normalize()
+			target_direction = clone(display_target_dir)
+			autopilot_item_target = 0
 		}
 
 	}

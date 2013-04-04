@@ -148,6 +148,17 @@ class	Ship	extends	PhysicOrbitingItem
 		target_orientation = _euler
 	}
 
+	function	IncreaseOrientationAngle(_angular_step)
+	{
+		target_orientation.y += DegreeToRadian(_angular_step)
+
+		if (target_orientation.y >= Deg(180))
+			target_orientation.y -= Deg(360)
+		else
+		if (target_orientation.y <= Deg(-180))
+			target_orientation.y += Deg(360)
+	}
+
 	function	SetThrustUp()
 	{
 		thrust	= Min(thrust += g_dt_frame * 60.0, max_thrust)
