@@ -161,7 +161,9 @@ class	Ship	extends	PhysicOrbitingItem
 //		if (strafe_force.Len2() > 0.0)
 //			return
 
-		strafe_force = left.Scale(250.0)
+		strafe_force = left.Scale(10.0 * max_thrust)
+		local	_strafe_chan = MixerSoundStart(g_mixer, samples["ship_strafe"])
+		MixerChannelSetPitch(g_mixer, _strafe_chan, Rand(0.975,1.025))
 		strafe_timeout = g_clock
 	}
 
@@ -173,7 +175,9 @@ class	Ship	extends	PhysicOrbitingItem
 //		if (strafe_force.Len2() > 0.0)
 //			return
 
-		strafe_force = left.Reverse().Scale(250.0)
+		strafe_force = left.Reverse().Scale(10.0 * max_thrust)
+		local	_strafe_chan = MixerSoundStart(g_mixer, samples["ship_strafe"])
+		MixerChannelSetPitch(g_mixer, _strafe_chan, Rand(0.975,1.025))
 		strafe_timeout = g_clock
 	}
 
@@ -252,6 +256,7 @@ class	Ship	extends	PhysicOrbitingItem
 		target_direction = clone(vector_front)
 
 		strafe_force = Vector(0,0,0,0)
+		strafe_timeout = g_clock
 
 		//	Physics Settings Control UI
 		local	top_window = g_WindowsManager.CreateVerticalSizer(0, 1000)		
@@ -275,7 +280,7 @@ class	Ship	extends	PhysicOrbitingItem
 		LoadSample("ship_reactor")
 		channels.rawset("ship_reactor", MixerSoundStart(g_mixer, samples["ship_reactor"]))
 		MixerChannelSetLoopMode(g_mixer, channels["ship_reactor"], LoopRepeat)
-
+		LoadSample("ship_strafe")
 		LoadSample("gui_up_down")
 
 //		SetOrbitOnItem(SceneFindItem(g_scene, "asteroid_s3_0"))
