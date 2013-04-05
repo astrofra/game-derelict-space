@@ -101,6 +101,10 @@ class	ShipControl
 
 		if (DeviceIsKeyDown(keyboard_device, KeyUpArrow))
 			ItemGetScriptInstance(player_item).SetThrustUp()
+		else
+		if (DeviceIsKeyDown(keyboard_device, KeyDownArrow))
+			ItemGetScriptInstance(player_item).SetThrustDown()
+
 
 
 		if (autopilot_item_target != 0)

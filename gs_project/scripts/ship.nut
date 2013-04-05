@@ -47,7 +47,12 @@ class	Ship	extends	PhysicOrbitingItem
 		UpdateBanking()
 		
 		orientation = ItemGetRotation(item)
-		thrust	= Max(thrust -= g_dt_frame * 15.0, 0.0)
+		if (thrust > 0.0)
+			thrust	= Max(thrust -= g_dt_frame * 15.0, 0.0)
+		else
+		if (thrust < 0.0)
+			thrust	= Min(thrust += g_dt_frame * 15.0, 0.0)
+		
 
 		UpdateLabel(item)
 
@@ -84,7 +89,7 @@ class	Ship	extends	PhysicOrbitingItem
 
 	function	UpdateAudio()
 	{
-		local	_speed = RangeAdjust(thrust, 0.0, max_thrust, 0.0, 1.0)
+		local	_speed = RangeAdjust(fabs(thrust), 0.0, max_thrust, 0.0, 1.0)
 		local	_gain = Clamp(_speed, 0.1, 1.0)
 		local	_pitch = Clamp(RangeAdjust(_speed, 0.0, 1.0, 0.8, 1.2), 0.8, 1.2)
 		MixerChannelSetGain(g_mixer, channels["ship_reactor"], _gain)
@@ -110,7 +115,7 @@ class	Ship	extends	PhysicOrbitingItem
 		//	Align the ship to the desired orientation
 		//	If the reactor are ON
 		local	should_rotate = false
-		if (thrust > 0.0)	should_rotate = true
+		if (fabs(thrust) > 0.0)	should_rotate = true
 
 		if (should_rotate)
 		{
@@ -203,6 +208,13 @@ class	Ship	extends	PhysicOrbitingItem
 		thrust	= Min(thrust += g_dt_frame * 60.0, max_thrust)
 		if (thrust > 0.1)	RecordTrails()
 	}
+
+	function	SetThrustDown()
+	{
+		thrust	= Max(thrust -= g_dt_frame * 60.0 * 0.5, -max_thrust * 0.25)
+//		if (thrust < -0.1)	RecordTrails()
+	}
+
 
 	function	RenderUser(scene)
 	{
