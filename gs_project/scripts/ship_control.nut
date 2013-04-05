@@ -102,24 +102,38 @@ class	ShipControl
 		if (DeviceIsKeyDown(keyboard_device, KeyUpArrow))
 			ItemGetScriptInstance(player_item).SetThrustUp()
 
-		if (DeviceIsKeyDown(keyboard_device, KeyLeftArrow))
+
+		if (autopilot_item_target != 0)
 		{
-			ItemGetScriptInstance(player_item).IncreaseOrientationAngle(-5.0)
-			local	_new_orientation = ItemGetScriptInstance(player_item).target_orientation
-			local	_a_offset = Deg(90.0)
-			display_target_dir = Vector(-cos(_new_orientation.y + _a_offset),0,sin(_new_orientation.y + _a_offset)).Normalize()
-			target_direction = clone(display_target_dir)
-			autopilot_item_target = 0
+			if (DeviceIsKeyDown(keyboard_device, KeyLeftArrow))
+			{
+				ItemGetScriptInstance(player_item).StrafeLeft()
+			}
+			else
+			if (DeviceIsKeyDown(keyboard_device, KeyRightArrow))
+			{
+				ItemGetScriptInstance(player_item).StrafeRight()
+			}		
 		}
 		else
-		if (DeviceIsKeyDown(keyboard_device, KeyRightArrow))
 		{
-			ItemGetScriptInstance(player_item).IncreaseOrientationAngle(5.0)
-			local	_new_orientation = ItemGetScriptInstance(player_item).target_orientation
-			local	_a_offset = Deg(90.0)
-			display_target_dir = Vector(-cos(_new_orientation.y + _a_offset),0,sin(_new_orientation.y + _a_offset)).Normalize()
-			target_direction = clone(display_target_dir)
-			autopilot_item_target = 0
+			if (DeviceIsKeyDown(keyboard_device, KeyLeftArrow))
+			{
+				ItemGetScriptInstance(player_item).IncreaseOrientationAngle(-5.0)
+				local	_new_orientation = ItemGetScriptInstance(player_item).target_orientation
+				local	_a_offset = Deg(90.0)
+				display_target_dir = Vector(-cos(_new_orientation.y + _a_offset),0,sin(_new_orientation.y + _a_offset)).Normalize()
+				target_direction = clone(display_target_dir)
+			}
+			else
+			if (DeviceIsKeyDown(keyboard_device, KeyRightArrow))
+			{
+				ItemGetScriptInstance(player_item).IncreaseOrientationAngle(5.0)
+				local	_new_orientation = ItemGetScriptInstance(player_item).target_orientation
+				local	_a_offset = Deg(90.0)
+				display_target_dir = Vector(-cos(_new_orientation.y + _a_offset),0,sin(_new_orientation.y + _a_offset)).Normalize()
+				target_direction = clone(display_target_dir)
+			}
 		}
 
 	}

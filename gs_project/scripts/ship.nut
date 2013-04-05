@@ -14,7 +14,7 @@ class	Ship	extends	PhysicOrbitingItem
 {
 
 
-	max_speed				=	100.0
+//	max_speed				=	100.0
 	max_thrust				=	20.0
 	max_angular_speed		=	1.2
 
@@ -23,6 +23,8 @@ class	Ship	extends	PhysicOrbitingItem
 	orientation				=	0
 	target_orientation		=	0
 	target_direction		=	0
+	strafe_force			=	0
+	strafe_timeout			=	0
 
 	side_force				=	0
 	banking					=	0.0
@@ -139,9 +141,42 @@ class	Ship	extends	PhysicOrbitingItem
 		side_force = body_matrix.GetLeft().Scale(_dot * 50.0)
 		target_banking = _dot * linear_velocity.Len()
 
+		//	Straffing
+		if (strafe_force.Len2() > 0.0)
+		{
+			strafe_force += strafe_force.Reverse().Scale(10.0 * g_dt_frame)
+			ItemApplyLinearForce(item, strafe_force.Scale(mass))
+		}
+		
+
 		//	Camera Update
 		SceneGetScriptInstance(g_scene).camera_handler.Update(SceneGetScriptInstance(g_scene).player_item)
 	}
+
+	function	StrafeLeft()
+	{
+		if (g_clock - strafe_timeout < SecToTick(Sec(0.25)))
+			return
+
+//		if (strafe_force.Len2() > 0.0)
+//			return
+
+		strafe_force = left.Scale(250.0)
+		strafe_timeout = g_clock
+	}
+
+	function	StrafeRight()
+	{
+		if (g_clock - strafe_timeout < SecToTick(Sec(0.25)))
+			return
+
+//		if (strafe_force.Len2() > 0.0)
+//			return
+
+		strafe_force = left.Reverse().Scale(250.0)
+		strafe_timeout = g_clock
+	}
+
 
 	function	SetOrientation(_euler)
 	{
@@ -215,6 +250,8 @@ class	Ship	extends	PhysicOrbitingItem
 		orientation = ItemGetRotation(item)
 		target_orientation = clone(orientation)
 		target_direction = clone(vector_front)
+
+		strafe_force = Vector(0,0,0,0)
 
 		//	Physics Settings Control UI
 		local	top_window = g_WindowsManager.CreateVerticalSizer(0, 1000)		
