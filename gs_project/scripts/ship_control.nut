@@ -24,6 +24,8 @@ class	ShipControl
 	current_callback_index	=	0
 	autopilot_item_target	=	0
 
+	gear_button				=	0
+
 	ship_direction			=	0
 	target_direction		=	0
 	display_target_dir		=	0
@@ -177,6 +179,20 @@ class	ShipControl
 		_sprite.RefreshValueText(true)
 	}
 
+	function	ClickOnGear(_sprite)
+	{
+		print("ShipControl::ClickOnGear() _sprite = " + _sprite)
+
+		for(local n = 0; n < 3; n++)
+		{
+			gear_button[n].RefreshValueText(false)
+			if (gear_button[n] == _sprite)
+				ItemGetScriptInstance(player_item).FetchShipSettings(n)
+		}
+
+		_sprite.RefreshValueText(true)
+	}
+
 	constructor(_scene)
 	{
 		scene = _scene
@@ -189,8 +205,8 @@ class	ShipControl
 		player_item = SceneGetScriptInstance(scene).player_item
 
 		callbacks = []
-		callbacks.append({button = 0, name = tr("LaBlanche Control"),	control_function = "BlancheControl",	autopilot_function = "BlancheAutopilot",	render_function = "BlancheRenderUser"})
-		callbacks.append({button = 0, name = tr("Null Control")})
+		callbacks.append({button = 0, name = tr("LaBlanche"),	control_function = "BlancheControl",	autopilot_function = "BlancheAutopilot",	render_function = "BlancheRenderUser"})
+//		callbacks.append({button = 0, name = tr("Null Ctrl")})
 
 		local	top_window = g_WindowsManager.CreateVerticalSizer(0, 1000)
 		top_window.SetParent(SceneGetScriptInstance(g_scene).master_ui_sprite)
@@ -202,6 +218,19 @@ class	ShipControl
  			_bt = g_WindowsManager.CreateCheckButton(top_window, callbacks[n].name, current_callback_index == n?true:false, this, "ClickOnControl")
 			_bt.authorize_resize = false
 			callbacks[n].button = _bt
+		}
+
+		local	gear_window = g_WindowsManager.CreateVerticalSizer(0, 1000)
+		gear_window.SetParent(SceneGetScriptInstance(g_scene).master_ui_sprite)
+		gear_window.SetPos(Vector(1280 - 140, 8, 0))
+
+		gear_button = []
+		for(local n = 0; n < 3;n++)
+		{
+			local	_bt
+ 			_bt = g_WindowsManager.CreateCheckButton(gear_window, tr("Gear") + " #" + n.tostring() , n == 0?true:false, this, "ClickOnGear")
+			_bt.authorize_resize = false
+			gear_button.append(_bt)
 		}
 
 		SceneGetScriptInstance(g_scene).render_user_callback.append(this)

@@ -26,6 +26,8 @@ class	Ship	extends	PhysicOrbitingItem
 	strafe_force			=	0
 	strafe_timeout			=	0
 
+	current_gear			=	0
+
 	side_force				=	0
 	banking					=	0.0
 	target_banking			=	0.0
@@ -254,6 +256,7 @@ class	Ship	extends	PhysicOrbitingItem
 			max_thrust = _gear_settings.max_thrust
 			max_angular_speed =	_gear_settings.max_angular_speed
 			max_speed = _gear_settings.max_speed
+			current_gear = _gear
 		}
 	}
 
@@ -286,7 +289,7 @@ class	Ship	extends	PhysicOrbitingItem
 		//	Physics Settings Control UI
 		local	top_window = g_WindowsManager.CreateVerticalSizer(0, 1000)
 		top_window.SetParent(SceneGetScriptInstance(g_scene).master_ui_sprite)	
-		top_window.SetPos(Vector(256, 8, 0))
+		top_window.SetPos(Vector(180, 8, 0))
 
 		g_WindowsManager.CreateSliderButton(top_window, tr("Inertie"), 0.0, 1.0, 0.05, linear_damping, this, "SliderSetLinearDamping")
 		g_WindowsManager.CreateSliderButton(top_window, tr("Poussée"), 0.0, 100.0, 5.0, max_thrust, this, "SliderSetMaxThrust")
