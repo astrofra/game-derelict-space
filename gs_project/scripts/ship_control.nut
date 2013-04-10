@@ -119,9 +119,10 @@ class	ShipControl
 		}
 		else
 		{
+			local	keyb_arrow_angular_speed = 5.0 * RangeAdjust(ItemGetScriptInstance(player_item).max_angular_speed, 0.1, 90.0, 0.1, 0.9) 
 			if (DeviceIsKeyDown(keyboard_device, KeyLeftArrow))
 			{
-				ItemGetScriptInstance(player_item).IncreaseOrientationAngle(-5.0)
+				ItemGetScriptInstance(player_item).IncreaseOrientationAngle(-keyb_arrow_angular_speed)
 				local	_new_orientation = ItemGetScriptInstance(player_item).target_orientation
 				local	_a_offset = Deg(90.0)
 				display_target_dir = Vector(-cos(_new_orientation.y + _a_offset),0,sin(_new_orientation.y + _a_offset)).Normalize()
@@ -130,7 +131,7 @@ class	ShipControl
 			else
 			if (DeviceIsKeyDown(keyboard_device, KeyRightArrow))
 			{
-				ItemGetScriptInstance(player_item).IncreaseOrientationAngle(5.0)
+				ItemGetScriptInstance(player_item).IncreaseOrientationAngle(keyb_arrow_angular_speed)
 				local	_new_orientation = ItemGetScriptInstance(player_item).target_orientation
 				local	_a_offset = Deg(90.0)
 				display_target_dir = Vector(-cos(_new_orientation.y + _a_offset),0,sin(_new_orientation.y + _a_offset)).Normalize()

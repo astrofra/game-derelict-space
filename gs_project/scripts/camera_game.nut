@@ -32,7 +32,7 @@ class	CameraGame
 		SceneSetCurrentCamera(scene, camera)
 		ItemRegistrySetKey (camera_item, "PostProcess:Bloom:Strength;", 15.0)
 		ItemRegistrySetKey (camera_item, "PostProcess:Bloom:Radius;", 15.0)
-		ItemRegistrySetKey (camera_item, "PostProcess:Bloom:Threshold;", 0.95)
+		ItemRegistrySetKey (camera_item, "PostProcess:Bloom:Threshold;", 0.85)
 	}
 
 	function	OffsetCameraY(dt_y)

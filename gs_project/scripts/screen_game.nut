@@ -64,7 +64,9 @@ class	SceneGame	extends SceneGameBase
 		top_window.SetPos(Vector(8, 256, 0))
 
 		ships = []
-		ships.append({name = "ship_0", button = 0})
+		ships.append({name = "arrow", button = 0})
+		ships.append({name = "orbiter", button = 0})
+		ships.append({name = "drifter", button = 0})
 		ships.append({name = "frigate_0", button = 0})
 		ships.append({name = "frigate_1", button = 0})
 		ships.append({name = "frigate_2", button = 0})
