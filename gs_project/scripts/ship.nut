@@ -14,7 +14,7 @@ class	Ship	extends	PhysicOrbitingItem
 {
 
 
-//	max_speed				=	100.0
+	max_speed				=	100.0	//	Unused, so far
 	max_thrust				=	20.0
 	max_angular_speed		=	1.2
 
@@ -245,6 +245,18 @@ class	Ship	extends	PhysicOrbitingItem
 			samples.rawset(_filename, ResourceFactoryLoadSound(g_factory, _fname))
 	}
 
+	function	FetchShipSettings(_gear = 0)
+	{
+		if (ship_name in ship_settings_table)
+		{
+			local	_gear_settings = (ship_settings_table[ship_name]).gears[_gear]
+			base.SetLinearDamping(_gear_settings.damping)
+			max_thrust = _gear_settings.max_thrust
+			max_angular_speed =	_gear_settings.max_angular_speed
+			max_speed = _gear_settings.max_speed
+		}
+	}
+
 	/*!
 		@short	OnSetup
 		Called when the item is about to be setup.
@@ -262,6 +274,7 @@ class	Ship	extends	PhysicOrbitingItem
 		
 		base.SetLinearDamping(0.5)
 		base.SetAngularDamping(1.0)
+		FetchShipSettings(0)
 
 		orientation = ItemGetRotation(item)
 		target_orientation = clone(orientation)

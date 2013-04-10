@@ -7,9 +7,10 @@ Include("scripts/utils/scene_game_base.nut")
 Include("scripts/camera_game.nut")
 Include("scripts/starfield.nut")
 Include("scripts/ship_control.nut")
+Include("scripts/settings_table_ship.nut")
 
 if (!("ship_name" in getroottable()))
-	ship_name				<-	"ship_0"
+	ship_name				<-	"arrow"
 
 /*!
 	@short	SceneGame
