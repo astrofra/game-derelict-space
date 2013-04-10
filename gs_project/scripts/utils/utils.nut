@@ -8,6 +8,9 @@ g_vector_blue		<-	Vector(0.05,0.15,0.5)
 g_vector_cyan		<-	Vector(0.05,0.7,0.75)
 g_vector_orange		<-	Vector(1.0, 0.75, 0.0)
 
+function	SpriteIsShown(_spr)
+{	return (SpriteGetOpacity(_spr)==0.0?false:true)	}
+
 function	DrawCircleInXZPlane(_pos = Vector(0,0,0), _radius = Mtr(1.0), _color = Vector(1,1,1), _step = 5.0)
 {
 	local	_point, _prev_point = -1, i

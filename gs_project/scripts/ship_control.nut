@@ -71,7 +71,7 @@ class	ShipControl
 		ship_direction = ship_direction.Normalize()
 
 		//	Mouse click
-		if(DeviceKeyPressed(mouse_device, KeyButton0) && !DeviceWasKeyDown(mouse_device, KeyButton0))
+		if(DeviceKeyPressed(mouse_device, KeyButton0) && !DeviceWasKeyDown(mouse_device, KeyButton0) && !g_WindowsManager.mouse_locked_by_ui)
 		{
 			if (autopilot_item_target != 0) ItemGetScriptInstance(autopilot_item_target).focus = false
 
@@ -101,6 +101,7 @@ class	ShipControl
 		display_target_dir += (target_direction - display_target_dir).Scale(10.0 * g_dt_frame)
 		display_target_dir = display_target_dir.Normalize()
 
+		//	Arrows
 		if (DeviceIsKeyDown(keyboard_device, KeyUpArrow))
 			ItemGetScriptInstance(player_item).SetThrustUp()
 		else
@@ -140,6 +141,16 @@ class	ShipControl
 				target_direction = clone(display_target_dir)
 			}
 		}
+
+		//	Gears
+		if (DeviceIsKeyDown(keyboard_device, KeyF1) && !DeviceWasKeyDown(keyboard_device, KeyF1))
+			ClickOnGear(gear_button[0])
+		else
+		if (DeviceIsKeyDown(keyboard_device, KeyF2) && !DeviceWasKeyDown(keyboard_device, KeyF2))
+			ClickOnGear(gear_button[1])
+		else
+		if (DeviceIsKeyDown(keyboard_device, KeyF3) && !DeviceWasKeyDown(keyboard_device, KeyF3))
+			ClickOnGear(gear_button[2])
 
 	}
 

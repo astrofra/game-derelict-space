@@ -7,7 +7,7 @@ ship_settings_table <-	{
 //	Arrow:nerveux tres maniable
 	arrow	=	{	name = tr("Arrow"), description = tr("Nerveux et très maniable."),
 					gears = [
-						{ damping = 0.9,	max_thrust = 5.0,	max_angular_speed = 2.4,	max_speed = 20.0 }
+						{ damping = 0.9,	max_thrust = 15.0,	max_angular_speed = 2.4,	max_speed = 20.0 }
 						{ damping = 0.9,	max_thrust = 50.0,	max_angular_speed = 2.4,	max_speed = 85.0 }
 						{ damping = 0.9,	max_thrust = 75.0,	max_angular_speed = 2.4,	max_speed = 85.0 }
 					]

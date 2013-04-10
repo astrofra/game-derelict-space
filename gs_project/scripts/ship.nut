@@ -38,6 +38,8 @@ class	Ship	extends	PhysicOrbitingItem
 	samples					=	0
 	channels				=	0
 
+	physic_settings_slider	=	0
+
 	/*!
 		@short	OnUpdate
 		Called during the scene update, each frame.
@@ -134,7 +136,7 @@ class	Ship	extends	PhysicOrbitingItem
 
 			//	Velocity contribution
 			local	_vel_factor = linear_velocity.Len()
-			_vel_factor = RangeAdjust(_vel_factor, 5.0, 10.0, 0.0, 1.0)
+			_vel_factor = RangeAdjust(_vel_factor, 1.0, 10.0, 0.0, 1.0)
 			_vel_factor = Clamp(_vel_factor, 0.0, 1.0)
 
 			ItemApplyTorque(item, _torque.Scale(100.0 * mass * _vel_factor))
@@ -258,6 +260,14 @@ class	Ship	extends	PhysicOrbitingItem
 			max_speed = _gear_settings.max_speed
 			current_gear = _gear
 		}
+
+		if (physic_settings_slider != 0)
+		{
+			physic_settings_slider[0].CallCallback(linear_damping)
+			physic_settings_slider[1].CallCallback(max_thrust)
+			physic_settings_slider[2].CallCallback(max_angular_speed)
+		}
+		
 	}
 
 	/*!
@@ -277,7 +287,6 @@ class	Ship	extends	PhysicOrbitingItem
 		
 		base.SetLinearDamping(0.5)
 		base.SetAngularDamping(1.0)
-		FetchShipSettings(0)
 
 		orientation = ItemGetRotation(item)
 		target_orientation = clone(orientation)
@@ -287,13 +296,14 @@ class	Ship	extends	PhysicOrbitingItem
 		strafe_timeout = g_clock
 
 		//	Physics Settings Control UI
+		physic_settings_slider = []
 		local	top_window = g_WindowsManager.CreateVerticalSizer(0, 1000)
 		top_window.SetParent(SceneGetScriptInstance(g_scene).master_ui_sprite)	
 		top_window.SetPos(Vector(180, 8, 0))
 
-		g_WindowsManager.CreateSliderButton(top_window, tr("Inertie"), 0.0, 1.0, 0.05, linear_damping, this, "SliderSetLinearDamping")
-		g_WindowsManager.CreateSliderButton(top_window, tr("Poussée"), 0.0, 100.0, 5.0, max_thrust, this, "SliderSetMaxThrust")
-		g_WindowsManager.CreateSliderButton(top_window, tr("Rotation"), 0.0, 90.0, 0.1, max_angular_speed, this, "SliderSetMaxAngularSpeed")
+		physic_settings_slider.append(g_WindowsManager.CreateSliderButton(top_window, tr("Inertie"), 0.0, 1.0, 0.05, linear_damping, this, "SliderSetLinearDamping"))
+		physic_settings_slider.append(g_WindowsManager.CreateSliderButton(top_window, tr("Poussée"), 0.0, 100.0, 5.0, max_thrust, this, "SliderSetMaxThrust"))
+		physic_settings_slider.append(g_WindowsManager.CreateSliderButton(top_window, tr("Rotation"), 0.0, 90.0, 0.1, max_angular_speed, this, "SliderSetMaxAngularSpeed"))
 
 		//	Reactor's trails
 		trails = []
@@ -311,6 +321,8 @@ class	Ship	extends	PhysicOrbitingItem
 		MixerChannelSetLoopMode(g_mixer, channels["ship_reactor"], LoopRepeat)
 		LoadSample("ship_strafe")
 		LoadSample("gui_up_down")
+
+		FetchShipSettings(0)
 
 //		SetOrbitOnItem(SceneFindItem(g_scene, "asteroid_s3_0"))
 	}
