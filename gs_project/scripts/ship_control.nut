@@ -105,8 +105,6 @@ class	ShipControl
 		if (DeviceIsKeyDown(keyboard_device, KeyDownArrow))
 			ItemGetScriptInstance(player_item).SetThrustDown()
 
-
-
 		if (autopilot_item_target != 0)
 		{
 			if (DeviceIsKeyDown(keyboard_device, KeyLeftArrow))
@@ -194,6 +192,7 @@ class	ShipControl
 		callbacks.append({button = 0, name = tr("Null Control")})
 
 		local	top_window = g_WindowsManager.CreateVerticalSizer(0, 1000)
+		top_window.SetParent(SceneGetScriptInstance(g_scene).master_ui_sprite)
 		top_window.SetPos(Vector(8, 8, 0))
 
 		for(local n = 0; n < callbacks.len();n++)

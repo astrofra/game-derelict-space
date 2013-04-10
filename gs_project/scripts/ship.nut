@@ -271,7 +271,8 @@ class	Ship	extends	PhysicOrbitingItem
 		strafe_timeout = g_clock
 
 		//	Physics Settings Control UI
-		local	top_window = g_WindowsManager.CreateVerticalSizer(0, 1000)		
+		local	top_window = g_WindowsManager.CreateVerticalSizer(0, 1000)
+		top_window.SetParent(SceneGetScriptInstance(g_scene).master_ui_sprite)	
 		top_window.SetPos(Vector(256, 8, 0))
 
 		g_WindowsManager.CreateSliderButton(top_window, tr("Inertie"), 0.0, 1.0, 0.05, linear_damping, this, "SliderSetLinearDamping")

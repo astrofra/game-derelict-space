@@ -60,6 +60,7 @@ class	SceneGame	extends SceneGameBase
 	function	ShipSelectorMenu()
 	{
 		local	top_window = g_WindowsManager.CreateVerticalSizer(0, 1000)
+		top_window.SetParent(master_ui_sprite)
 		top_window.SetPos(Vector(8, 256, 0))
 
 		ships = []
