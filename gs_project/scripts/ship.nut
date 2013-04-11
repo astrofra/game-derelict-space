@@ -34,6 +34,7 @@ class	Ship	extends	PhysicOrbitingItem
 
 	banking_item			=	0
 	trails					=	0
+	trails_reverse			=	0
 
 	samples					=	0
 	channels				=	0
@@ -66,6 +67,12 @@ class	Ship	extends	PhysicOrbitingItem
 	function	RecordTrails()
 	{
 		foreach(_trail in trails)
+			_trail.RecordPoint()
+	}
+	
+	function	RecordTrailsReverse()
+	{
+		foreach(_trail in trails_reverse)
 			_trail.RecordPoint()
 	}
 
@@ -156,7 +163,7 @@ class	Ship	extends	PhysicOrbitingItem
 		//	Straffing
 		if (strafe_force.Len2() > 0.0)
 		{
-			strafe_force += strafe_force.Reverse().Scale(10.0 * g_dt_frame)
+			strafe_force += strafe_force.Reverse().Scale(30.0 * g_dt_frame)
 			ItemApplyLinearForce(item, strafe_force.Scale(mass))
 		}
 		
@@ -219,7 +226,7 @@ class	Ship	extends	PhysicOrbitingItem
 	function	SetThrustDown()
 	{
 		thrust	= Max(thrust -= g_dt_frame * 60.0 * 0.5, -max_thrust * 0.25)
-//		if (thrust < -0.1)	RecordTrails()
+		if (thrust < -0.25)	RecordTrailsReverse()
 	}
 
 
@@ -230,12 +237,16 @@ class	Ship	extends	PhysicOrbitingItem
 		foreach(_trail in trails)
 			_trail.RenderUser(scene)
 
+		foreach(_trail in trails_reverse)
+			_trail.RenderUser(scene)
+
 		local	ship_position = ItemGetWorldPosition(body)
-		RendererDrawLine(g_render, ship_position, ship_position + linear_velocity)
+		if (!SceneGetScriptInstance(g_scene).hidden_ui) 
+			RendererDrawLine(g_render, ship_position, ship_position + linear_velocity)
 //		RendererDrawLine(g_render, ship_position, ship_position + side_force)
 
-		foreach(_F in attraction_forces_list)
-			RendererDrawLineColored(g_render, position, position + _F, Vector(0.1,0.2,1.0))
+//		foreach(_F in attraction_forces_list)
+//			RendererDrawLineColored(g_render, position, position + _F, Vector(0.1,0.2,1.0))
 	}
 
 	function	SliderSetLinearDamping(_sprite, _value)
@@ -310,9 +321,12 @@ class	Ship	extends	PhysicOrbitingItem
 
 		//	Reactor's trails
 		trails = []
+		trails_reverse = []
 		local	_list = ItemGetChildList(banking_item)
 		foreach(_child in _list)
 			if (ItemGetName(_child) == "trail")	trails.append(TrailsSprite(_child, g_vector_orange, MaterialBlendNone))
+		foreach(_child in _list)
+			if (ItemGetName(_child) == "trail_reverse")	trails_reverse.append(TrailsSprite(_child, g_vector_orange, MaterialBlendNone))
 
 		SceneGetScriptInstance(g_scene).render_user_callback.append(this)
 

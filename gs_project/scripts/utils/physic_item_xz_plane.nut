@@ -76,7 +76,8 @@ class	PhysicItemXZPlane
 
 	function	RenderUser(scene)
 	{
-		RendererDrawLineColored(g_render, position, position + linear_acceleration.Scale(10.0), Vector(1,0,1))
+		if (!SceneGetScriptInstance(g_scene).hidden_ui)
+			RendererDrawLineColored(g_render, position, position + linear_acceleration.Scale(10.0), Vector(1,0,1))
 	}
 
 	function	ApplyAttraction(_F)

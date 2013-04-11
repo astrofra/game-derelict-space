@@ -440,7 +440,6 @@ Xçå\***ª******ªi**ªiXçå\***ª******ªi>
 						<Y=0.000000>
 						<Z=-2.174000>
 					>
-					<ItemFlag>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
@@ -487,6 +486,88 @@ Xçå\***ª******ªi**ªiXçå\***ª******ªi>
 				<CacheGeometry=True>
 			>
 		>
+		<MObject=
+			<MItem=
+				<Id="trail_reverse">
+				<UId=6>
+				<Inactive>
+				<Helper>
+				<Priority=0.500000>
+				<MotionPlayer=
+					<Motions>
+				>
+				<PhysicItem=
+					<SelfMask=1>
+					<Mask=1>
+					<LinearDamping_v2=1.000000>
+					<AngularDamping_v2=1.000000>
+					<CharacterRadius=1.000000>
+					<CharacterHeight=1.000000>
+					<CharacterMaxStep=0.200000>
+					<Mode="None">
+				>
+			>
+			<Object=
+				<Item=
+					<Position=
+						<X=-1.190000>
+						<Y=0.000000>
+						<Z=0.535000>
+					>
+					<ItemFlag>
+					<Target=
+						<X=0.000000>
+						<Y=0.000000>
+						<Z=1.000000>
+					>
+					<RotationOrder="YXZ">
+					<Registry>
+				>
+				<Geometry="">
+				<CacheGeometry=True>
+			>
+		>
+		<MObject=
+			<MItem=
+				<Id="trail_reverse">
+				<UId=7>
+				<Inactive>
+				<Helper>
+				<Priority=0.500000>
+				<MotionPlayer=
+					<Motions>
+				>
+				<PhysicItem=
+					<SelfMask=1>
+					<Mask=1>
+					<LinearDamping_v2=1.000000>
+					<AngularDamping_v2=1.000000>
+					<CharacterRadius=1.000000>
+					<CharacterHeight=1.000000>
+					<CharacterMaxStep=0.200000>
+					<Mode="None">
+				>
+			>
+			<Object=
+				<Item=
+					<Position=
+						<X=1.190757>
+						<Y=0.000000>
+						<Z=0.534848>
+					>
+					<ItemFlag>
+					<Target=
+						<X=0.000000>
+						<Y=0.000000>
+						<Z=1.000000>
+					>
+					<RotationOrder="YXZ">
+					<Registry>
+				>
+				<Geometry="">
+				<CacheGeometry=True>
+			>
+		>
 	>
 	<Links=
 		<Link=
@@ -504,6 +585,14 @@ Xçå\***ª******ªi**ªiXçå\***ª******ªi>
 		<Link=
 			<Item=5>
 			<Link=2>
+		>
+		<Link=
+			<Item=6>
+			<Link=5>
+		>
+		<Link=
+			<Item=7>
+			<Link=5>
 		>
 	>
 	<Constraints>
@@ -534,27 +623,27 @@ Xçå\***ª******ªi**ªiXçå\***ª******ªi>
 	>
 	<ViewMatrix=
 		<R0=
-			<X=-0.746109>
+			<X=-0.981615>
 			<Y=0.000000>
-			<Z=0.665824>
+			<Z=0.190874>
 			<W=0.000000>
 		>
 		<R1=
-			<X=-0.158751>
-			<Y=0.971160>
-			<Z=-0.177893>
+			<X=-0.014747>
+			<Y=0.997011>
+			<Z=-0.075841>
 			<W=0.000000>
 		>
 		<R2=
-			<X=-0.646621>
-			<Y=-0.238428>
-			<Z=-0.724592>
+			<X=-0.190303>
+			<Y=-0.077261>
+			<Z=-0.978680>
 			<W=0.000000>
 		>
 		<R3=
-			<X=8.377733>
-			<Y=3.410387>
-			<Z=8.985541>
+			<X=3.448965>
+			<Y=1.400149>
+			<Z=15.562162>
 			<W=1.000000>
 		>
 	>
@@ -567,27 +656,27 @@ Xçå\***ª******ªi**ªiXçå\***ª******ªi>
 			<CameraUid=-16>
 			<Matrix=
 				<R0=
-					<X=-0.746109>
+					<X=-0.981615>
 					<Y=0.000000>
-					<Z=0.665824>
+					<Z=0.190874>
 					<W=0.000000>
 				>
 				<R1=
-					<X=-0.158751>
-					<Y=0.971160>
-					<Z=-0.177893>
+					<X=-0.014747>
+					<Y=0.997011>
+					<Z=-0.075841>
 					<W=0.000000>
 				>
 				<R2=
-					<X=-0.646621>
-					<Y=-0.238428>
-					<Z=-0.724592>
+					<X=-0.190303>
+					<Y=-0.077261>
+					<Z=-0.978680>
 					<W=0.000000>
 				>
 				<R3=
-					<X=8.377733>
-					<Y=3.410387>
-					<Z=8.985541>
+					<X=3.448965>
+					<Y=1.400149>
+					<Z=15.562162>
 					<W=1.000000>
 				>
 			>
