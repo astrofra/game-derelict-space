@@ -53,155 +53,10 @@
 				<AspectRatioRefYAxis=True>
 			>
 		>
-		<MLight=
-			<MItem=
-				<Id="sun">
-				<UId=1>
-				<Active>
-				<Priority=1.000000>
-				<MotionPlayer=
-					<Motions>
-				>
-				<PhysicItem=
-					<SelfMask=1>
-					<Mask=1>
-					<LinearDamping_v2=1.000000>
-					<AngularDamping_v2=1.000000>
-					<CharacterRadius=1.000000>
-					<CharacterHeight=1.000000>
-					<CharacterMaxStep=0.200000>
-					<Mode="None">
-				>
-			>
-			<Light=
-				<Item=
-					<Rotation=
-						<X=-0.043633>
-						<Y=-1.562855>
-						<Z=0.001379>
-					>
-					<Target=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=1.000000>
-					>
-					<RotationOrder="YXZ">
-					<Registry>
-				>
-				<Diffuse=
-					<X=0.811765>
-					<Y=0.811765>
-					<Z=0.811765>
-				>
-				<Specular=
-					<X=0.615686>
-					<Y=0.752941>
-					<Z=1.000000>
-				>
-				<ShadowColor=
-					<X=0.000000>
-					<Y=0.000000>
-					<Z=0.000000>
-				>
-				<Type="Parallel">
-				<Falloff="Linear">
-				<Range=0.000000>
-				<VolumeRange=500.000000>
-				<ClipDistance=300.000000>
-				<ProjectionMap="">
-				<DiffuseIntensity=3.000000>
-				<SpecularIntensity=1.000000>
-				<ConeAngle=0.523599>
-				<EdgeAngle=0.523599>
-				<ZNear=0.020000>
-				<Shadow="Map">
-				<ShadowBias=0.010000>
-				<ShadowDistribution=0.900000>
-				<ShadowRange=100.000000>
-				<ShadowCastAll=False>
-				<Volumetric=False>
-				<VolumetricSampleStep=0.500000>
-				<VolumetricThick=1.000000>
-				<VolumetricRange=8.000000>
-			>
-		>
-		<MLight=
-			<MItem=
-				<Id="back_light">
-				<UId=2>
-				<Active>
-				<Priority=1.000000>
-				<MotionPlayer=
-					<Motions>
-				>
-				<PhysicItem=
-					<SelfMask=1>
-					<Mask=1>
-					<LinearDamping_v2=1.000000>
-					<AngularDamping_v2=1.000000>
-					<CharacterRadius=1.000000>
-					<CharacterHeight=1.000000>
-					<CharacterMaxStep=0.200000>
-					<Mode="None">
-				>
-			>
-			<Light=
-				<Item=
-					<Rotation=
-						<X=-0.087284>
-						<Y=1.696513>
-						<Z=0.000105>
-					>
-					<ItemFlag>
-					<Target=
-						<X=0.000000>
-						<Y=0.000000>
-						<Z=1.000000>
-					>
-					<RotationOrder="YXZ">
-					<Registry>
-				>
-				<Diffuse=
-					<X=0.000000>
-					<Y=0.333333>
-					<Z=0.498039>
-				>
-				<Specular=
-					<X=0.000000>
-					<Y=0.333333>
-					<Z=0.498039>
-				>
-				<ShadowColor=
-					<X=0.000000>
-					<Y=0.000000>
-					<Z=0.000000>
-				>
-				<Type="Parallel">
-				<Falloff="Linear">
-				<Range=0.000000>
-				<VolumeRange=500.000000>
-				<ClipDistance=300.000000>
-				<ProjectionMap="">
-				<DiffuseIntensity=3.000000>
-				<SpecularIntensity=3.000000>
-				<ConeAngle=0.523599>
-				<EdgeAngle=0.523599>
-				<ZNear=0.020000>
-				<Shadow="None">
-				<ShadowBias=0.010000>
-				<ShadowDistribution=0.900000>
-				<ShadowRange=100.000000>
-				<ShadowCastAll=False>
-				<Volumetric=False>
-				<VolumetricSampleStep=0.500000>
-				<VolumetricThick=1.000000>
-				<VolumetricRange=8.000000>
-			>
-		>
 		<Instance=
 			<MItem=
 				<Id="Asteroid S0 0">
-				<UId=3>
+				<UId=1>
 				<Active>
 				<Priority=0.500000>
 				<MotionPlayer=
@@ -237,7 +92,7 @@
 		<Instance=
 			<MItem=
 				<Id="Asteroid S0 1">
-				<UId=4>
+				<UId=2>
 				<Active>
 				<Priority=0.500000>
 				<MotionPlayer=
@@ -273,7 +128,7 @@
 		<Instance=
 			<MItem=
 				<Id="Asteroid S1 0">
-				<UId=5>
+				<UId=3>
 				<Active>
 				<Priority=0.500000>
 				<MotionPlayer=
@@ -309,7 +164,7 @@
 		<Instance=
 			<MItem=
 				<Id="Asteroid S1 1">
-				<UId=6>
+				<UId=4>
 				<Active>
 				<Priority=0.500000>
 				<MotionPlayer=
@@ -345,7 +200,7 @@
 		<Instance=
 			<MItem=
 				<Id="Asteroid S2 0">
-				<UId=7>
+				<UId=5>
 				<Active>
 				<Priority=0.500000>
 				<MotionPlayer=
@@ -381,7 +236,7 @@
 		<Instance=
 			<MItem=
 				<Id="Asteroid S2 1">
-				<UId=8>
+				<UId=6>
 				<Active>
 				<Priority=0.500000>
 				<MotionPlayer=
@@ -417,7 +272,7 @@
 		<Instance=
 			<MItem=
 				<Id="Asteroid S3 0">
-				<UId=9>
+				<UId=7>
 				<Active>
 				<Priority=0.500000>
 				<MotionPlayer=
@@ -453,7 +308,7 @@
 		<Instance=
 			<MItem=
 				<Id="Asteroid S3 1">
-				<UId=10>
+				<UId=8>
 				<Active>
 				<Priority=0.500000>
 				<MotionPlayer=
@@ -489,7 +344,7 @@
 		<MObject=
 			<MItem=
 				<Id="spawnpoint">
-				<UId=11>
+				<UId=9>
 				<Active>
 				<Priority=0.500000>
 				<MotionPlayer=
@@ -523,7 +378,7 @@
 		<Instance=
 			<MItem=
 				<Id="star_background">
-				<UId=12>
+				<UId=10>
 				<Active>
 				<Priority=0.500000>
 				<MotionPlayer=
@@ -559,7 +414,7 @@
 		<MObject=
 			<MItem=
 				<Id="asteroids_background">
-				<UId=13>
+				<UId=11>
 				<Inactive>
 				<Helper>
 				<Static>
@@ -605,7 +460,7 @@
 		<MObject=
 			<MItem=
 				<Id="asteroids_background">
-				<UId=14>
+				<UId=12>
 				<Inactive>
 				<Helper>
 				<Static>
@@ -652,7 +507,7 @@
 		<MObject=
 			<MItem=
 				<Id="asteroids_background">
-				<UId=15>
+				<UId=13>
 				<Inactive>
 				<Helper>
 				<Static>
@@ -699,7 +554,7 @@
 		<MObject=
 			<MItem=
 				<Id="asteroids_background">
-				<UId=16>
+				<UId=14>
 				<Inactive>
 				<Helper>
 				<Static>
@@ -746,7 +601,7 @@
 		<MObject=
 			<MItem=
 				<Id="asteroids_background">
-				<UId=17>
+				<UId=15>
 				<Inactive>
 				<Helper>
 				<Static>
@@ -793,7 +648,7 @@
 		<MObject=
 			<MItem=
 				<Id="asteroids_background">
-				<UId=18>
+				<UId=16>
 				<Inactive>
 				<Helper>
 				<Static>
@@ -840,7 +695,7 @@
 		<MObject=
 			<MItem=
 				<Id="asteroids_background">
-				<UId=19>
+				<UId=17>
 				<Inactive>
 				<Helper>
 				<Static>
@@ -887,7 +742,7 @@
 		<MObject=
 			<MItem=
 				<Id="Sphere">
-				<UId=20>
+				<UId=18>
 				<Inactive>
 				<Priority=0.500000>
 				<MotionPlayer=
@@ -927,7 +782,7 @@
 		<MObject=
 			<MItem=
 				<Id="planet">
-				<UId=21>
+				<UId=19>
 				<Inactive>
 				<Priority=0.500000>
 				<MotionPlayer=
@@ -979,6 +834,7 @@
 						<Y=-40.741001>
 						<Z=8.091000>
 					>
+					<ItemFlag>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
@@ -994,7 +850,7 @@
 		<MObject=
 			<MItem=
 				<Id="dummy_ship">
-				<UId=22>
+				<UId=20>
 				<Active>
 				<Helper>
 				<Priority=0.500000>
@@ -1014,6 +870,12 @@
 			>
 			<Object=
 				<Item=
+					<Rotation=
+						<X=0.000000>
+						<Y=3.141593>
+						<Z=0.000000>
+					>
+					<ItemFlag>
 					<Target=
 						<X=0.000000>
 						<Y=0.000000>
@@ -1026,35 +888,179 @@
 				<CacheGeometry=True>
 			>
 		>
+		<MLight=
+			<MItem=
+				<Id="sun">
+				<UId=21>
+				<Active>
+				<Priority=1.000000>
+				<MotionPlayer=
+					<Motions>
+				>
+				<PhysicItem=
+					<SelfMask=1>
+					<Mask=1>
+					<LinearDamping_v2=1.000000>
+					<AngularDamping_v2=1.000000>
+					<CharacterRadius=1.000000>
+					<CharacterHeight=1.000000>
+					<CharacterMaxStep=0.200000>
+					<Mode="None">
+				>
+			>
+			<Light=
+				<Item=
+					<Rotation=
+						<X=0.610865>
+						<Y=-1.055069>
+						<Z=0.000000>
+					>
+					<Target=
+						<X=0.000000>
+						<Y=0.000000>
+						<Z=1.000000>
+					>
+					<RotationOrder="YXZ">
+					<Registry>
+				>
+				<Diffuse=
+					<X=1.000000>
+					<Y=1.000000>
+					<Z=1.000000>
+				>
+				<Specular=
+					<X=1.000000>
+					<Y=1.000000>
+					<Z=1.000000>
+				>
+				<ShadowColor=
+					<X=0.000000>
+					<Y=0.000000>
+					<Z=0.000000>
+				>
+				<Type="Parallel">
+				<Falloff="Linear">
+				<Range=0.000000>
+				<VolumeRange=500.000000>
+				<ClipDistance=300.000000>
+				<ProjectionMap="">
+				<DiffuseIntensity=1.000000>
+				<SpecularIntensity=1.000000>
+				<ConeAngle=0.523599>
+				<EdgeAngle=0.523599>
+				<ZNear=0.020000>
+				<Shadow="Map">
+				<ShadowBias=0.010000>
+				<ShadowDistribution=0.900000>
+				<ShadowRange=100.000000>
+				<ShadowCastAll=False>
+				<Volumetric=False>
+				<VolumetricSampleStep=0.500000>
+				<VolumetricThick=1.000000>
+				<VolumetricRange=8.000000>
+			>
+		>
+		<MLight=
+			<MItem=
+				<Id="back_light">
+				<UId=22>
+				<Active>
+				<Priority=1.000000>
+				<MotionPlayer=
+					<Motions>
+				>
+				<PhysicItem=
+					<SelfMask=1>
+					<Mask=1>
+					<LinearDamping_v2=1.000000>
+					<AngularDamping_v2=1.000000>
+					<CharacterRadius=1.000000>
+					<CharacterHeight=1.000000>
+					<CharacterMaxStep=0.200000>
+					<Mode="None">
+				>
+			>
+			<Light=
+				<Item=
+					<Rotation=
+						<X=-0.101694>
+						<Y=1.734723>
+						<Z=-0.021511>
+					>
+					<Target=
+						<X=0.000000>
+						<Y=0.000000>
+						<Z=1.000000>
+					>
+					<RotationOrder="YXZ">
+					<Registry>
+				>
+				<Diffuse=
+					<X=0.000000>
+					<Y=0.666667>
+					<Z=1.000000>
+				>
+				<Specular=
+					<X=1.000000>
+					<Y=1.000000>
+					<Z=1.000000>
+				>
+				<ShadowColor=
+					<X=0.000000>
+					<Y=0.000000>
+					<Z=0.000000>
+				>
+				<Type="Parallel">
+				<Falloff="Linear">
+				<Range=0.000000>
+				<VolumeRange=500.000000>
+				<ClipDistance=300.000000>
+				<ProjectionMap="">
+				<DiffuseIntensity=2.000000>
+				<SpecularIntensity=0.000000>
+				<ConeAngle=0.523599>
+				<EdgeAngle=0.523599>
+				<ZNear=0.020000>
+				<Shadow="None">
+				<ShadowBias=0.010000>
+				<ShadowDistribution=0.900000>
+				<ShadowRange=100.000000>
+				<ShadowCastAll=False>
+				<Volumetric=False>
+				<VolumetricSampleStep=0.500000>
+				<VolumetricThick=1.000000>
+				<VolumetricRange=8.000000>
+			>
+		>
 	>
 	<Links=
 		<Link=
+			<Item=12>
+			<Link=11>
+		>
+		<Link=
+			<Item=13>
+			<Link=11>
+		>
+		<Link=
 			<Item=14>
-			<Link=13>
+			<Link=11>
 		>
 		<Link=
 			<Item=15>
-			<Link=13>
+			<Link=11>
 		>
 		<Link=
 			<Item=16>
-			<Link=13>
+			<Link=11>
 		>
 		<Link=
 			<Item=17>
-			<Link=13>
+			<Link=11>
 		>
 		<Link=
 			<Item=18>
-			<Link=13>
-		>
-		<Link=
-			<Item=19>
-			<Link=13>
-		>
-		<Link=
-			<Item=20>
-			<Link=21>
+			<Link=19>
 		>
 	>
 	<Constraints>
@@ -1093,14 +1099,14 @@
 		>
 		<R1=
 			<X=0.000000>
-			<Y=0.000000>
+			<Y=-0.000000>
 			<Z=1.000000>
 			<W=0.000000>
 		>
 		<R2=
 			<X=0.000000>
 			<Y=-1.000000>
-			<Z=0.000000>
+			<Z=-0.000000>
 			<W=0.000000>
 		>
 		<R3=
@@ -1126,14 +1132,14 @@
 				>
 				<R1=
 					<X=0.000000>
-					<Y=0.000000>
+					<Y=-0.000000>
 					<Z=1.000000>
 					<W=0.000000>
 				>
 				<R2=
 					<X=0.000000>
 					<Y=-1.000000>
-					<Z=0.000000>
+					<Z=-0.000000>
 					<W=0.000000>
 				>
 				<R3=

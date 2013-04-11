@@ -7,27 +7,27 @@ ship_settings_table <-	{
 //	Arrow:nerveux tres maniable
 	arrow	=	{	name = tr("Arrow"), description = tr("Nerveux et très maniable."),
 					gears = [
-						{ damping = 0.9,	max_thrust = 15.0,	max_angular_speed = 2.4,	max_speed = 20.0 }
-						{ damping = 0.9,	max_thrust = 50.0,	max_angular_speed = 2.4,	max_speed = 85.0 }
-						{ damping = 0.9,	max_thrust = 75.0,	max_angular_speed = 2.4,	max_speed = 85.0 }
+						{ damping = 0.9,	max_thrust = 15.0,	max_angular_speed = 10.0,	max_speed = 20.0 }
+						{ damping = 0.9,	max_thrust = 50.0,	max_angular_speed = 10.0,	max_speed = 85.0 }
+						{ damping = 0.9,	max_thrust = 75.0,	max_angular_speed = 10.0,	max_speed = 85.0 }
 					]
 				}
 
 //	Orbiter:puissant, maniable, bonnes vitesses de base
 	orbiter	=	{	name = tr("Orbiter"), description = tr("Puissant, maniable, bonnes vitesses de base."),
 					gears = [
-						{ damping = 1.0,	max_thrust = 35.0,	max_angular_speed = 2.0,	max_speed = 35.0}
-						{ damping = 1.0,	max_thrust = 60.0,	max_angular_speed = 2.0,	max_speed = 60.0}
-						{ damping = 1.0,	max_thrust = 70.0,	max_angular_speed = 2.0,	max_speed = 70.0}
+						{ damping = 1.0,	max_thrust = 35.0,	max_angular_speed = 5.0,	max_speed = 35.0}
+						{ damping = 1.0,	max_thrust = 60.0,	max_angular_speed = 5.0,	max_speed = 60.0}
+						{ damping = 1.0,	max_thrust = 70.0,	max_angular_speed = 5.0,	max_speed = 70.0}
 					]
 				}
 
 //	Drifter: tres rapide,  tourne tres vite, mais dur a piloter
 	drifter =	{	name = tr("Drifter"), description = tr("Très rapide,  tourne très vite, mais dur à piloter."),
 					gears = [
-						{ damping = 0.4,	max_thrust = 10.0,	max_angular_speed = 10.0,	max_speed = 25.0}
-						{ damping = 0.4,	max_thrust = 25.0,	max_angular_speed = 10.0,	max_speed = 60.0}
-						{ damping = 0.4,	max_thrust = 50.0,	max_angular_speed = 10.0,	max_speed = 125.0}
+						{ damping = 0.4,	max_thrust = 10.0,	max_angular_speed = 15.0,	max_speed = 25.0}
+						{ damping = 0.4,	max_thrust = 25.0,	max_angular_speed = 15.0,	max_speed = 60.0}
+						{ damping = 0.4,	max_thrust = 50.0,	max_angular_speed = 15.0,	max_speed = 125.0}
 					]
 				}
 }
