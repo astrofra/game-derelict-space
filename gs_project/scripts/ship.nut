@@ -78,7 +78,10 @@ class	Ship	extends	PhysicOrbitingItem
 	{
 		local	_script = ItemGetScriptInstanceFromClass(item, "ItemLabel3D")
 		if ("label" in _script)
-			_script.label = "Speed = " + linear_velocity.Len().tointeger().tostring() + " m/s\nRot = " + RadianToDegree(orientation.y).tointeger().tostring() + " deg."
+			if (SceneGetScriptInstance(g_scene).hidden_ui)
+				_script.label = ""
+			else
+				_script.label = "Speed = " + linear_velocity.Len().tointeger().tostring() + " m/s\nRot = " + RadianToDegree(orientation.y).tointeger().tostring() + " deg."
 	}
 
 	function	UpdateBanking()
