@@ -19,12 +19,10 @@ class	Ship	extends	PhysicOrbitingItem
 	max_angular_speed		=	1.2
 
 	thrust					=	10.0
-	vector_front			=	0
 	orientation				=	0
 	target_orientation		=	0
 	target_direction		=	0
-	strafe_force			=	0
-	strafe_timeout			=	0
+	thrust_strafe			=	0
 
 	current_gear			=	0
 
@@ -51,13 +49,19 @@ class	Ship	extends	PhysicOrbitingItem
 
 		UpdateBanking()
 		
+		//	Automatically decrease the ship's thrusters.
 		orientation = ItemGetRotation(item)
 		if (thrust > 0.0)
 			thrust	= Max(thrust -= g_dt_frame * 15.0, 0.0)
 		else
 		if (thrust < 0.0)
 			thrust	= Min(thrust += g_dt_frame * 15.0, 0.0)
-		
+
+		if (thrust_strafe > 0.0)
+			thrust_strafe = Max(thrust_strafe -= g_dt_frame * 15.0, 0.0)
+		else
+		if (thrust_strafe < 0.0)
+			thrust_strafe = Min(thrust_strafe += g_dt_frame * 15.0, 0.0)
 
 		UpdateLabel(item)
 
@@ -103,7 +107,7 @@ class	Ship	extends	PhysicOrbitingItem
 
 	function	UpdateAudio()
 	{
-		local	_speed = RangeAdjust(fabs(thrust), 0.0, max_thrust, 0.0, 1.0)
+		local	_speed = RangeAdjust(max(fabs(thrust), fabs(thrust_strafe)), 0.0, max_thrust, 0.0, 1.0)
 		local	_gain = Clamp(_speed, 0.1, 1.0)
 		local	_pitch = Clamp(RangeAdjust(_speed, 0.0, 1.0, 0.8, 1.2), 0.8, 1.2)
 		MixerChannelSetGain(g_mixer, channels["ship_reactor"], _gain)
@@ -122,14 +126,15 @@ class	Ship	extends	PhysicOrbitingItem
 		if ("OnPhysicStep" in base)	base.OnPhysicStep(item, dt)
 
 		local	body_matrix = ItemGetMatrix(item)
-		vector_front = body_matrix.GetFront()
 
-		ItemApplyLinearForce(item, vector_front.Scale(mass * thrust))
+		ItemApplyLinearForce(item, front.Scale(mass * thrust))
+		ItemApplyLinearForce(item, left.Scale(mass * thrust_strafe))
 
 		//	Align the ship to the desired orientation
 		//	If the reactor are ON
 		local	should_rotate = false
 		if (fabs(thrust) > 0.0)	should_rotate = true
+		if (fabs(thrust_strafe) > 0.0)	should_rotate = true
 
 		if (should_rotate)
 		{
@@ -153,20 +158,12 @@ class	Ship	extends	PhysicOrbitingItem
 		}
 
 		//	Banking
-		local	_dot = 1.0 - vector_front.Normalize().Dot(linear_velocity.Normalize())
-		local	_cross = vector_front.Normalize().Cross(linear_velocity.Normalize())
+		local	_dot = 1.0 - front.Normalize().Dot(linear_velocity.Normalize())
+		local	_cross = front.Normalize().Cross(linear_velocity.Normalize())
 		if (_cross.y > 0.0) _dot *= -1.0
 
 		side_force = body_matrix.GetLeft().Scale(_dot * 50.0)
-		target_banking = _dot * linear_velocity.Len()
-
-		//	Straffing
-		if (strafe_force.Len2() > 0.0)
-		{
-			strafe_force += strafe_force.Reverse().Scale(30.0 * g_dt_frame)
-			ItemApplyLinearForce(item, strafe_force.Scale(mass))
-		}
-		
+		target_banking = _dot * linear_velocity.Len()		
 
 		//	Camera Update
 		SceneGetScriptInstance(g_scene).camera_handler.Update(SceneGetScriptInstance(g_scene).player_item)
@@ -174,30 +171,14 @@ class	Ship	extends	PhysicOrbitingItem
 
 	function	StrafeLeft()
 	{
-		if (g_clock - strafe_timeout < SecToTick(Sec(0.25)))
-			return
-
-//		if (strafe_force.Len2() > 0.0)
-//			return
-
-		strafe_force = left.Scale(10.0 * max_thrust)
-		local	_strafe_chan = MixerSoundStart(g_mixer, samples["ship_strafe"])
-		MixerChannelSetPitch(g_mixer, _strafe_chan, Rand(0.975,1.025))
-		strafe_timeout = g_clock
+		thrust_strafe = Min(thrust_strafe += g_dt_frame * 60.0, max_thrust)
+		if (fabs(thrust_strafe) > 0.1)	RecordTrails()
 	}
 
 	function	StrafeRight()
 	{
-		if (g_clock - strafe_timeout < SecToTick(Sec(0.25)))
-			return
-
-//		if (strafe_force.Len2() > 0.0)
-//			return
-
-		strafe_force = left.Reverse().Scale(10.0 * max_thrust)
-		local	_strafe_chan = MixerSoundStart(g_mixer, samples["ship_strafe"])
-		MixerChannelSetPitch(g_mixer, _strafe_chan, Rand(0.975,1.025))
-		strafe_timeout = g_clock
+		thrust_strafe = Max(thrust_strafe -= g_dt_frame * 60.0, -max_thrust)
+		if (fabs(thrust_strafe) > 0.1)	RecordTrails()
 	}
 
 
@@ -219,7 +200,7 @@ class	Ship	extends	PhysicOrbitingItem
 
 	function	SetThrustUp()
 	{
-		thrust	= Min(thrust += g_dt_frame * 60.0, max_thrust)
+		thrust = Min(thrust += g_dt_frame * 60.0, max_thrust)
 		if (thrust > 0.1)	RecordTrails()
 	}
 
@@ -296,7 +277,6 @@ class	Ship	extends	PhysicOrbitingItem
 
 		banking_item = ItemGetChild(item, "ship_banking")
 
-		vector_front = clone(g_zero_vector)
 		side_force = clone(g_zero_vector)
 		
 		base.SetLinearDamping(0.5)
@@ -304,10 +284,7 @@ class	Ship	extends	PhysicOrbitingItem
 
 		orientation = ItemGetRotation(item)
 		target_orientation = clone(orientation)
-		target_direction = clone(vector_front)
-
-		strafe_force = Vector(0,0,0,0)
-		strafe_timeout = g_clock
+		target_direction = clone(front)
 
 		//	Physics Settings Control UI
 		physic_settings_slider = []

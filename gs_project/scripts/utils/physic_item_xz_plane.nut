@@ -33,14 +33,14 @@ class	PhysicItemXZPlane
 		bounding_box = ItemGetMinMax(item)
 		ItemPhysicSetLinearFactor(item, Vector(1,0,1))
 		ItemPhysicSetAngularFactor(item, Vector(0,1,0))
-		linear_velocity = g_zero_vector
-		prev_linear_velocity = g_zero_vector
-		angular_velocity = g_zero_vector
-		linear_acceleration = g_zero_vector
+		linear_velocity = Vector()
+		prev_linear_velocity = Vector()
+		angular_velocity = Vector()
+		linear_acceleration = Vector()
 		position = ItemGetWorldPosition(item)
 		attraction_forces_list = []
-		front = g_zero_vector
-		left = g_zero_vector
+		front = Vector()
+		left = Vector()
 	}
 
 	function	OnPhysicStep(item, dt)
