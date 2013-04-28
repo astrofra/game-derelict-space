@@ -68,7 +68,8 @@ class	Ship	extends	PhysicOrbitingItem
 
 		UpdateLabel(item)
 
-		cannon_handler.Update()
+		foreach(_cannon in cannon_handler)
+			_cannon.Update()
 
 		audio_handler.PushVariable("thrust", thrust)
 		audio_handler.PushVariable("thrust_strafe", thrust_strafe)
@@ -202,11 +203,15 @@ class	Ship	extends	PhysicOrbitingItem
 
 	function	Shoot()
 	{
-		cannon_handler.Shoot()
+		foreach(_cannon in cannon_handler)
+		{
+			_cannon.linear_velocity = linear_velocity
+			_cannon.Shoot()
+		}
 	}
 
 	/*!
-		UI Stuff
+		...
 		------------------------
 	*/
 
@@ -244,7 +249,8 @@ class	Ship	extends	PhysicOrbitingItem
 
 		trails_handler.RenderTrails()
 
-		cannon_handler.RenderUser()
+		foreach(_cannon in cannon_handler)
+			_cannon.RenderUser()
 
 		local	ship_position = ItemGetWorldPosition(body)
 		if (!SceneGetScriptInstance(g_scene).hidden_ui) 
@@ -286,7 +292,10 @@ class	Ship	extends	PhysicOrbitingItem
 		trails_handler = ShipTrails(banking_item)
 
 		//	Cannons
-		cannon_handler = ShipCannon(ItemGetChild(banking_item, "cannon"))
+		cannon_handler = []
+		foreach(_item in ItemGetChildList(banking_item))
+			if (ItemGetName(_item) == "cannon")
+				cannon_handler.append(ShipCannon(_item))
 
 		//	Audio
 		audio_handler	 = ShipAudio()
