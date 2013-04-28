@@ -19,6 +19,8 @@ class	Ship	extends	PhysicOrbitingItem
 	max_thrust				=	20.0
 	max_angular_speed		=	1.2
 
+	energy					=	100.0
+
 	thrust					=	10.0
 	orientation				=	0
 	target_orientation		=	0
@@ -32,11 +34,6 @@ class	Ship	extends	PhysicOrbitingItem
 	target_banking			=	0.0
 
 	banking_item			=	0
-	trails					=	0
-	trails_reverse			=	0
-
-	samples					=	0
-	channels				=	0
 
 	physic_settings_slider	=	0
 
