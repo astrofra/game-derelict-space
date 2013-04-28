@@ -93,7 +93,7 @@ class	ShipControl
 				target_direction = clone(ship_direction)
 				local	ship_euler = EulerFromDirection(target_direction)
 				ItemGetScriptInstance(player_item).SetOrientation(ship_euler)
-				ItemGetScriptInstance(player_item).SfxSetOrientationTarget()
+				ItemGetScriptInstance(player_item).audio_handler.SfxSetOrientationTarget()
 				autopilot_item_target = 0
 			}
 		}

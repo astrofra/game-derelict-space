@@ -4,7 +4,8 @@
 */
 
 Include("scripts/utils/physic_item_orbiting.nut")
-Include("scripts/utils/trails_sprite.nut")
+Include("scripts/ship_audio.nut")
+Include("scripts/ship_trails.nut")
 
 /*!
 	@short	Ship
@@ -39,6 +40,9 @@ class	Ship	extends	PhysicOrbitingItem
 
 	physic_settings_slider	=	0
 
+	audio_handler			=	0
+	trails_handler			=	0
+
 	/*!
 		@short	OnUpdate
 		Called during the scene update, each frame.
@@ -65,24 +69,15 @@ class	Ship	extends	PhysicOrbitingItem
 
 		UpdateLabel(item)
 
-		UpdateAudio()
-	}
-
-	function	RecordTrails()
-	{
-		foreach(_trail in trails)
-			_trail.RecordPoint()
-	}
-	
-	function	RecordTrailsReverse()
-	{
-		foreach(_trail in trails_reverse)
-			_trail.RecordPoint()
+		audio_handler.PushVariable("thrust", thrust)
+		audio_handler.PushVariable("thrust_strafe", thrust_strafe)
+		audio_handler.PushVariable("max_thrust", max_thrust)
+		audio_handler.Update()	//	UpdateAudio()
 	}
 
 	function	OnDelete(item)
 	{
-		MixerChannelStop(g_mixer,  channels["ship_reactor"])
+		audio_handler.Delete()
 	}
 
 	function	UpdateLabel(item)
@@ -103,22 +98,6 @@ class	Ship	extends	PhysicOrbitingItem
 		local	_angle = banking
 		_angle = -Clamp(banking, -180.0, 180.0)
 		ItemSetRotation(banking_item, Vector(0,0,DegreeToRadian(_angle)))
-	}
-
-	function	UpdateAudio()
-	{
-		local	_speed = RangeAdjust(max(fabs(thrust), fabs(thrust_strafe)), 0.0, max_thrust, 0.0, 1.0)
-		local	_gain = Clamp(_speed, 0.1, 1.0)
-		local	_pitch = Clamp(RangeAdjust(_speed, 0.0, 1.0, 0.8, 1.2), 0.8, 1.2)
-		MixerChannelSetGain(g_mixer, channels["ship_reactor"], _gain)
-		MixerChannelSetPitch(g_mixer, channels["ship_reactor"], _pitch)
-		
-	}
-
-	function	SfxSetOrientationTarget()
-	{
-		local	_chan = MixerSoundStart(g_mixer, samples["gui_up_down"])
-		MixerChannelSetGain(g_mixer, _chan, 0.25)
 	}
 
 	function	OnPhysicStep(item, dt)
@@ -172,13 +151,13 @@ class	Ship	extends	PhysicOrbitingItem
 	function	StrafeLeft()
 	{
 		thrust_strafe = Min(thrust_strafe += g_dt_frame * 60.0, max_thrust)
-		if (fabs(thrust_strafe) > 0.1)	RecordTrails()
+		if (fabs(thrust_strafe) > 0.1)	trails_handler.RecordTrails()
 	}
 
 	function	StrafeRight()
 	{
 		thrust_strafe = Max(thrust_strafe -= g_dt_frame * 60.0, -max_thrust)
-		if (fabs(thrust_strafe) > 0.1)	RecordTrails()
+		if (fabs(thrust_strafe) > 0.1)	trails_handler.RecordTrails()
 	}
 
 
@@ -201,33 +180,24 @@ class	Ship	extends	PhysicOrbitingItem
 	function	SetThrustUp()
 	{
 		thrust = Min(thrust += g_dt_frame * 60.0, max_thrust)
-		if (thrust > 0.1)	RecordTrails()
+		if (thrust > 0.1)	trails_handler.RecordTrails()
 	}
 
 	function	SetThrustDown()
 	{
 		thrust	= Max(thrust -= g_dt_frame * 60.0 * 0.5, -max_thrust * 0.25)
-		if (thrust < -0.25)	RecordTrailsReverse()
+		if (thrust < -0.25)	trails_handler.RecordTrailsReverse()
 	}
-
 
 	function	RenderUser(scene)
 	{
 		if ("RenderUser" in base)	base.RenderUser(scene)
 
-		foreach(_trail in trails)
-			_trail.RenderUser(scene)
-
-		foreach(_trail in trails_reverse)
-			_trail.RenderUser(scene)
+		trails_handler.RenderTrails()
 
 		local	ship_position = ItemGetWorldPosition(body)
 		if (!SceneGetScriptInstance(g_scene).hidden_ui) 
 			RendererDrawLine(g_render, ship_position, ship_position + linear_velocity)
-//		RendererDrawLine(g_render, ship_position, ship_position + side_force)
-
-//		foreach(_F in attraction_forces_list)
-//			RendererDrawLineColored(g_render, position, position + _F, Vector(0.1,0.2,1.0))
 	}
 
 	function	SliderSetLinearDamping(_sprite, _value)
@@ -236,13 +206,6 @@ class	Ship	extends	PhysicOrbitingItem
 	{	max_thrust = _value	}
 	function	SliderSetMaxAngularSpeed(_sprite, _value)
 	{	max_angular_speed = _value	}
-
-	function	LoadSample(_filename)
-	{
-		local	_fname = "sfx/" + _filename + ".wav"
-		if (FileExists(_fname))
-			samples.rawset(_filename, ResourceFactoryLoadSound(g_factory, _fname))
-	}
 
 	function	FetchShipSettings(_gear = 0)
 	{
@@ -297,6 +260,7 @@ class	Ship	extends	PhysicOrbitingItem
 		physic_settings_slider.append(g_WindowsManager.CreateSliderButton(top_window, tr("Rotation"), 0.0, 90.0, 0.1, max_angular_speed, this, "SliderSetMaxAngularSpeed"))
 
 		//	Reactor's trails
+/*
 		trails = []
 		trails_reverse = []
 		local	_list = ItemGetChildList(banking_item)
@@ -304,20 +268,13 @@ class	Ship	extends	PhysicOrbitingItem
 			if (ItemGetName(_child) == "trail")	trails.append(TrailsSprite(_child, g_vector_orange, MaterialBlendNone))
 		foreach(_child in _list)
 			if (ItemGetName(_child) == "trail_reverse")	trails_reverse.append(TrailsSprite(_child, g_vector_orange, MaterialBlendNone))
+*/
+		trails_handler = ShipTrails(banking_item)
 
 		SceneGetScriptInstance(g_scene).render_user_callback.append(this)
 
-		samples = {}
-		channels = {}
-
-		LoadSample("ship_reactor")
-		channels.rawset("ship_reactor", MixerSoundStart(g_mixer, samples["ship_reactor"]))
-		MixerChannelSetLoopMode(g_mixer, channels["ship_reactor"], LoopRepeat)
-		LoadSample("ship_strafe")
-		LoadSample("gui_up_down")
+		audio_handler	 = ShipAudio()
 
 		FetchShipSettings(0)
-
-//		SetOrbitOnItem(SceneFindItem(g_scene, "asteroid_s3_0"))
 	}
 }
