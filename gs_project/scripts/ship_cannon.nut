@@ -13,9 +13,6 @@ class	Bullet
 	direction		=	0
 	speed			=	Mtrs(1.0)
 
-	bullet_width	=	Mtr(0.35)
-	bullet_height	=	Mtr(0.35)
-
 	constructor(_pos = Vector(), _dir = Vector(), _speed = Mtrs(1.0))
 	{
 		position = _pos
@@ -23,8 +20,14 @@ class	Bullet
 		speed = _speed
 	}
 
+	function	Update()
+	{
+		position += direction.Scale(speed)
+	}
+
 	function	Render()
 	{
+		DrawQuadInXZPlane(position, direction, Mtr(0.5))
 	}
 }
 
@@ -34,18 +37,18 @@ class	Bullet
 */
 class	ShipCannon
 {
-	position		=	0
-	direction		=	0
-
+	//	Public members
 	frequency		=	60.0 		//	In Hz
 	damage			=	1.0			//	Damage caused on each bullet impact
 	range			=	Mtr(100.0)	//	Past this range, the bullet fades out.
 	energy_cost		=	10.0		//	How much energy is necessary for 1 bullet
 	spread_angle	=	Deg(30.0)	//	Max angular range of the cannon
 
-	bullet_list		=	0
+	position		=	0
+	direction		=	0
 
 	//	Private
+	bullet_list		=	0
 	shoot_timeout	=	0
 
 	constructor()
@@ -53,6 +56,7 @@ class	ShipCannon
 		bullet_list = []
 		position = Vector()
 		direction = Vector()
+		shoot_timeout = g_clock
 	}
 
 	function	Shoot()
@@ -67,14 +71,13 @@ class	ShipCannon
 	function	Update()
 	{
 		foreach(bullet in bullet_list)
-		{
-			bullet.position += direction.Scale(speed)
-		}
+			bullet.Update()
 	}
 
 	function	RenderUser()
 	{
 		foreach(bullet in bullet_list)
-			DrawQuadInXZPlane(bullet.position, bullet.direction, Mtr(0.5))
+			bullet.Render()
+			
 	}
 }
