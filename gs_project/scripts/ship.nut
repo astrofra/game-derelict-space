@@ -6,6 +6,7 @@
 Include("scripts/utils/physic_item_orbiting.nut")
 Include("scripts/ship_audio.nut")
 Include("scripts/ship_trails.nut")
+Include("scripts/ship_cannon.nut")
 
 /*!
 	@short	Ship
@@ -39,6 +40,7 @@ class	Ship	extends	PhysicOrbitingItem
 
 	audio_handler			=	0
 	trails_handler			=	0
+	cannon_handler			=	0
 
 	/*!
 		@short	OnUpdate
@@ -65,6 +67,8 @@ class	Ship	extends	PhysicOrbitingItem
 			thrust_strafe = Min(thrust_strafe += g_dt_frame * 15.0, 0.0)
 
 		UpdateLabel(item)
+
+		cannon_handler.Update()
 
 		audio_handler.PushVariable("thrust", thrust)
 		audio_handler.PushVariable("thrust_strafe", thrust_strafe)
@@ -145,6 +149,11 @@ class	Ship	extends	PhysicOrbitingItem
 		SceneGetScriptInstance(g_scene).camera_handler.Update(SceneGetScriptInstance(g_scene).player_item)
 	}
 
+	/*!
+		Navigation
+		------------------------
+	*/
+
 	function	StrafeLeft()
 	{
 		thrust_strafe = Min(thrust_strafe += g_dt_frame * 60.0, max_thrust)
@@ -186,16 +195,20 @@ class	Ship	extends	PhysicOrbitingItem
 		if (thrust < -0.25)	trails_handler.RecordTrailsReverse()
 	}
 
-	function	RenderUser(scene)
+	/*!
+		Weaponry
+		------------------------
+	*/
+
+	function	Shoot()
 	{
-		if ("RenderUser" in base)	base.RenderUser(scene)
-
-		trails_handler.RenderTrails()
-
-		local	ship_position = ItemGetWorldPosition(body)
-		if (!SceneGetScriptInstance(g_scene).hidden_ui) 
-			RendererDrawLine(g_render, ship_position, ship_position + linear_velocity)
+		cannon_handler.Shoot()
 	}
+
+	/*!
+		UI Stuff
+		------------------------
+	*/
 
 	function	SliderSetLinearDamping(_sprite, _value)
 	{	base.SetLinearDamping(_value)	}
@@ -223,6 +236,19 @@ class	Ship	extends	PhysicOrbitingItem
 			physic_settings_slider[2].CallCallback(max_angular_speed)
 		}
 		
+	}
+
+	function	RenderUser(scene)
+	{
+		if ("RenderUser" in base)	base.RenderUser(scene)
+
+		trails_handler.RenderTrails()
+
+		cannon_handler.RenderUser()
+
+		local	ship_position = ItemGetWorldPosition(body)
+		if (!SceneGetScriptInstance(g_scene).hidden_ui) 
+			RendererDrawLine(g_render, ship_position, ship_position + linear_velocity)
 	}
 
 	/*!
@@ -257,20 +283,16 @@ class	Ship	extends	PhysicOrbitingItem
 		physic_settings_slider.append(g_WindowsManager.CreateSliderButton(top_window, tr("Rotation"), 0.0, 90.0, 0.1, max_angular_speed, this, "SliderSetMaxAngularSpeed"))
 
 		//	Reactor's trails
-/*
-		trails = []
-		trails_reverse = []
-		local	_list = ItemGetChildList(banking_item)
-		foreach(_child in _list)
-			if (ItemGetName(_child) == "trail")	trails.append(TrailsSprite(_child, g_vector_orange, MaterialBlendNone))
-		foreach(_child in _list)
-			if (ItemGetName(_child) == "trail_reverse")	trails_reverse.append(TrailsSprite(_child, g_vector_orange, MaterialBlendNone))
-*/
 		trails_handler = ShipTrails(banking_item)
 
-		SceneGetScriptInstance(g_scene).render_user_callback.append(this)
+		//	Cannons
+		cannon_handler = ShipCannon(ItemGetChild(banking_item, "cannon"))
 
+		//	Audio
 		audio_handler	 = ShipAudio()
+
+		//	Register the "render user" callback of the ship's class.
+		SceneGetScriptInstance(g_scene).render_user_callback.append(this)
 
 		FetchShipSettings(0)
 	}
