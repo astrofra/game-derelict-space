@@ -11,27 +11,25 @@ class	Bullet
 {
 	position		=	0
 	direction		=	0
-	linear_acceleration	=	0
 	linear_velocity =	0
 	speed			=	Mtrs(100.0)
 
 	prev_position	=	0
 	distance		=	0
 
-	constructor(_pos = Vector(), _dir = Vector(), _accel = Vector(), _vel = Vector())
+	constructor(_pos = Vector(), _dir = Vector(), _vel = Vector())
 	{
 		position = _pos
 		prev_position = clone(position)
 		direction = _dir
 		direction.y = 0.0
 		direction = direction.Normalize()
-		linear_acceleration = _accel
 		linear_velocity = _vel
 	}
 
 	function	Update()
 	{
-		position += (direction.Scale(speed * g_dt_frame) + linear_velocity.Scale(g_dt_frame)) // direction.Scale(speed * g_dt_frame)
+		position += (direction.Scale(speed * g_dt_frame) + linear_velocity.Scale(g_dt_frame))
 		distance += position.Dist(prev_position)
 		prev_position = clone(position)
 	}
@@ -57,7 +55,6 @@ class	ShipCannon
 
 	bullet_speed	=	Mtrs(50.0)
 	linear_velocity	=	0
-	linear_acceleration	=	0
 
 	item			=	0
 	position		=	0
@@ -74,7 +71,6 @@ class	ShipCannon
 		position = Vector()
 		direction = Vector()
 		linear_velocity =	Vector()
-		linear_acceleration = Vector()
 		shoot_timeout = g_clock
 	}
 
@@ -84,7 +80,7 @@ class	ShipCannon
 			return
 
 		shoot_timeout = g_clock
-		bullet_list.append(Bullet(position, direction, linear_acceleration, linear_velocity))
+		bullet_list.append(Bullet(position, direction, linear_velocity))
 	}
 
 	function	Update()
@@ -102,7 +98,8 @@ class	ShipCannon
 
 	function	RenderUser()
 	{
-		RendererDrawLine(g_render, position, position + direction.Scale(5.0))
+		if (!SceneGetScriptInstance(g_scene).hidden_ui)
+			RendererDrawLine(g_render, position, position + direction.Scale(5.0))
 		foreach(bullet in bullet_list)
 			bullet.Render()
 	}
