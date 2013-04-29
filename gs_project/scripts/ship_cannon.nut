@@ -13,6 +13,9 @@ class	Bullet
 	direction		=	0
 	linear_velocity =	0
 	speed			=	Mtrs(100.0)
+	size			=	Mtr(0.5)
+	color			=	0
+	died			=	false
 
 	prev_position	=	0
 	distance		=	0
@@ -25,6 +28,7 @@ class	Bullet
 		direction.y = 0.0
 		direction = direction.Normalize()
 		linear_velocity = _vel
+		color = Vector(1,1,1,1)
 	}
 
 	function	Update()
@@ -32,11 +36,21 @@ class	Bullet
 		position += (direction.Scale(speed * g_dt_frame) + linear_velocity.Scale(g_dt_frame))
 		distance += position.Dist(prev_position)
 		prev_position = clone(position)
+
+		local	hit = SceneCollisionRaytrace(g_scene, position, direction, -1, CollisionTraceAll, Mtr(5.0))
+		if (hit.hit)
+		{
+			color = Vector(1,0,0,1)
+			died = true
+		}
+		else
+			color = Vector(1,1,1,1)
+			
 	}
 
 	function	Render()
 	{
-		DrawQuadInXZPlane(position, direction, Mtr(0.5))
+		DrawQuadInXZPlane(position, direction, size, color)
 	}
 }
 
@@ -91,7 +105,7 @@ class	ShipCannon
 		foreach(idx, bullet in bullet_list)
 		{
 			bullet.Update()
-			if (bullet.distance > range)
+			if ((bullet.died) || (bullet.distance > range))
 				bullet_list.remove(idx)
 		}
 	}
