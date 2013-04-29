@@ -37,7 +37,7 @@ class	Bullet
 		distance += position.Dist(prev_position)
 		prev_position = clone(position)
 
-		local	hit = SceneCollisionRaytrace(g_scene, position, direction, -1, CollisionTraceAll, Mtr(5.0))
+		local	hit = SceneCollisionRaytrace(g_scene, position - direction.Scale(Mtr(5.0) * 0.5), direction, -1, CollisionTraceAll, Mtr(5.0))
 		if (hit.hit)
 		{
 			color = Vector(1,0,0,1)
