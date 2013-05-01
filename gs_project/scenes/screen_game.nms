@@ -1097,7 +1097,6 @@
 					<Y=0.000015>
 					<Z=88.803024>
 				>
-				<ItemFlag>
 				<Target=
 					<X=0.000000>
 					<Y=0.000000>
@@ -2115,6 +2114,169 @@
 			>
 			<Template="assets/asteroid_s0_0.nms">
 		>
+		<Instance=
+			<MItem=
+				<Id="Asteroid S3 1">
+				<UId=52>
+				<Active>
+				<Priority=0.500000>
+				<MotionPlayer=
+					<Motions>
+				>
+				<PhysicItem=
+					<SelfMask=1>
+					<Mask=1>
+					<LinearDamping_v2=1.000000>
+					<AngularDamping_v2=1.000000>
+					<CharacterRadius=1.000000>
+					<CharacterHeight=1.000000>
+					<CharacterMaxStep=0.200000>
+					<Mode="None">
+				>
+			>
+			<Item=
+				<Position=
+					<X=59.844803>
+					<Y=0.000030>
+					<Z=158.550964>
+				>
+				<Rotation=
+					<X=-0.000000>
+					<Y=0.609993>
+					<Z=0.000000>
+				>
+				<ItemFlag>
+				<Target=
+					<X=0.000000>
+					<Y=0.000000>
+					<Z=1.000000>
+				>
+				<RotationOrder="YXZ">
+				<Registry>
+			>
+			<Template="assets/asteroid_s3_1.nms">
+		>
+		<Instance=
+			<MItem=
+				<Id="Asteroid S3 1">
+				<UId=53>
+				<Active>
+				<Priority=0.500000>
+				<MotionPlayer=
+					<Motions>
+				>
+				<PhysicItem=
+					<SelfMask=1>
+					<Mask=1>
+					<LinearDamping_v2=1.000000>
+					<AngularDamping_v2=1.000000>
+					<CharacterRadius=1.000000>
+					<CharacterHeight=1.000000>
+					<CharacterMaxStep=0.200000>
+					<Mode="None">
+				>
+			>
+			<Item=
+				<Position=
+					<X=5.191977>
+					<Y=0.000015>
+					<Z=180.923706>
+				>
+				<Rotation=
+					<X=-0.000000>
+					<Y=-0.505273>
+					<Z=0.000000>
+				>
+				<ItemFlag>
+				<Target=
+					<X=0.000000>
+					<Y=0.000000>
+					<Z=1.000000>
+				>
+				<RotationOrder="YXZ">
+				<Registry>
+			>
+			<Template="assets/asteroid_s3_1.nms">
+		>
+		<Instance=
+			<MItem=
+				<Id="Asteroid S3 1">
+				<UId=54>
+				<Active>
+				<Priority=0.500000>
+				<MotionPlayer=
+					<Motions>
+				>
+				<PhysicItem=
+					<SelfMask=1>
+					<Mask=1>
+					<LinearDamping_v2=1.000000>
+					<AngularDamping_v2=1.000000>
+					<CharacterRadius=1.000000>
+					<CharacterHeight=1.000000>
+					<CharacterMaxStep=0.200000>
+					<Mode="None">
+				>
+			>
+			<Item=
+				<Position=
+					<X=42.985161>
+					<Y=0.000015>
+					<Z=174.830902>
+				>
+				<Rotation=
+					<X=-0.000000>
+					<Y=0.871792>
+					<Z=0.000000>
+				>
+				<ItemFlag>
+				<Target=
+					<X=0.000000>
+					<Y=0.000000>
+					<Z=1.000000>
+				>
+				<RotationOrder="YXZ">
+				<Registry>
+			>
+			<Template="assets/asteroid_s3_1.nms">
+		>
+		<Instance=
+			<MItem=
+				<Id="Asteroid S3 1">
+				<UId=55>
+				<Active>
+				<Priority=0.500000>
+				<MotionPlayer=
+					<Motions>
+				>
+				<PhysicItem=
+					<SelfMask=1>
+					<Mask=1>
+					<LinearDamping_v2=1.000000>
+					<AngularDamping_v2=1.000000>
+					<CharacterRadius=1.000000>
+					<CharacterHeight=1.000000>
+					<CharacterMaxStep=0.200000>
+					<Mode="None">
+				>
+			>
+			<Item=
+				<Position=
+					<X=32.752293>
+					<Y=0.000000>
+					<Z=187.255829>
+				>
+				<ItemFlag>
+				<Target=
+					<X=0.000000>
+					<Y=0.000000>
+					<Z=1.000000>
+				>
+				<RotationOrder="YXZ">
+				<Registry>
+			>
+			<Template="assets/asteroid_s3_1.nms">
+		>
 	>
 	<Links=
 		<Link=
@@ -2175,27 +2337,27 @@
 	<CurrentCamera="test_camera">
 	<ViewMatrix=
 		<R0=
-			<X=0.947451>
-			<Y=0.000000>
-			<Z=0.319900>
+			<X=0.994641>
+			<Y=-0.000000>
+			<Z=-0.103385>
 			<W=0.000000>
 		>
 		<R1=
-			<X=-0.233018>
-			<Y=0.685143>
-			<Z=0.690131>
+			<X=0.068366>
+			<Y=0.750143>
+			<Z=0.657732>
 			<W=0.000000>
 		>
 		<R2=
-			<X=-0.219177>
-			<Y=-0.728409>
-			<Z=0.649140>
+			<X=0.077554>
+			<Y=-0.661275>
+			<Z=0.746124>
 			<W=0.000000>
 		>
 		<R3=
-			<X=57.388031>
-			<Y=172.255920>
-			<Z=-116.295448>
+			<X=2.574828>
+			<Y=154.051804>
+			<Z=-106.808784>
 			<W=1.000000>
 		>
 	>
@@ -2208,27 +2370,27 @@
 			<CameraUid=-16>
 			<Matrix=
 				<R0=
-					<X=0.947451>
-					<Y=0.000000>
-					<Z=0.319900>
+					<X=0.994641>
+					<Y=-0.000000>
+					<Z=-0.103385>
 					<W=0.000000>
 				>
 				<R1=
-					<X=-0.233018>
-					<Y=0.685143>
-					<Z=0.690131>
+					<X=0.068366>
+					<Y=0.750143>
+					<Z=0.657732>
 					<W=0.000000>
 				>
 				<R2=
-					<X=-0.219177>
-					<Y=-0.728409>
-					<Z=0.649140>
+					<X=0.077554>
+					<Y=-0.661275>
+					<Z=0.746124>
 					<W=0.000000>
 				>
 				<R3=
-					<X=57.388031>
-					<Y=172.255920>
-					<Z=-116.295448>
+					<X=2.574828>
+					<Y=154.051804>
+					<Z=-106.808784>
 					<W=1.000000>
 				>
 			>

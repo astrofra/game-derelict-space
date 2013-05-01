@@ -40,6 +40,11 @@ class	Bullet
 		local	hit = SceneCollisionRaytrace(g_scene, position - direction.Scale(Mtr(5.0) * 0.5), direction, -1, CollisionTraceAll, Mtr(5.0))
 		if (hit.hit)
 		{
+			if (ObjectIsValid(hit.item))
+			{
+				local	_item_mass = ItemGetMass(hit.item)
+				ItemApplyLinearForce(hit.item, direction.Scale(_item_mass * speed))
+			}
 			color = Vector(1,0,0,1)
 			died = true
 		}

@@ -143,7 +143,9 @@ class	ShipControl
 		}
 
 		//	Weaponry
-		if (DeviceIsKeyDown(keyboard_device, KeyX))
+		if (DeviceIsKeyDown(keyboard_device, KeyX)	||
+			DeviceIsKeyDown(keyboard_device, KeyRAlt) ||
+			DeviceIsKeyDown(keyboard_device, KeyNumpad0))
 			ItemGetScriptInstance(player_item).Shoot()
 
 		//	Gears
