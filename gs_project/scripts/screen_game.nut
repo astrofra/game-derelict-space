@@ -8,9 +8,13 @@ Include("scripts/camera_game.nut")
 Include("scripts/starfield.nut")
 Include("scripts/ship_control.nut")
 Include("scripts/settings_table_ship.nut")
+Include("scripts/particle_emitter.nut")
 
 if (!("ship_name" in getroottable()))
 	ship_name				<-	"arrow"
+
+if (!("g_particle_emitter" in getroottable()))
+	g_particle_emitter			<-	0
 
 /*!
 	@short	SceneGame
@@ -46,6 +50,9 @@ class	SceneGame	extends SceneGameBase
 		camera_handler.OffsetCameraY(mouse_wheel * Mtr(-15.0))
 		starfield_handler.SetSize(camera_handler.target_pos_offset.y)
 
+		if (g_particle_emitter != 0)
+			g_particle_emitter.Update()
+
 		//camera_handler.Update(player_item)
 	}
 
@@ -56,6 +63,9 @@ class	SceneGame	extends SceneGameBase
 
 		foreach(_callback in render_user_callback)
 			_callback["RenderUser"](scene)
+
+		if (g_particle_emitter != 0)
+			g_particle_emitter.RenderUser()
 	}
 
 	function	ShipSelectorMenu()
@@ -128,5 +138,7 @@ class	SceneGame	extends SceneGameBase
 		starfield_handler = Starfield()
 
 		ship_direction = g_zero_vector
+		
+		g_particle_emitter = ParticleEmitter()
 	}
 }

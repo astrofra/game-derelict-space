@@ -44,6 +44,7 @@ class	Bullet
 			{
 				local	_item_mass = ItemGetMass(hit.item)
 				ItemApplyLinearForce(hit.item, direction.Scale(_item_mass * speed))
+				g_particle_emitter.Emit(position)
 			}
 			color = Vector(1,0,0,1)
 			died = true
