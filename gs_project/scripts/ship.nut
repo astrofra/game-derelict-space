@@ -117,7 +117,7 @@ class	Ship	extends	PhysicOrbitingItem
 		if (fabs(thrust) > 0.0)	should_rotate = true
 		if (fabs(thrust_strafe) > 0.0)	should_rotate = true
 
-		if (should_rotate)
+//		if (should_rotate)
 		{
 			local	_torque
 			_torque = target_orientation - orientation
@@ -132,8 +132,16 @@ class	Ship	extends	PhysicOrbitingItem
 
 			//	Velocity contribution
 			local	_vel_factor = linear_velocity.Len()
-			_vel_factor = RangeAdjust(_vel_factor, 1.0, 10.0, 0.0, 1.0)
-			_vel_factor = Clamp(_vel_factor, 0.0, 1.0)
+			_vel_factor = RangeAdjust(_vel_factor, 1.0, 10.0, 0.05, 1.0)
+			_vel_factor = Clamp(_vel_factor, 0.05, 1.0)
+
+			local	_add_angular_factor = 0.0
+			_add_angular_factor = RadianToDegree(fabs(orientation.y - target_orientation.y))
+			_add_angular_factor = 	Pow(Clamp(RangeAdjust(_add_angular_factor, 5.0, 1.0, 0.0, 1.0), 0.0, 1.0), 2.0) 
+									* Clamp(RangeAdjust(_add_angular_factor, 1.0, 0.0, 1.0, 0.0), 0.0, 1.0)
+									* (1.0 - _vel_factor)
+
+			_vel_factor = Max(_vel_factor, _add_angular_factor)
 
 			ItemApplyTorque(item, _torque.Scale(100.0 * mass * _vel_factor))
 		}
