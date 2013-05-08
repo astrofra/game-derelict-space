@@ -135,6 +135,8 @@ class	Ship	extends	PhysicOrbitingItem
 			_vel_factor = RangeAdjust(_vel_factor, 1.0, 10.0, 0.05, 1.0)
 			_vel_factor = Clamp(_vel_factor, 0.05, 1.0)
 
+			//	Additionnal contribution, if the ship's velocity is close to zero,
+			//	and if the ship's angle is very close to the target angle
 			local	_add_angular_factor = 0.0
 			_add_angular_factor = RadianToDegree(fabs(orientation.y - target_orientation.y))
 			_add_angular_factor = 	Pow(Clamp(RangeAdjust(_add_angular_factor, 5.0, 1.0, 0.0, 1.0), 0.0, 1.0), 2.0) 

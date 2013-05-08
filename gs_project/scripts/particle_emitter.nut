@@ -58,19 +58,23 @@ class	ParticleEmitter
 	function	Emit(_pos = -1)
 	{
 		if (_pos != -1)
-			position = _pos
+			position = _pos + Vector(0, Rand(-1.0, 1.0), 0.0)
 
 		particle_list.append(Particle(position, Rand(1.0, 2.0)))
 	}
 
 	function	Update()
 	{
+		local	_alive_particle_list = []
+
 		foreach(idx, particle in particle_list)
 		{
 			particle.Update()
-			if ((particle.died))
-				particle_list.remove(idx)
+			if (!particle.died)
+				_alive_particle_list.append(particle)
 		}
+
+		particle_list = _alive_particle_list
 	}
 
 	function	RenderUser()
