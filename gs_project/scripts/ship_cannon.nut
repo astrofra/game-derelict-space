@@ -42,8 +42,9 @@ class	Bullet
 		{
 			if (ObjectIsValid(hit.item))
 			{
-				local	_item_mass = ItemGetMass(hit.item)
-				ItemApplyLinearForce(hit.item, direction.Scale(_item_mass * speed))
+/*				local	_item_mass = ItemGetMass(hit.item)
+				ItemApplyLinearForce(hit.item, direction.Scale(_item_mass * speed))	*/
+				g_split_manager.ItemSplitIntoInstances(hit.item)
 				g_particle_emitter.Emit(position)
 			}
 			color = Vector(1,0,0,1)

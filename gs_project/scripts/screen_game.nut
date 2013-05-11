@@ -9,12 +9,17 @@ Include("scripts/starfield.nut")
 Include("scripts/ship_control.nut")
 Include("scripts/settings_table_ship.nut")
 Include("scripts/particle_emitter.nut")
+Include("scripts/splittable_instance_manager.nut")
 
 if (!("ship_name" in getroottable()))
-	ship_name				<-	"arrow"
+	ship_name					<-	"arrow"
 
 if (!("g_particle_emitter" in getroottable()))
 	g_particle_emitter			<-	0
+
+if (!("g_split_manager" in getroottable()))
+	g_split_manager				<-	0
+
 
 /*!
 	@short	SceneGame
@@ -52,6 +57,9 @@ class	SceneGame	extends SceneGameBase
 
 		if (g_particle_emitter != 0)
 			g_particle_emitter.Update()
+
+		if (g_split_manager  != 0)
+			g_split_manager.Update()
 
 		//camera_handler.Update(player_item)
 	}
@@ -140,5 +148,6 @@ class	SceneGame	extends SceneGameBase
 		ship_direction = g_zero_vector
 		
 		g_particle_emitter = ParticleEmitter()
+		g_split_manager = SplittableInstanceManager(scene)
 	}
 }

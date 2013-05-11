@@ -47,7 +47,7 @@ class	SplittableInstanceManager
 		foreach(_idx, _item in items_to_deactivate)
 		{
 			local	_item_parent = ItemGetParent(_item)
-			if (ObjectIsValid(_item_parent)
+			if (ObjectIsValid(_item_parent))
 				items_to_delete.append(_item_parent)
 			else
 				items_to_delete.append(_item)
@@ -65,12 +65,17 @@ class	SplittableInstanceManager
 		}
 	}
 
+	function	Delete()
+	{
+	}
+
 	constructor(_scene)
 	{
 		scene = _scene
 
 		items_to_deactivate = []
 		items_to_delete = []
+		items_to_create = []
 	}
 
 }

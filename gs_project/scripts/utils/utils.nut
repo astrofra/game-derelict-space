@@ -215,6 +215,9 @@ function	LegacySceneFindItem(_scene, _item_name)
 function	SceneDeleteItemHierarchy(_scene, _item)
 //-------------------------------------------------
 {
+	if (!ObjectIsValid(_item))
+		return
+
 	local _list = ItemGetChildList(_item)
 
 	foreach(_child in _list)
