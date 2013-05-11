@@ -139,7 +139,7 @@ class	Ship	extends	PhysicOrbitingItem
 			//	and if the ship's angle is very close to the target angle
 			local	_add_angular_factor = 0.0
 			_add_angular_factor = RadianToDegree(fabs(orientation.y - target_orientation.y))
-			_add_angular_factor = 	Pow(Clamp(RangeAdjust(_add_angular_factor, 5.0, 1.0, 0.0, 1.0), 0.0, 1.0), 2.0) 
+			_add_angular_factor = 	Pow(Clamp(RangeAdjust(_add_angular_factor, 5.0, 1.0, 0.0, 1.0), 0.0, 1.0), 4.0) 
 									* Clamp(RangeAdjust(_add_angular_factor, 1.0, 0.0, 1.0, 0.0), 0.0, 1.0)
 									* (1.0 - _vel_factor)
 

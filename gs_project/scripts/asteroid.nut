@@ -11,7 +11,8 @@ Include("scripts/utils/physic_item_gravity_source.nut")
 */
 class	Asteroid	extends	PhysicItemGravitySource
 {
-	player_item			=	0
+	player_item						=	0
+	split_to_instances_list			=	0
 
 	function	OnUpdate(item)
 	{
@@ -28,5 +29,7 @@ class	Asteroid	extends	PhysicItemGravitySource
 		if ("OnSetup" in base)	base.OnSetup(item)
 		player_item = SceneFindItem(g_scene, "ship")
 		SceneGetScriptInstance(g_scene).render_user_callback.append(this)
+		if (split_to_instances_list == 0)
+			split_to_instances_list = []
 	}
 }
