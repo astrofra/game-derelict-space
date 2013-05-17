@@ -12,6 +12,7 @@ class	Bullet
 	position		=	0
 	direction		=	0
 	linear_velocity =	0
+	damage			=	1.0
 	speed			=	Mtrs(100.0)
 	size			=	Mtr(0.5)
 	color			=	0
@@ -20,8 +21,9 @@ class	Bullet
 	prev_position	=	0
 	distance		=	0
 
-	constructor(_pos = Vector(), _dir = Vector(), _vel = Vector())
+	constructor(_pos = Vector(), _dir = Vector(), _vel = Vector(), _damage = 1.0)
 	{
+		damage = _damage
 		position = _pos
 		prev_position = clone(position)
 		direction = _dir
@@ -40,13 +42,15 @@ class	Bullet
 		local	hit = SceneCollisionRaytrace(g_scene, position - direction.Scale(Mtr(5.0) * 0.5), direction, -1, CollisionTraceAll, Mtr(5.0))
 		if (hit.hit)
 		{
-			if (ObjectIsValid(hit.item))
+			if (ObjectIsValid(hit.item))	// && !(ItemGetScriptInstance(hit.item).died))
 			{
-/*				local	_item_mass = ItemGetMass(hit.item)
-				ItemApplyLinearForce(hit.item, direction.Scale(_item_mass * speed))	*/
-				g_split_manager.ItemSplitIntoInstances(hit.item)
-				g_particle_emitter.Emit(position)
+				local	_item_mass = ItemGetMass(hit.item)
+				ItemApplyLinearForce(hit.item, direction.Scale(_item_mass * speed))
+
+				if (ItemHasScript(hit.item, "FlyingLoot"))
+					ItemGetScriptInstance(hit.item).TakeHit(damage)
 			}
+
 			color = Vector(1,0,0,1)
 			died = true
 		}
@@ -101,7 +105,7 @@ class	ShipCannon
 			return
 
 		shoot_timeout = g_clock
-		bullet_list.append(Bullet(position, direction, linear_velocity))
+		bullet_list.append(Bullet(position, direction, linear_velocity, damage))
 	}
 
 	function	Update()

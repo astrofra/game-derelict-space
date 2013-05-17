@@ -51,8 +51,28 @@ class	ShipControl
 			if ("control_function" in callbacks[current_callback_index])	this[callbacks[current_callback_index].control_function]()
 		}
 
+//		if (autopilot_item_target != 0 && !ObjectIsValid(autopilot_item_target))
+//			autopilot_item_target = 0
+
 		if (autopilot_item_target != 0)
 			this[callbacks[current_callback_index].autopilot_function]()
+	}
+
+	/*
+		@short	TestAutopilotTargetValidity
+		Test if the item passed as parameter
+		if the current target of the autopilot
+	*/
+	function	TestAutopilotTargetValidity(target_item)
+	{
+		if (autopilot_item_target == 0)
+			return
+
+		if (ObjectIsSame(target_item, autopilot_item_target))
+		{
+			ItemGetScriptInstance(autopilot_item_target).focus = false
+			autopilot_item_target = 0
+		}
 	}
 
 	function	RenderUser(scene)

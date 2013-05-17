@@ -17,12 +17,12 @@
 								<BinaryKeys=
 									<Count=21>
 									<Data==426:420@
-****Xçå\Xçå]×3Ñ**ªiõövgXçå\Xçå]×3Ñ**ªiõöögXçå\Xçå]×3Ñ**ªiÂÃCh
-Xçå\Xçå]×3Ñ**ªiõövhXçå\Xçå]×3Ñ**ªi**ªhXçå\Xçå]×3Ñ**ªiÂÃÃhXçå\
-Xçå]×3Ñ**ªi]]ÝhXçå\Xçå]×3Ñ**ªiõööhXçå\Xçå]×3Ñ**ªihXçå\Xçå]
-×3Ñ**ªi***iXçå\Xçå]×3Ñ**ªi÷ö6iXçå\Xçå]×3Ñ**ªiÂÃCiXçå\Xçå]×3Ñ
+****Xçå\Xçå]×3Ñ**ªióövgXçå\Xçå]×3Ñ**ªiôöögXçå\Xçå]×3Ñ**ªiÁÃCh
+Xçå\Xçå]×3Ñ**ªiôövhXçå\Xçå]×3Ñ**ªi**ªhXçå\Xçå]×3Ñ**ªiÁÃÃhXçå\
+Xçå]×3Ñ**ªi]]ÝhXçå\Xçå]×3Ñ**ªiôööhXçå\Xçå]×3Ñ**ªihXçå\Xçå]
+×3Ñ**ªi***iXçå\Xçå]×3Ñ**ªi÷ö6iXçå\Xçå]×3Ñ**ªiÁÃCiXçå\Xçå]×3Ñ
 **ªiPiXçå\Xçå]×3Ñ**ªi]]]iXçå\Xçå]×3Ñ**ªi**jiXçå\Xçå]×3Ñ**ªi
-õöviXçå\Xçå]×3Ñ**ªiÂÃƒiXçå\Xçå]×3Ñ**ªiiXçå\Xçå]×3Ñ**ªi]]i
+ôöviXçå\Xçå]×3Ñ**ªiÁÃƒiXçå\Xçå]×3Ñ**ªiiXçå\Xçå]×3Ñ**ªi]]i
 Xçå\Xçå]×3Ñ**ªi**ªiXçå\Xçå]×3Ñ**ªi>
 								>
 							>
@@ -91,8 +91,18 @@ Xçå\Xçå]×3Ñ**ªi**ªiXçå\Xçå]×3Ñ**ªi>
 				>
 				<ScriptedObject=
 					<ScriptUnit=
-						<ScriptPath="scripts/asteroid.nut">
-						<Class="Asteroid">
+						<ScriptPath="scripts/flying_loot.nut">
+						<Class="FlyingLoot">
+						<ParmList=
+							<Parm=
+								<Id="split_to_instances_list">
+								<Value="asteroid_s1_0.nms;asteroid_s1_1.nms">
+							>
+							<Parm=
+								<Id="absorption_factor">
+								<Value=0.600000>
+							>
+						>
 					>
 				>
 				<PhysicItem=

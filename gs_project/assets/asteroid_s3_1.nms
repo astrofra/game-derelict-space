@@ -17,12 +17,12 @@
 								<BinaryKeys=
 									<Count=21>
 									<Data==426:420@
-****Xçå\***ª******ªiõövgXçå\***ª******ªiõöögXçå\***ª******ªiÂÃCh
-Xçå\***ª******ªiõövhXçå\***ª******ªi**ªhXçå\***ª******ªiÂÃÃhXçå\
-***ª******ªi]]ÝhXçå\***ª******ªiõööhXçå\***ª******ªihXçå\***ª
-******ªi***iXçå\***ª******ªi÷ö6iXçå\***ª******ªiÂÃCiXçå\***ª****
+****Xçå\***ª******ªióövgXçå\***ª******ªiôöögXçå\***ª******ªiÁÃCh
+Xçå\***ª******ªiôövhXçå\***ª******ªi**ªhXçå\***ª******ªiÁÃÃhXçå\
+***ª******ªi]]ÝhXçå\***ª******ªiôööhXçå\***ª******ªihXçå\***ª
+******ªi***iXçå\***ª******ªi÷ö6iXçå\***ª******ªiÁÃCiXçå\***ª****
 **ªiPiXçå\***ª******ªi]]]iXçå\***ª******ªi**jiXçå\***ª******ªi
-õöviXçå\***ª******ªiÂÃƒiXçå\***ª******ªiiXçå\***ª******ªi]]i
+ôöviXçå\***ª******ªiÁÃƒiXçå\***ª******ªiiXçå\***ª******ªi]]i
 Xçå\***ª******ªi**ªiXçå\***ª******ªi>
 								>
 							>
@@ -91,8 +91,18 @@ Xçå\***ª******ªi**ªiXçå\***ª******ªi>
 				>
 				<ScriptedObject=
 					<ScriptUnit=
-						<ScriptPath="scripts/asteroid.nut">
-						<Class="Asteroid">
+						<ScriptPath="scripts/flying_loot.nut">
+						<Class="FlyingLoot">
+						<ParmList=
+							<Parm=
+								<Id="split_to_instances_list">
+								<Value="asteroid_s2_0.nms;asteroid_s2_1.nms">
+							>
+							<Parm=
+								<Id="absorption_factor">
+								<Value=0.400000>
+							>
+						>
 					>
 				>
 				<PhysicItem=
