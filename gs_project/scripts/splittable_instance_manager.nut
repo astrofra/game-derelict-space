@@ -14,6 +14,8 @@ class	SplittableInstanceManager
 	items_to_deactivate		=	0
 	items_to_delete			=	0
 	items_to_create			=	0
+
+	particle_emitter		=	0
 	
 
 	function	ItemSplitIntoInstances(_item, velocity = Vector())
@@ -51,6 +53,8 @@ class	SplittableInstanceManager
 		//	Items to deactivate
 		foreach(_idx, _item in items_to_deactivate)
 		{
+			particle_emitter.EmitCircle(_item.item)
+
 			local	_item_parent = ItemGetParent(_item.item)
 			if (ObjectIsValid(_item_parent))
 				_item.item = _item_parent
@@ -88,6 +92,8 @@ class	SplittableInstanceManager
 */	
 			items_to_create.remove(_idx)
 		}
+
+		particle_emitter.Update()
 	}
 
 	function	Delete()
@@ -104,6 +110,7 @@ class	SplittableInstanceManager
 		items_to_deactivate = []
 		items_to_delete = []
 		items_to_create = []
+		particle_emitter = ParticleEmitter()
 	}
 
 }

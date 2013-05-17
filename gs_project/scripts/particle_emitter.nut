@@ -55,6 +55,25 @@ class	ParticleEmitter
 		particle_list = []
 	}
 
+	function	EmitCircle(_item, _size_multiplier = 10.0)
+	{
+		if (ObjectIsValid(_item))
+		{
+			local	_min_max = ItemGetMinMax(_item) // * Vector(1,0,1)
+			local	_radius = (_min_max.min * Vector(1,0,1)).Dist(_min_max.max * Vector(1,0,1)) * 0.5 * _size_multiplier
+print("_radius = " + _radius)
+			local	_pos = ItemGetWorldPosition(_item)
+			local	_angle, _emit_pos
+			for(_angle = 0.0; _angle < DegreeToRadian(360.0); _angle += DegreeToRadian(30.0))
+			{
+				_emit_pos = clone(_pos)
+				_emit_pos.x += (sin(_angle) * _radius)
+				_emit_pos.z += (cos(_angle) * _radius)
+				Emit(_emit_pos)
+			}
+		}
+	}
+
 	function	Emit(_pos = -1)
 	{
 		if (_pos != -1)
