@@ -49,7 +49,8 @@ class	FlyingLoot	extends	PhysicItemGravitySource
 
 		SceneGetScriptInstance(g_scene).ship_control_handler.TestAutopilotTargetValidity(body)
 		g_split_manager.ItemSplitIntoInstances(body)
-		g_particle_emitter.Emit(position)
+		g_particle_emitter.EmitCircle(body, 4.0, 0.35, g_vector_orange)
+		g_particle_emitter.EmitCircle(body, 0.8, 1.1, g_vector_orange)
 
 		died = true
 	}

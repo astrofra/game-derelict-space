@@ -60,8 +60,6 @@ class	SceneGame	extends SceneGameBase
 
 		if (g_split_manager  != 0)
 			g_split_manager.Update()
-
-		//camera_handler.Update(player_item)
 	}
 
 	function	OnRenderUser(scene)
@@ -124,8 +122,6 @@ class	SceneGame	extends SceneGameBase
 		GroupRenderSetup(ship_group, g_factory)
 		player_item = GroupFindItem(ship_group, "ship")
 		local	_list = GroupGetItemList(ship_group)
-//		foreach(_item in _list)
-//			SceneSetupItem(scene, _item)
 	}
 
 	/*!
@@ -148,6 +144,6 @@ class	SceneGame	extends SceneGameBase
 		ship_direction = g_zero_vector
 		
 		g_particle_emitter = ParticleEmitter()
-		g_split_manager = SplittableInstanceManager(scene)
+		g_split_manager = SplittableInstanceManager(scene)		
 	}
 }

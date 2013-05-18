@@ -44,6 +44,7 @@ class	Bullet
 		{
 			if (ObjectIsValid(hit.item))	// && !(ItemGetScriptInstance(hit.item).died))
 			{
+				g_particle_emitter.Emit(hit.p)
 				local	_item_mass = ItemGetMass(hit.item)
 				ItemApplyLinearForce(hit.item, direction.Scale(_item_mass * speed))
 
@@ -125,6 +126,7 @@ class	ShipCannon
 	{
 		if (!SceneGetScriptInstance(g_scene).hidden_ui)
 			RendererDrawLine(g_render, position, position + direction.Scale(5.0))
+
 		foreach(bullet in bullet_list)
 			bullet.Render()
 	}

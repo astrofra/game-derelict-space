@@ -55,31 +55,34 @@ class	ParticleEmitter
 		particle_list = []
 	}
 
-	function	EmitCircle(_item, _size_multiplier = 10.0)
+	function	EmitCircle(_item, _particle_size_multiplier = 1.0, _radius_multiplier = 1.0, _color = Vector(1,1,1,1), _deflation_rate = 1.0, _birth_delay = Sec(0.0))
 	{
+		local	_angular_step = 10.0
+
 		if (ObjectIsValid(_item))
 		{
-			local	_min_max = ItemGetMinMax(_item) // * Vector(1,0,1)
-			local	_radius = (_min_max.min * Vector(1,0,1)).Dist(_min_max.max * Vector(1,0,1)) * 0.5 * _size_multiplier
-print("_radius = " + _radius)
+			local	_min_max = ItemGetMinMax(_item)
+			local	_radius = (_min_max.min * Vector(1,0,1)).Dist(_min_max.max * Vector(1,0,1)) * 0.5 * _radius_multiplier
+			local	_particle_size = (2.0 * PI * _radius / _angular_step) * 0.5
+
 			local	_pos = ItemGetWorldPosition(_item)
 			local	_angle, _emit_pos
-			for(_angle = 0.0; _angle < DegreeToRadian(360.0); _angle += DegreeToRadian(30.0))
+			for(_angle = 0.0; _angle < DegreeToRadian(360.0); _angle += DegreeToRadian(360.0 / _angular_step))
 			{
 				_emit_pos = clone(_pos)
 				_emit_pos.x += (sin(_angle) * _radius)
 				_emit_pos.z += (cos(_angle) * _radius)
-				Emit(_emit_pos)
+				Emit(_emit_pos, _particle_size * _particle_size_multiplier * Rand(0.75,1.5), _color, _deflation_rate * Rand(0.8,1.2))
 			}
 		}
 	}
 
-	function	Emit(_pos = -1)
+	function	Emit(_pos = -1, _size = Mtr(1.0), _color = Vector(1,1,1,1), _deflation_rate = 1.0)
 	{
 		if (_pos != -1)
-			position = _pos + Vector(0, Rand(-1.0, 1.0), 0.0)
+			position = _pos + Vector(0, Rand(-0.25, 0.25), 0.0)
 
-		particle_list.append(Particle(position, Rand(1.0, 2.0)))
+		particle_list.append(Particle(position, _size, _color, _deflation_rate))
 	}
 
 	function	Update()

@@ -76,7 +76,7 @@ class	PhysicItemXZPlane
 
 	function	RenderUser(scene)
 	{
-		if (!SceneGetScriptInstance(g_scene).hidden_ui)
+		if (!SceneGetScriptInstance(g_scene).hidden_ui && ObjectIsValid(body))
 			RendererDrawLineColored(g_render, position, position + linear_acceleration.Scale(10.0), Vector(1,0,1))
 	}
 
