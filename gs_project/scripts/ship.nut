@@ -119,7 +119,7 @@ class	Ship	extends	PhysicOrbitingItem
 
 //		if (should_rotate)
 		{
-			local	_torque
+			local	_torque, _torque_near_target
 			_torque = target_orientation - orientation
 			if (_torque.y > Deg(180.0) || _torque.y < Deg(-180.0))
 				_torque = (orientation - target_orientation)

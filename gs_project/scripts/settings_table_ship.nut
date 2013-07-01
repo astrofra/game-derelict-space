@@ -30,6 +30,15 @@ ship_settings_table <-	{
 						{ damping = 0.4,	max_thrust = 50.0,	max_angular_speed = 15.0,	max_speed = 125.0}
 					]
 				}
+
+//	frigate_0: draft...
+	frigate_0 =	{	name = tr("Frigate"), description = tr("(frégate)"),
+					gears = [
+						{ damping = 1.0,	max_thrust = 35.0,	max_angular_speed = 10.0,	max_speed = 35.0}
+						{ damping = 1.0,	max_thrust = 60.0,	max_angular_speed = 10.0,	max_speed = 60.0}
+						{ damping = 1.0,	max_thrust = 70.0,	max_angular_speed = 10.0,	max_speed = 70.0}
+					]
+				}
 }
 
 /*
