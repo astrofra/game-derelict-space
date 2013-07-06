@@ -40,6 +40,19 @@ class	ShipAudio
 		MixerChannelSetGain(g_mixer, _chan, 0.25)
 	}
 
+	function	SfxShipShoot()
+	{
+		local	_chan = MixerSoundStart(g_mixer, samples["ship_fire"])
+		MixerChannelSetGain(g_mixer, _chan, Rand(0.15, 0.35))
+		MixerChannelSetPitch(g_mixer, _chan, Rand(0.95, 1.05))
+	}
+
+	function	SfxItemExplodesNearTheShip(pos = Vector())
+	{
+		local	_chan = MixerSoundStart(g_mixer, samples["asteroid_explode_" + Irand(0,3).tostring()])
+		MixerChannelSetGain(g_mixer, _chan, Rand(0.2, 0.3))
+	}
+
 	function	PushVariable(_key_str = "MyVariableKey", _value = 0.0)
 	{
 		if (_key_str in variables)
@@ -63,6 +76,11 @@ class	ShipAudio
 		MixerChannelSetLoopMode(g_mixer, channels["ship_reactor"], LoopRepeat)
 		LoadSample("ship_strafe")
 		LoadSample("gui_up_down")
+		LoadSample("ship_fire")
+		LoadSample("asteroid_explode_0")
+		LoadSample("asteroid_explode_1")
+		LoadSample("asteroid_explode_2")
+		LoadSample("asteroid_explode_3")
 	}
 
 	//---------	

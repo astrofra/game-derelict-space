@@ -8,6 +8,11 @@ g_vector_blue		<-	Vector(0.05,0.15,0.5)
 g_vector_cyan		<-	Vector(0.05,0.7,0.75)
 g_vector_orange		<-	Vector(1.0, 0.75, 0.0)
 
+function	SpriteShow(_spr, _flag)
+{
+	SpriteSetOpacity(_spr, _flag?1.0:0.0)
+}
+
 function	SpriteIsShown(_spr)
 {	return (SpriteGetOpacity(_spr)==0.0?false:true)	}
 

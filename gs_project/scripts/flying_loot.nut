@@ -51,6 +51,7 @@ class	FlyingLoot	extends	PhysicItemGravitySource
 		g_split_manager.ItemSplitIntoInstances(body, ItemGetScriptInstance(body).linear_velocity)
 		g_particle_emitter.EmitCircle(body, 4.0, 0.35, g_vector_orange)
 		g_particle_emitter.EmitCircle(body, 0.8, 1.1, g_vector_orange)
+		ItemGetScriptInstance(player_item).audio_handler.SfxItemExplodesNearTheShip()	//	Todo : add pos
 
 		died = true
 	}

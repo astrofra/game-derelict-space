@@ -216,7 +216,8 @@ class	Ship	extends	PhysicOrbitingItem
 		foreach(_cannon in cannon_handler)
 		{
 			_cannon.linear_velocity = linear_velocity
-			_cannon.Shoot()
+			if (_cannon.Shoot())
+				audio_handler.SfxShipShoot()
 		}
 	}
 

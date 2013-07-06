@@ -103,10 +103,11 @@ class	ShipCannon
 	function	Shoot(_ship_direction = 0)
 	{
 		if (g_clock - shoot_timeout < SecToTick(Sec(1.0 / frequency)))
-			return
+			return false
 
 		shoot_timeout = g_clock
 		bullet_list.append(Bullet(position, direction, linear_velocity, damage))
+		return true
 	}
 
 	function	Update()
