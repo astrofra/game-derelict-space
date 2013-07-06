@@ -17,7 +17,7 @@ class	SplittableInstanceManager
 	items_to_delete			=	0
 	items_to_create			=	0
 
-	function	ItemSplitIntoInstances(_item, velocity = Vector())
+	function	ItemSplitIntoInstances(_item, _velocity = Vector())
 	{
 		local	_split_items_list = []
 		if (ItemHasScript(_item, "FlyingLoot"))
@@ -30,7 +30,7 @@ class	SplittableInstanceManager
 				foreach(_split_item in _script.split_to_instances_list)
 				{
 					//	append _split_item to items_to_create
-					_split_items_list.append(_split_item)
+					_split_items_list.append({item = _split_item, velocity = _velocity})
 				}
 			}
 		}
@@ -69,20 +69,11 @@ class	SplittableInstanceManager
 		{
 			foreach(_path_item in _item.split_items_list)
 			{
-				print("SplittableInstanceManager::Update() Spawning '" + _path_item)
-/*
-				local	_group = SceneLoadAndStoreGroup(scene, _path_item, ImportFlagObject) 
-				GroupRenderSetup(_group, g_factory)
-				GroupSetup(_group)
-				GroupSetupScript(_group)
-				local	_list = GroupGetItemList(_group)
-				local	_new_item = _list[0]
-				local	_pos = _item.position
-				print("SplittableInstanceManager::Update() Moving item : " + ItemGetName(_new_item))
-*/
-				if (_path_item in item_library)
+				print("SplittableInstanceManager::Update() Spawning '" + _path_item.item)
+
+				if (_path_item.item in item_library)
 				{
-					local	_original_item = item_library[_path_item]
+					local	_original_item = item_library[_path_item.item]
 					local	_new_item = SceneDuplicateItem(scene, _original_item)
 					local	_pos = _item.position
 					ItemRenderSetup(_new_item, g_factory)
@@ -93,6 +84,7 @@ class	SplittableInstanceManager
 					ItemSetPosition(_new_item, _pos)
 					ItemPhysicResetTransformation(_new_item, _pos, Vector(0, DegreeToRadian(Rand(-180.0,180.0)), 0))
 					ItemWake(_new_item)
+					ItemApplyLinearImpulse(_new_item, _path_item.velocity.Scale(0.5))
 				}
 				else
 					print("SplittableInstanceManager::Update() '" + _path_item + "' not found in item_library.")
