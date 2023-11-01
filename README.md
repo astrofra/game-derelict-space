@@ -10,6 +10,8 @@ _Derelict Space_ (working title) or _Tannhauser Gates_ is a gamedev project init
 > Tannhauser Gates is an RPG Top bottom Space Flight simulator game developed by SpaceCloud studio. What we want to achieve with this game is a complete experience where each and every aspect of the space game genre has been explored. From engine managing to spaceship customisation, crew hiring, missions, roleplay and trade. Our ambition is big and our studio is small ( a two man cell ) but we have the brains ( or so we think we have ) the experience and the ways to achieve our goal. This blog will be the place to follow us, from our first baby steps to the deep depthts of space and beyond!<br><br>
 > _from [spacecloudstudio.blogspot.com](http://spacecloudstudio.blogspot.com/)_
 
+This game prototype is implemented in [Squirrel](http://squirrel-lang.org/), the 3D engine is known as [GameStart 3D](https://www.youtube.com/@GameStart3D/videos).<br>
+
 ## Preview
 
 ### Win32 prototype
