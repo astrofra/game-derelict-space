@@ -1,1 +1,1 @@
-# game-derelict-space
+# Game prototype "Derelict Space"
