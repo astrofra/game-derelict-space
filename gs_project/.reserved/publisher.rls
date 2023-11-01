@@ -1,0 +1,19 @@
+<Version=1.0>
+<Profiles=
+	<Profile=
+		<Name="Default">
+		<Version="Win32">
+		<Target="Win32">
+		<RuntimeCmd="-ignore_esc -ignore_missing">
+		<CookingQuality=1>
+		<CompressionLevel=2>
+	>
+	<Profile=
+		<Name="Win32">
+		<Version="Win32">
+		<Target="Win32">
+		<RuntimeCmd="-ignore_esc -ignore_missing">
+		<CookingQuality=1>
+		<CompressionLevel=2>
+	>
+>
