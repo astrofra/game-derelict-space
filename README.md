@@ -1,5 +1,7 @@
 # Game prototype "Derelict Space"
 
+![title](img/Tannhausergates_tittle02.jpg)
+
 _Derelict Space_ (working title) or _Tannhauser Gates_ is a gamedev project initiated during the year 2013.
 
 - Main concept, game design and artistic direction: [Pascal Blanché](https://www.instagram.com/pascalblanche/)
@@ -17,3 +19,5 @@ _Derelict Space_ (working title) or _Tannhauser Gates_ is a gamedev project init
 ### Videos
 
 - See a [Youtube preview to be found here](https://www.youtube.com/watch?v=4-dL8i0V58k)
+
+![travel](img/ship-travel.jpg)
